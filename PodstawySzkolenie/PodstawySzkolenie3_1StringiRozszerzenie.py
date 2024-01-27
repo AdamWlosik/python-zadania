@@ -1,9 +1,9 @@
 import random
 
-from PodstawySzkolenie.Szkolenia import Szkolenia
+from PodstawySzkolenie.Szkolenie import Szkolenie
 
 
-class Szkolenie2(Szkolenia):
+class Szkolenie2(Szkolenie):
 
     def __init__(self, szkolenie, zadanie):
         super().__init__(szkolenie, zadanie)

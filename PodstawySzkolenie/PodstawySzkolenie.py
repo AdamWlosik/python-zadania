@@ -1,7 +1,7 @@
-from PodstawySzkolenie.Szkolenia import Szkolenia
+from PodstawySzkolenie.Szkolenie import Szkolenie
 
 
-class Szkolenie1(Szkolenia):
+class Szkolenie1(Szkolenie):
     def __init__(self, szkolenie, zadanie):
         super().__init__(szkolenie, zadanie)
 

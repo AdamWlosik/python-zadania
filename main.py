@@ -1,5 +1,6 @@
-from PodstawySzkolenie.Szkolenie1 import Szkolenie1
-from PodstawySzkolenie.Szkolenie2 import Szkolenie2
+from PodstawySzkolenie.PodstawySzkolenie import Szkolenie1
+from PodstawySzkolenie.PodstawySzkolenie3_1StringiRozszerzenie import Szkolenie2
+from PodstawySzkolenie.PodstawyInstrukcjeWarunkowe import Szkolenie3
 
 
 def main():
@@ -15,6 +16,7 @@ def main():
 
         if szkolenie == 1:
             szkolenie1 = Szkolenie1(szkolenie, zadanie)
+
             if zadanie == 1:
                 print(szkolenie1.zad1())
             elif zadanie == 2:
@@ -106,6 +108,77 @@ def main():
             elif zadanie == 6:
                 kolory = input("Podaj 5 dowolnych kolorów oddzielonych przecinkami: ")
                 print(szkolenie2.zad6(kolory))
+
+        elif szkolenie == 3:
+            szkolenie3 = Szkolenie3(szkolenie, zadanie)
+
+            if zadanie == 1:
+                try:
+                    bok1, bok2, bok3 = map(int, input("Podaj 3 długości boków trójkąta oddzielone spacją: ").split())
+                except ValueError:
+                    print("Nie psuj!")
+                    continue
+                szkolenie3.zad1(bok1, bok2, bok3)
+            elif zadanie == 2:
+                try:
+                    liczba = int(input("Podaj liczbę: "))
+                except ValueError:
+                    print("Nie psuj!")
+                    continue
+                print(f"liczba {szkolenie3.zad2(liczba)}")
+            elif zadanie == 3:
+                try:
+                    liczby = map(int, input("Podaj 3 liczby oddzielone spacją: ").split())
+                except ValueError:
+                    print("Nie psuj!")
+                    continue
+                print(szkolenie3.zad3(liczby))
+            elif zadanie == 4:
+                slowo1 = input("Użytkownik 1 podaje papier, kamień, nożyce: ")
+                slowo2 = input("Użytkownik 2 podaje papier, kamień, nożyce: ")
+                dostepne_wybory = ["kamień", "papier", "nożyce"]
+                if slowo1 not in dostepne_wybory or slowo2 not in dostepne_wybory:
+                    print("Błędne dane!")
+                    continue
+                else:
+                    szkolenie3.zad4(slowo1, slowo2)
+            elif zadanie == 5:
+                try:
+                    liczby = map(int, input("Podaj diwe liczby oddzielone spacją: ").split())
+                except ValueError:
+                    print("Nie psuj!")
+                szkolenie3.zad5(liczby)
+            elif zadanie == 6:
+                    punkty_gracza = 0
+                    punkty_komputera = 0
+                    while True:
+                        wybor = input('Jeśli chcesz wybrać orła wciśnij "o" \n'
+                                      'Jeśli chcesz wybrać reszkę wciśnij "r" \n')
+                        opcje = ["r", "o"]
+                        if wybor not in opcje:
+                            print("Błędny wybór")
+                            continue
+                        else:
+                            wylosowano = szkolenie3.zad6_losowanie(opcje)
+                            punktacja = szkolenie3.zad6_punktacja(wylosowano, wybor, punkty_gracza, punkty_komputera)
+                            punkty_gracza = punktacja[0]
+                            punkty_komputera = punktacja[1]
+                        print(f"Punkty gracza: {punkty_gracza}, punkty komputera: {punkty_komputera}")
+                        koniec = input("Czy chcesz zagrać raz jeszcze? t - zagrajmy, n - zakończy rozgrywkę: ").lower()
+                        if koniec == "t":
+                            continue
+                        elif koniec == "n":
+                            break
+                        else:
+                            print("Nie psuj!")
+                            break
+
+
+
+
+
+
+
 
 
 

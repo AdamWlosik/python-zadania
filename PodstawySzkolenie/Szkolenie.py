@@ -1,4 +1,4 @@
-class Szkolenia:
+class Szkolenie:
     def __init__(self, szkolenie, zadanie):
         self.szkolenie = szkolenie
         self.zadanie = zadanie
