@@ -1,3 +1,4 @@
+from PodstawySzkolenie.PodstawyPetle import Szkolenie4
 from PodstawySzkolenie.PodstawySzkolenie import Szkolenie1
 from PodstawySzkolenie.PodstawySzkolenie3_1StringiRozszerzenie import Szkolenie2
 from PodstawySzkolenie.PodstawyInstrukcjeWarunkowe import Szkolenie3
@@ -149,42 +150,59 @@ def main():
                     print("Nie psuj!")
                 szkolenie3.zad5(liczby)
             elif zadanie == 6:
-                    punkty_gracza = 0
-                    punkty_komputera = 0
-                    while True:
-                        wybor = input('Jeśli chcesz wybrać orła wciśnij "o" \n'
-                                      'Jeśli chcesz wybrać reszkę wciśnij "r" \n')
-                        opcje = ["r", "o"]
-                        if wybor not in opcje:
-                            print("Błędny wybór")
-                            continue
-                        else:
-                            wylosowano = szkolenie3.zad6_losowanie(opcje)
-                            punktacja = szkolenie3.zad6_punktacja(wylosowano, wybor, punkty_gracza, punkty_komputera)
-                            punkty_gracza = punktacja[0]
-                            punkty_komputera = punktacja[1]
-                        print(f"Punkty gracza: {punkty_gracza}, punkty komputera: {punkty_komputera}")
-                        koniec = input("Czy chcesz zagrać raz jeszcze? t - zagrajmy, n - zakończy rozgrywkę: ").lower()
-                        if koniec == "t":
-                            continue
-                        elif koniec == "n":
-                            break
-                        else:
-                            print("Nie psuj!")
-                            break
+                punkty_gracza = 0
+                punkty_komputera = 0
+                while True:
+                    wybor = input('Jeśli chcesz wybrać orła wciśnij "o" \n'
+                                  'Jeśli chcesz wybrać reszkę wciśnij "r" \n')
+                    opcje = ["r", "o"]
+                    if wybor not in opcje:
+                        print("Błędny wybór")
+                        continue
+                    else:
+                        wylosowano = szkolenie3.zad6_losowanie(opcje)
+                        punktacja = szkolenie3.zad6_punktacja(wylosowano, wybor, punkty_gracza, punkty_komputera)
+                        punkty_gracza = punktacja[0]
+                        punkty_komputera = punktacja[1]
+                    print(f"Punkty gracza: {punkty_gracza}, punkty komputera: {punkty_komputera}")
+                    koniec = input("Czy chcesz zagrać raz jeszcze? t - zagrajmy, n - zakończy rozgrywkę: ").lower()
+                    if koniec == "t":
+                        continue
+                    elif koniec == "n":
+                        break
+                    else:
+                        print("Nie psuj!")
+                        break
 
+        elif szkolenie == 4:
+            szkolenie4 = Szkolenie4(szkolenie, zadanie)
 
-
-
-
-
-
-
-
-
-
-
-
+            if zadanie == 1:
+                try:
+                    y = int(input("Podaj koniec przedziału: "))
+                except ValueError:
+                    print("Nie psuj")
+                szkolenie4.zad1_while(y)
+                szkolenie4.zad1_for(y)
+            elif zadanie == 2:
+                szkolenie4.zad2_while(100, 50)
+                szkolenie4.zad2_for(100, 50)
+            elif zadanie == 3:
+                szkolenie4.zad3(0, 100)
+            elif zadanie == 4:
+                try:
+                    n = int(input("Podaj liczbę n: "))
+                except ValueError:
+                    print("Nie psuj!")
+                szkolenie4.zad4(n)
+            elif zadanie == 5:
+                try:
+                    poczatek, koniec, dzielnik = map(int, input("Podaj początek i koniec przedziału oraz "
+                                                                "dzielnik rozdzielone spacją: ").split())
+                except ValueError:
+                    print("Nie psuj!")
+                    continue
+                szkolenie4.zad5(poczatek, koniec, dzielnik)
 
 
 if __name__ == "__main__":
