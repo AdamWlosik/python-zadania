@@ -1,4 +1,5 @@
 from PodstawySzkolenie.Szkolenie1 import Szkolenie1
+from PodstawySzkolenie.Szkolenie2 import Szkolenie2
 
 
 def main():
@@ -10,6 +11,7 @@ def main():
             zadanie = int(input("Wprowadź numer zadania: "))
         except ValueError:
             print("Prosze nie psuć!")
+            continue
 
         if szkolenie == 1:
             szkolenie1 = Szkolenie1(szkolenie, zadanie)
@@ -76,6 +78,34 @@ def main():
                 szkolenie1.zad13()
             elif zadanie == 14:
                 szkolenie1.zad14()
+
+        elif szkolenie == 2:
+            szkolenie2 = Szkolenie2(szkolenie, zadanie)
+
+            if zadanie == 1:
+                tekst = input("Wprowadź dowolny tekst zawierający conajmniej 7 znaków: ")
+                if len(tekst) < 7:
+                    print("Podany tekst ma mniej niż 7 znaków")
+                    continue
+                else:
+                    szkolenie2.zad1(tekst)
+            elif zadanie == 2:
+                szkolenie2.zad2()
+            elif zadanie == 3:
+                szkolenie2.zad3()
+            elif zadanie == 4:
+                slowo = input("Podaje dowolne słowo: ")
+                print(szkolenie2.zad4(slowo))
+            elif zadanie == 5:
+                napis = input("Podaj dowolny napis zawierający na początku 5 białych znaków: ")
+                if napis[:5].isspace():
+                    print(szkolenie2.zad5(napis))
+                else:
+                    print("Napis nie zawiera 5 białych znaków na początku")
+                    continue
+            elif zadanie == 6:
+                kolory = input("Podaj 5 dowolnych kolorów oddzielonych przecinkami: ")
+                print(szkolenie2.zad6(kolory))
 
 
 

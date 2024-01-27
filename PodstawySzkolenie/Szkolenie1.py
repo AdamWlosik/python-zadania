@@ -1,11 +1,9 @@
-class Szkolenie1:
-    def __init__(self, szkolenie, zadanie):
-        self.szkolenie = szkolenie
-        self.zadanie = zadanie
-        self.tytul()
+from PodstawySzkolenie.Szkolenia import Szkolenia
 
-    def tytul(self):
-        print(f"Wybrałeś szkolenie: {self.szkolenie} i zadanie: {self.zadanie}: ")
+
+class Szkolenie1(Szkolenia):
+    def __init__(self, szkolenie, zadanie):
+        super().__init__(szkolenie, zadanie)
 
     # może to być metoda @staticmethod bo nie korzysta z konstruktów klasy więc niepotrzebne jest tworzenie
     # instancji klasy do skorzystania z niej ale już tak zostawiłem
@@ -107,10 +105,9 @@ class Szkolenie1:
               "Są wykorzystywane do kodowania np protokół HTTP ")
 
     def zad14(self):
-        # używając zad14.txt zamiast pełnej ścieżki błąd
+        # używając zad14.txt zamiast pełnej ścieżki błąd:
         # FileNotFoundError: [Errno 2] No such file or directory: 'zad14.txt'
         with open("C:\\Users\\adamw\\OneDrive\\Pulpit\\Mentoring\\python-zadania\\PodstawySzkolenie\\zad14.txt",
                   encoding="utf-8") as plik:
             for line in plik.readlines():
                 print(line, end="")
-
