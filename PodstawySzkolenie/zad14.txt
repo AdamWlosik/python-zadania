@@ -1,0 +1,24 @@
+Szyfrowanie Przesuwne (Cezara):
+Działanie: Każda litera w tekście jest przesuwana o stałą liczbę miejsc w alfabecie. Kluczem jest liczba określająca o ile miejsc przesunąć litery.
+Przykład:
+Tekst: "HELLO"
+Przesunięcie: 3
+Zaszyfrowany tekst: "KHOOR"
+Operacje Matematyczne: Dodawanie liczby przesunięcia do kodów ASCII liter.
+
+Szyfrowanie Substytucyjne (Szyfr Jednoliterowy):
+Działanie: Każda litera lub grupa liter jest zastępowana inną literą lub grupą liter na podstawie ustalonego klucza.
+Przykład:
+Tekst: "HELLO"
+Klucz: A=H, B=E, C=L, D=O, E=L
+Zaszyfrowany tekst: "ALELL"
+Operacje Matematyczne: Brak operacji matematycznych, to jedynie mapowanie znaków.
+
+Szyfrowanie RSA (Asymetryczne):
+Działanie: Algorytm oparty na kluczu publicznym i prywatnym, gdzie klucz publiczny służy do szyfrowania, a klucz prywatny do deszyfrowania.
+Przykład:
+Utworzenie dwóch kluczy: publicznego i prywatnego.
+Osoba A udostępnia klucz publiczny.
+Osoba B szyfruje wiadomość za pomocą klucza publicznego Osoby A.
+Osoba A otrzymuje zaszyfrowaną wiadomość i deszyfruje ją przy użyciu swojego klucza prywatnego.
+Operacje Matematyczne: Używane są operacje matematyczne na dużych liczbach, takie jak potęgowanie modulo.
