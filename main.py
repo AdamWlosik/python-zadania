@@ -1,7 +1,8 @@
-from PodstawySzkolenie.PodstawyPetle import Szkolenie4
-from PodstawySzkolenie.PodstawySzkolenie import Szkolenie1
-from PodstawySzkolenie.PodstawySzkolenie3_1StringiRozszerzenie import Szkolenie2
-from PodstawySzkolenie.PodstawyInstrukcjeWarunkowe import Szkolenie3
+from PodstawySzkolenie.c_PodstawyPetle import Szkolenie4
+from PodstawySzkolenie.a_PodstawySzkolenie import Szkolenie1
+from PodstawySzkolenie.b_PodstawySzkolenie3_1StringiRozszerzenie import Szkolenie2
+from PodstawySzkolenie.c_PodstawyInstrukcjeWarunkowe import Szkolenie3
+from PodstawySzkolenie.d_Podstawy_Krotki_i_Zbiory_Rozszerzenie import Zadanie1, Zadanie2, Zadanie3, Zadanie4
 
 
 def main():
@@ -252,6 +253,89 @@ def main():
                 dzielniki = szkolenie4.zad10_dzielniki(liczba)
                 doskonala = szkolenie4.zad10_doskonala(liczba, dzielniki)
                 print(doskonala)
+
+        elif szkolenie == 5:
+
+            if zadanie == 1:
+                kolor = "zolty"
+                zadanie1 = Zadanie1(szkolenie, zadanie, kolor)
+                # tak wiem przerost formy nad treścia ale wyrabiam nawyk pisana wszystkiego
+                # w ten spsób nie wiem, czy to dobrze?
+                lista = zadanie1.utworz_lista()
+                zbior = zadanie1.utworz_zbior()
+                print(f"Lista zawiera {zadanie1.suma_elementow()} elementow")
+                print(f"Zostało użytych {zadanie1.suma_unikalnych_elementow(zbior)} różnych kolorów")
+                print(f"Dodałem do zbioru kolor {kolor} \n"
+                      f"zbiór: {zadanie1.zbior_dodaj(zbior)}")
+                print(f"Usunąłem ze zbioru kolor {kolor} \n"
+                      f"zbior: {zadanie1.zbior_usun(zbior)}")
+            elif zadanie == 2:
+                zadanie2 = Zadanie2(szkolenie, zadanie)
+                zdanie = zadanie2.wczytaj()
+                bez_interpunkcji = zadanie2.usun_interpunkcje(zdanie)
+                print(f"Zdanie bez interpunkcji: {bez_interpunkcji}")
+                krotka = zadanie2.tworzenie_krotki(bez_interpunkcji)
+                print(f"Krotka: {krotka}")
+                print(f"Krotka zawiera {zadanie2.zlicz_wyrazy(krotka)} elementów ")
+                nowe_zdanie = zadanie2.wyswielt_wyrazy(krotka)
+                print(f"Wyświetlam wszystkie wyrazy ze zdania w jednej lini: \n"
+                      f"{nowe_zdanie}")
+                zbior = zadanie2.utworz_zbior(nowe_zdanie)
+                print(f"Zbior: {zbior}")
+                wyswietlone_wyrazy1 = zadanie2.wyswietl_wybrany_wyraz_zbioru(zbior, 1, 4)
+                print(f"Suma unikatowych wyrazów w zdaniu: {zadanie2.zlicz_unikatowe(zbior)}")
+                unikatowe_zdanie = zadanie2.wyswietl_unikatowe_wyrazy(zbior)
+                print(f"Unikatowe wyrazy w zdaniu: {unikatowe_zdanie}")
+                zbior2 = zadanie2.utworz_zbior(unikatowe_zdanie)
+                print(f"Zbiór2: {zbior2}")
+                wyswietlone_wyrazy2 = zadanie2.wyswietl_wybrany_wyraz_zbioru(zbior2, 1, 4)
+                print(f"Elementy nie muszą być takie same ponieważ zbiory mają nie uporządkowaną kolejność \n"
+                      f"{zadanie2.czy_wyswietlone_wyraz_takie_same(wyswietlone_wyrazy1, wyswietlone_wyrazy2)}")
+                # coś jest nie tak, bo za każdym razem są takie same, ale dużo zadań przede mną take wrócić
+            elif zadanie == 3:
+                moj_zbior = {'niebieski', 'czerwony', 'zolty', 'zielony'}
+                zadanie3 = Zadanie3(szkolenie, zadanie, moj_zbior)
+                zbior = zadanie3.utworz_zbior()
+                if zadanie3.czy_jednakowe():
+                    print("Kolory są jednakowe")
+                else:
+                    print(f"Kolory wybrane przez dwie osoby: {zadanie3.wspolne_kolory(zbior)}")
+                    print(f"Kolory wybrane tylko przez użytkownika: "
+                          f"{zadanie3.kolowy_wybrane_tylko_przez_uzytkownika(zbior, moj_zbior)}")
+                    print(f"Kolory wybranie tylko przez autora: "
+                          f"{zadanie3.kolowy_wybrane_tylko_przez_uzytkownika(moj_zbior, zbior)}")
+            elif zadanie == 4:
+                zadanie4 = Zadanie4(szkolenie, zadanie)
+                print(f"Zbiór A składa się z {zadanie4.zlicz_element(zadanie4.zbiorA)} elementów i zawiera:"
+                      f" {zadanie4.zbiorA}")
+                print(f"Zbiór B składa się z {zadanie4.zlicz_element(zadanie4.zbiorB)} elementów i zawiera:"
+                      f" {zadanie4.zbiorB}")
+                zbiorC = zadanie4.utworz_zbiorC()
+                print(f"Zbiór C składa się z {zadanie4.zlicz_element(zbiorC)} elementów i zawiera: {zbiorC}")
+                zbiorD = zadanie4.utworz_zbiorD()
+                print(f"Zbiór D składa się z {zadanie4.zlicz_element(zbiorD)} elementów i zawiera: {zbiorD}")
+                zbiorE = zadanie4.utworz_zbiorE()
+                print(f"Zbiór E składa się z {zadanie4.zlicz_element(zbiorE)} elementów i zawiera: {zbiorE}")
+                zbiorF = zadanie4.utworz_zbiorF()
+                print(f"Zbiór F składa się z {zadanie4.zlicz_element(zbiorF)} elementów i zawiera: {zbiorF}")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
