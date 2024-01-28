@@ -169,4 +169,5 @@ class Zadanie8S(Szkolenie):
 
     def utworz_liste_unikalnych(self):
         self.lista_unikalnych = [wartosc for wartosc in set(self.lista) if self.lista.count(wartosc) == 1]
-        # pętla przechodzi po wartości w set(self.lista) z warunkime wystąpenia wartosc raz w liście self.lista
+        # pętla przechodzi po wartości w wartości z set(self.lista)
+        # z warunkime wystąpenia wartosc raz w liście self.lista
