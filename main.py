@@ -203,6 +203,59 @@ def main():
                     print("Nie psuj!")
                     continue
                 szkolenie4.zad5(poczatek, koniec, dzielnik)
+            elif zadanie == 6:
+                warunek = True
+                suma = 0
+                stara_liczba = False
+                while warunek:
+                    try:
+                        liczba = int(input("Podaj liczbę: "))
+                    except ValueError:
+                        print("Nie psuj!")
+                    suma = szkolenie4.zad6_suma(suma, liczba)
+                    print(f"Suma = {suma}")
+                    warunek = szkolenie4.zad6_war(stara_liczba, liczba)
+                    stara_liczba = liczba
+            elif zadanie == 7:
+                print("a: ")
+                szkolenie4.zad7_a()
+                print("b: ", end="")
+                szkolenie4.zad7_b(4)
+                print("c: ")
+                szkolenie4.zad7_c(3, 3)
+                print("d: ")
+                szkolenie4.zad7_d(5)
+                print("d z wykorzystaniem center(): ")
+                szkolenie4.zad7_d_center(5)
+            elif zadanie == 8:
+                liczby = 10
+                suma = szkolenie4.zad8_suma(liczby)
+                print(f"Średnia = {szkolenie4.zad8_srednia(suma, liczby)}")
+            elif zadanie == 9:
+                poziom_paliwa = 0
+                ilosc_astronautow = 0
+                wysokosc = 0
+                # osobna deklaracja tych zmiennych w pythonie chyba nie ma sensu,
+                # w javie byłoby to konieczne, ale tu chyba nie
+                maximum_paliwo = 30000
+                minimum_paliwo = 500
+                max_astro = 7
+                min_astro = 1
+                war = True
+                odleglosc_orbity = 2000
+                poziom_paliwa = szkolenie4.zad9_paliwo(minimum_paliwo, maximum_paliwo, war)
+                ilosc_astronautow = szkolenie4.zad9_astro(war, min_astro, max_astro)
+                dystans = szkolenie4.zad9_lot(poziom_paliwa, ilosc_astronautow)
+                print(f"Statek kosmiczny {szkolenie4.zad9_dolecial(dystans, odleglosc_orbity)} do orbity")
+            elif zadanie == 10:
+                liczba = szkolenie4.zad10_liczba()
+                dzielniki = szkolenie4.zad10_dzielniki(liczba)
+                doskonala = szkolenie4.zad10_doskonala(liczba, dzielniki)
+                print(doskonala)
+
+
+
+
 
 
 if __name__ == "__main__":
