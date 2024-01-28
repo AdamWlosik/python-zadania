@@ -3,7 +3,7 @@ import string
 from PodstawySzkolenie.Szkolenie import Szkolenie
 
 
-class Zadanie1(Szkolenie):
+class Zadanie1KZ(Szkolenie):
 
     def __init__(self, szkolenie, zadanie, kolor):
         super().__init__(szkolenie, zadanie)
@@ -33,7 +33,7 @@ class Zadanie1(Szkolenie):
         return zbior
 
 
-class Zadanie2(Szkolenie):
+class Zadanie2KZ(Szkolenie):
 
     def __init__(self, szkolenie, zadanie):
         super().__init__(szkolenie, zadanie)
@@ -88,7 +88,7 @@ class Zadanie2(Szkolenie):
             return "W tym przypadku nie są takie same"
 
 
-class Zadanie3(Szkolenie):
+class Zadanie3KZ(Szkolenie):
 
     def __init__(self, szkolenie, zadanie, moj_zbior):
         super().__init__(szkolenie, zadanie)
@@ -120,7 +120,7 @@ class Zadanie3(Szkolenie):
         return kolory
 
 
-class Zadanie4(Szkolenie):
+class Zadanie4KZ(Szkolenie):
 
     def __init__(self, szkolenie, zadanie):
         super().__init__(szkolenie, zadanie)
@@ -166,7 +166,4 @@ class Zadanie4(Szkolenie):
         return self.zbiorA ^ self.zbiorB
 
     def czy_zbiorB_zawiera_sie_w_zbiorB(self):
-        return self.zbiorB <- self.zbiorA
-
-
-
+        return self.zbiorB < - self.zbiorA
