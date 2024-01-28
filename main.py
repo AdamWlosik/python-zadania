@@ -3,7 +3,8 @@ from PodstawySzkolenie.a_PodstawySzkolenie import Szkolenie1
 from PodstawySzkolenie.b_PodstawySzkolenie3_1StringiRozszerzenie import Szkolenie2
 from PodstawySzkolenie.c_PodstawyInstrukcjeWarunkowe import Szkolenie3
 from PodstawySzkolenie.d_Podstawy_Krotki_i_Zbiory_Rozszerzenie import Zadanie1KZ, Zadanie2KZ, Zadanie3KZ, Zadanie4KZ
-from PodstawySzkolenie.e_Podstawy_Słowniki_Rozszerzenie import Zadanie1S, Zadanie3S, Zadanie4S
+from PodstawySzkolenie.e_Podstawy_Słowniki_Rozszerzenie import Zadanie1S, Zadanie3S, Zadanie4S, Zadanie5S, Zadanie6S, \
+    Zadanie7S, Zadanie8S
 
 
 def main():
@@ -345,6 +346,26 @@ def main():
                         " w koronach drzew. Jeszcze pozniej swoje trzy grosze dodaje szpak, a tuz po nim kopciuszek." \
                         " Najwiekszymi spiochami w tej ferajnie okazuja sie byc dzwoniec i szczygiel."
                 zadanie4 = Zadanie4S(szkolenie, zadanie, slownik, tekst)
+            elif zadanie == 5:
+                try:
+                    n = int(input("Podaj liczbę n: "))
+                except ValueError:
+                    print("Nie psuj!")
+                zadanie5 = Zadanie5S(szkolenie, zadanie, n)
+                print(zadanie5.slownik)
+            elif zadanie == 6:
+                zadanie6 = Zadanie6S(szkolenie, zadanie)
+                print(zadanie6.odpowiedz)
+            elif zadanie == 7:
+                lovers = {1: 'Rahima', 2: 'Alishba', 3: 'Fizza'}
+                friends = {4: 'Bilal', 5: 'Arbab', 6: 'Shahzor'}
+                zadanie7 = Zadanie7S(szkolenie, zadanie, lovers, friends)
+                print(zadanie7.scalony_slownik)
+            elif zadanie == 8:
+                slownik = {"V": "S001", "VI": "S002", "VII": "S001", "VIII": "S005", "IX": "S005", "X": "S009",
+                           "XI": "S007"}
+                zadanie8 = Zadanie8S(szkolenie, zadanie, slownik)
+                print(zadanie8.lista_unikalnych)
 
 
 if __name__ == "__main__":

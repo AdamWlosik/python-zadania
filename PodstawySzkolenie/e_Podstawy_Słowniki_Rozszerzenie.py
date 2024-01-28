@@ -108,3 +108,65 @@ class Zadanie4S(Szkolenie):
         super().__init__(szkolenie, zadanie)
         self.slownik = slownik
         self.tekst = tekst
+        self.przeksztalc()
+
+    def przeksztalc(self):
+        for polska_nazwa, lacinska_nazwa in self.slownik.items():
+            self.tekst = self.tekst.replace(polska_nazwa, f"{polska_nazwa} ({lacinska_nazwa})")
+            # połączenie klucz wartosc w jednego stringa i podmienienie
+        print(self.tekst)
+
+
+class Zadanie5S(Szkolenie):
+
+    def __init__(self, szkolenie, zadanie, n):
+        super().__init__(szkolenie, zadanie)
+        self.n = n
+        self.slownik = {}
+        self.generuj_slownik()
+        # breakpoint()
+
+    def generuj_slownik(self):
+        for i in range(1, self.n + 1):
+            self.slownik[i] = i * i
+
+
+class Zadanie6S(Szkolenie):
+
+    def __init__(self, szkolenie, zadanie):
+        super().__init__(szkolenie, zadanie)
+        self.odpowiedz = "Obiekty modyfikowalne, takie jak listy czy słowniki, nie mogą być kluczami w słowniku,\n" \
+                         "warto zauważyć, że krotki, które same zawierają obiekty modyfikowalne,\n" \
+                         "również nie mogą być kluczami, ponieważ krotki są niemodyfikowalne,\n" \
+                         "ale zawartość obiektów wewnątrz krotek może ulec zmianie."
+
+
+class Zadanie7S(Szkolenie):
+
+    def __init__(self, szkolenie, zadanie, slownik1, slownik2):
+        super().__init__(szkolenie, zadanie)
+        self.slownik1 = slownik1
+        self.slownik2 = slownik2
+        self.scalony_slownik = {}
+        self.scal()
+
+    def scal(self):
+        self.scalony_slownik = self.slownik1 | self.slownik2
+
+
+class Zadanie8S(Szkolenie):
+
+    def __init__(self, szkolenie, zadanie, slownik):
+        super().__init__(szkolenie, zadanie)
+        self.slownik = slownik
+        self.lista_unikalnych = []
+        self.lista = []
+        self.utworz_liste()
+        self.utworz_liste_unikalnych()
+
+    def utworz_liste(self):
+        self.lista = list(self.slownik.values())
+
+    def utworz_liste_unikalnych(self):
+        self.lista_unikalnych = [wartosc for wartosc in set(self.lista) if self.lista.count(wartosc) == 1]
+        # pętla przechodzi po wartości w set(self.lista) z warunkime wystąpenia wartosc raz w liście self.lista
