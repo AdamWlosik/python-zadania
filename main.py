@@ -1,3 +1,4 @@
+from PodstawySzkolenie.PodstawyPetle import Szkolenie4
 from PodstawySzkolenie.PodstawySzkolenie import Szkolenie1
 from PodstawySzkolenie.PodstawySzkolenie3_1StringiRozszerzenie import Szkolenie2
 from PodstawySzkolenie.PodstawyInstrukcjeWarunkowe import Szkolenie3
@@ -149,38 +150,108 @@ def main():
                     print("Nie psuj!")
                 szkolenie3.zad5(liczby)
             elif zadanie == 6:
-                    punkty_gracza = 0
-                    punkty_komputera = 0
-                    while True:
-                        wybor = input('Jeśli chcesz wybrać orła wciśnij "o" \n'
-                                      'Jeśli chcesz wybrać reszkę wciśnij "r" \n')
-                        opcje = ["r", "o"]
-                        if wybor not in opcje:
-                            print("Błędny wybór")
-                            continue
-                        else:
-                            wylosowano = szkolenie3.zad6_losowanie(opcje)
-                            punktacja = szkolenie3.zad6_punktacja(wylosowano, wybor, punkty_gracza, punkty_komputera)
-                            punkty_gracza = punktacja[0]
-                            punkty_komputera = punktacja[1]
-                        print(f"Punkty gracza: {punkty_gracza}, punkty komputera: {punkty_komputera}")
-                        koniec = input("Czy chcesz zagrać raz jeszcze? t - zagrajmy, n - zakończy rozgrywkę: ").lower()
-                        if koniec == "t":
-                            continue
-                        elif koniec == "n":
-                            break
-                        else:
-                            print("Nie psuj!")
-                            break
+                punkty_gracza = 0
+                punkty_komputera = 0
+                while True:
+                    wybor = input('Jeśli chcesz wybrać orła wciśnij "o" \n'
+                                  'Jeśli chcesz wybrać reszkę wciśnij "r" \n')
+                    opcje = ["r", "o"]
+                    if wybor not in opcje:
+                        print("Błędny wybór")
+                        continue
+                    else:
+                        wylosowano = szkolenie3.zad6_losowanie(opcje)
+                        punktacja = szkolenie3.zad6_punktacja(wylosowano, wybor, punkty_gracza, punkty_komputera)
+                        punkty_gracza = punktacja[0]
+                        punkty_komputera = punktacja[1]
+                    print(f"Punkty gracza: {punkty_gracza}, punkty komputera: {punkty_komputera}")
+                    koniec = input("Czy chcesz zagrać raz jeszcze? t - zagrajmy, n - zakończy rozgrywkę: ").lower()
+                    if koniec == "t":
+                        continue
+                    elif koniec == "n":
+                        break
+                    else:
+                        print("Nie psuj!")
+                        break
 
+        elif szkolenie == 4:
+            szkolenie4 = Szkolenie4(szkolenie, zadanie)
 
-
-
-
-
-
-
-
+            if zadanie == 1:
+                try:
+                    y = int(input("Podaj koniec przedziału: "))
+                except ValueError:
+                    print("Nie psuj")
+                szkolenie4.zad1_while(y)
+                szkolenie4.zad1_for(y)
+            elif zadanie == 2:
+                szkolenie4.zad2_while(100, 50)
+                szkolenie4.zad2_for(100, 50)
+            elif zadanie == 3:
+                szkolenie4.zad3(0, 100)
+            elif zadanie == 4:
+                try:
+                    n = int(input("Podaj liczbę n: "))
+                except ValueError:
+                    print("Nie psuj!")
+                szkolenie4.zad4(n)
+            elif zadanie == 5:
+                try:
+                    poczatek, koniec, dzielnik = map(int, input("Podaj początek i koniec przedziału oraz "
+                                                                "dzielnik rozdzielone spacją: ").split())
+                except ValueError:
+                    print("Nie psuj!")
+                    continue
+                szkolenie4.zad5(poczatek, koniec, dzielnik)
+            elif zadanie == 6:
+                warunek = True
+                suma = 0
+                stara_liczba = False
+                while warunek:
+                    try:
+                        liczba = int(input("Podaj liczbę: "))
+                    except ValueError:
+                        print("Nie psuj!")
+                    suma = szkolenie4.zad6_suma(suma, liczba)
+                    print(f"Suma = {suma}")
+                    warunek = szkolenie4.zad6_war(stara_liczba, liczba)
+                    stara_liczba = liczba
+            elif zadanie == 7:
+                print("a: ")
+                szkolenie4.zad7_a()
+                print("b: ", end="")
+                szkolenie4.zad7_b(4)
+                print("c: ")
+                szkolenie4.zad7_c(3, 3)
+                print("d: ")
+                szkolenie4.zad7_d(5)
+                print("d z wykorzystaniem center(): ")
+                szkolenie4.zad7_d_center(5)
+            elif zadanie == 8:
+                liczby = 10
+                suma = szkolenie4.zad8_suma(liczby)
+                print(f"Średnia = {szkolenie4.zad8_srednia(suma, liczby)}")
+            elif zadanie == 9:
+                poziom_paliwa = 0
+                ilosc_astronautow = 0
+                wysokosc = 0
+                # osobna deklaracja tych zmiennych w pythonie chyba nie ma sensu,
+                # w javie byłoby to konieczne, ale tu chyba nie
+                maximum_paliwo = 30000
+                minimum_paliwo = 500
+                max_astro = 7
+                min_astro = 1
+                war = True
+                odleglosc_orbity = 2000
+                poziom_paliwa = szkolenie4.zad9_paliwo(minimum_paliwo, maximum_paliwo, war)
+                ilosc_astronautow = szkolenie4.zad9_astro(war, min_astro, max_astro)
+                dystans = szkolenie4.zad9_lot(poziom_paliwa, ilosc_astronautow)
+                print(f"Statek kosmiczny {szkolenie4.zad9_dolecial(dystans, odleglosc_orbity)} do orbity")
+            elif zadanie == 10:
+                liczba = szkolenie4.zad10_liczba()
+                dzielniki = szkolenie4.zad10_dzielniki(liczba)
+                doskonala = szkolenie4.zad10_doskonala(liczba, dzielniki)
+                print(doskonala)
 
 
 
