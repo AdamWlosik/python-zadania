@@ -2,7 +2,9 @@ from PodstawySzkolenie.c_PodstawyPetle import Szkolenie4
 from PodstawySzkolenie.a_PodstawySzkolenie import Szkolenie1
 from PodstawySzkolenie.b_PodstawySzkolenie3_1StringiRozszerzenie import Szkolenie2
 from PodstawySzkolenie.c_PodstawyInstrukcjeWarunkowe import Szkolenie3
-from PodstawySzkolenie.d_Podstawy_Krotki_i_Zbiory_Rozszerzenie import Zadanie1, Zadanie2, Zadanie3, Zadanie4
+from PodstawySzkolenie.d_Podstawy_Krotki_i_Zbiory_Rozszerzenie import Zadanie1KZ, Zadanie2KZ, Zadanie3KZ, Zadanie4KZ
+from PodstawySzkolenie.e_Podstawy_Słowniki_Rozszerzenie import Zadanie1S, Zadanie3S, Zadanie4S, Zadanie5S, Zadanie6S, \
+    Zadanie7S, Zadanie8S
 
 
 def main():
@@ -258,7 +260,7 @@ def main():
 
             if zadanie == 1:
                 kolor = "zolty"
-                zadanie1 = Zadanie1(szkolenie, zadanie, kolor)
+                zadanie1 = Zadanie1KZ(szkolenie, zadanie, kolor)
                 # tak wiem przerost formy nad treścia ale wyrabiam nawyk pisana wszystkiego
                 # w ten spsób nie wiem, czy to dobrze?
                 lista = zadanie1.utworz_lista()
@@ -270,7 +272,7 @@ def main():
                 print(f"Usunąłem ze zbioru kolor {kolor} \n"
                       f"zbior: {zadanie1.zbior_usun(zbior)}")
             elif zadanie == 2:
-                zadanie2 = Zadanie2(szkolenie, zadanie)
+                zadanie2 = Zadanie2KZ(szkolenie, zadanie)
                 zdanie = zadanie2.wczytaj()
                 bez_interpunkcji = zadanie2.usun_interpunkcje(zdanie)
                 print(f"Zdanie bez interpunkcji: {bez_interpunkcji}")
@@ -294,7 +296,7 @@ def main():
                 # coś jest nie tak, bo za każdym razem są takie same, ale dużo zadań przede mną take wrócić
             elif zadanie == 3:
                 moj_zbior = {'niebieski', 'czerwony', 'zolty', 'zielony'}
-                zadanie3 = Zadanie3(szkolenie, zadanie, moj_zbior)
+                zadanie3 = Zadanie3KZ(szkolenie, zadanie, moj_zbior)
                 zbior = zadanie3.utworz_zbior()
                 if zadanie3.czy_jednakowe():
                     print("Kolory są jednakowe")
@@ -305,7 +307,7 @@ def main():
                     print(f"Kolory wybranie tylko przez autora: "
                           f"{zadanie3.kolowy_wybrane_tylko_przez_uzytkownika(moj_zbior, zbior)}")
             elif zadanie == 4:
-                zadanie4 = Zadanie4(szkolenie, zadanie)
+                zadanie4 = Zadanie4KZ(szkolenie, zadanie)
                 print(f"Zbiór A składa się z {zadanie4.zlicz_element(zadanie4.zbiorA)} elementów i zawiera:"
                       f" {zadanie4.zbiorA}")
                 print(f"Zbiór B składa się z {zadanie4.zlicz_element(zadanie4.zbiorB)} elementów i zawiera:"
@@ -319,27 +321,51 @@ def main():
                 zbiorF = zadanie4.utworz_zbiorF()
                 print(f"Zbiór F składa się z {zadanie4.zlicz_element(zbiorF)} elementów i zawiera: {zbiorF}")
 
+        elif szkolenie == 6:
+            if zadanie == 1:
+                zadanie1 = Zadanie1S(szkolenie, zadanie)
+            elif zadanie == 2:
+                zadanie2 = Zadanie1S(szkolenie, zadanie)
+            elif zadanie == 3:
+                tekst = "Once upon a midnight dreary, while I pondered, weak and weary, Over many a quaint and " \
+                        "curious volume of forgotten lore, While I nodded, nearly napping, suddenly there came a " \
+                        "tapping, As of someone gently rapping, rapping at my chamber door. This visitor, I muttered," \
+                        " tapping at my chamber door - Only this, and nothing more."
+                zadanie3 = Zadanie3S(szkolenie, zadanie, tekst)
+            elif zadanie == 4:
+                slownik = {'kos': 'Turdus merula', 'wilga': 'Oriolus oriolus', 'rudzik': 'Erithacus rubecula',
+                           'kukulka': 'Cuculus canorus', 'pleszka': 'Phoenicurus phoenicurus',
+                           'bogatka': 'Parus major', 'drozd': 'Turdus philomelos', 'zieba': 'Fringilla coelebs',
+                           'dzwoniec': 'Chloris chloris', 'szczygiel': 'Carduelis carduelis',
+                           'szpak': 'Sturnus vulgaris', 'kopciuszek': 'Phoenicurus ochruros'}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                tekst = "W polowie maja, juz przed wschodem slonca, o trzeciej zaczyna spiewac drozd, po nim rudzik," \
+                        " a chwile pozniej kos. Pol godziny pozniej odzywa sie kukulka. Zaraz po niej budzi" \
+                        " sie bogatka. Wraz ze wschodem slonca, o czwartej godzinie, swoj koncert rozpoczynaja" \
+                        " pleszka i zieba. Dwadziescia minut pozniej i wilga akcentuje swoja obecnosc wysoko" \
+                        " w koronach drzew. Jeszcze pozniej swoje trzy grosze dodaje szpak, a tuz po nim kopciuszek." \
+                        " Najwiekszymi spiochami w tej ferajnie okazuja sie byc dzwoniec i szczygiel."
+                zadanie4 = Zadanie4S(szkolenie, zadanie, slownik, tekst)
+            elif zadanie == 5:
+                try:
+                    n = int(input("Podaj liczbę n: "))
+                except ValueError:
+                    print("Nie psuj!")
+                zadanie5 = Zadanie5S(szkolenie, zadanie, n)
+                print(zadanie5.slownik)
+            elif zadanie == 6:
+                zadanie6 = Zadanie6S(szkolenie, zadanie)
+                print(zadanie6.odpowiedz)
+            elif zadanie == 7:
+                lovers = {1: 'Rahima', 2: 'Alishba', 3: 'Fizza'}
+                friends = {4: 'Bilal', 5: 'Arbab', 6: 'Shahzor'}
+                zadanie7 = Zadanie7S(szkolenie, zadanie, lovers, friends)
+                print(zadanie7.scalony_slownik)
+            elif zadanie == 8:
+                slownik = {"V": "S001", "VI": "S002", "VII": "S001", "VIII": "S005", "IX": "S005", "X": "S009",
+                           "XI": "S007"}
+                zadanie8 = Zadanie8S(szkolenie, zadanie, slownik)
+                print(zadanie8.lista_unikalnych)
 
 
 if __name__ == "__main__":
