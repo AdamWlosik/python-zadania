@@ -2,9 +2,10 @@ from PodstawySzkolenie.c_PodstawyPetle import Szkolenie4
 from PodstawySzkolenie.a_PodstawySzkolenie import Szkolenie1
 from PodstawySzkolenie.b_PodstawySzkolenie3_1StringiRozszerzenie import Szkolenie2
 from PodstawySzkolenie.c_PodstawyInstrukcjeWarunkowe import Szkolenie3
-from PodstawySzkolenie.d_Podstawy_Krotki_i_Zbiory_Rozszerzenie import Zadanie1KZ, Zadanie2KZ, Zadanie3KZ, Zadanie4KZ
-from PodstawySzkolenie.e_Podstawy_Słowniki_Rozszerzenie import Zadanie1S, Zadanie3S, Zadanie4S, Zadanie5S, Zadanie6S, \
+from PodstawySzkolenie.d_PodstawyKrotkiIZbioryRozszerzenie import Zadanie1KZ, Zadanie2KZ, Zadanie3KZ, Zadanie4KZ
+from PodstawySzkolenie.e_PodstawySlownikiRozszerzenie import Zadanie1S, Zadanie3S, Zadanie4S, Zadanie5S, Zadanie6S, \
     Zadanie7S, Zadanie8S
+from PodstawySzkolenie.f_PodstawyListyRozszerzenie import Zadanie1LR, Zadanie2LR
 
 
 def main():
@@ -257,6 +258,10 @@ def main():
                 print(doskonala)
 
         elif szkolenie == 5:
+            # TODO
+            print("6 Podstawy Szkolenie 4 - 6, Do zrobienia później ")
+
+        elif szkolenie == 6:
 
             if zadanie == 1:
                 kolor = "zolty"
@@ -321,7 +326,7 @@ def main():
                 zbiorF = zadanie4.utworz_zbiorF()
                 print(f"Zbiór F składa się z {zadanie4.zlicz_element(zbiorF)} elementów i zawiera: {zbiorF}")
 
-        elif szkolenie == 6:
+        elif szkolenie == 7:
             if zadanie == 1:
                 zadanie1 = Zadanie1S(szkolenie, zadanie)
             elif zadanie == 2:
@@ -366,6 +371,21 @@ def main():
                            "XI": "S007"}
                 zadanie8 = Zadanie8S(szkolenie, zadanie, slownik)
                 print(zadanie8.lista_unikalnych)
+
+        elif szkolenie == 8:
+            if zadanie == 1:
+                zdanie = input("Podaj dowolne zdanie ze znakami interpunkcyjnymi: ")
+                zadanie1 = Zadanie1LR(szkolenie, zadanie, zdanie)
+                print(f"Odwrócona lista bez interpunkcji: {zadanie1.lista}")
+            elif zadanie == 2:
+                wynik = [12, 1, 45, 76, 50, 23]
+                min_losowanie = 1
+                max_losowanie = 49
+                zadanie2 = Zadanie2LR(szkolenie, zadanie, wynik, min_losowanie, max_losowanie)
+                print(f"Nowe wyniki: {zadanie2.nowe_wyniki}")
+
+
+
 
 
 if __name__ == "__main__":
