@@ -6,6 +6,7 @@ from PodstawySzkolenie.d_PodstawyKrotkiIZbioryRozszerzenie import Zadanie1KZ, Za
 from PodstawySzkolenie.e_PodstawySlownikiRozszerzenie import Zadanie1S, Zadanie3S, Zadanie4S, Zadanie5S, Zadanie6S, \
     Zadanie7S, Zadanie8S
 from PodstawySzkolenie.f_PodstawyListyRozszerzenie import Zadanie1LR, Zadanie2LR, Zadanie3LR, Zadanie4LR, Zadanie5LR
+from PodstawySzkolenie.g_PodstawyPetleRozszerzenie import Zadanie1PPR, Zadanie2PPR, Zadanie3PPR
 
 
 def main():
@@ -406,6 +407,17 @@ def main():
                 zdanie = input("Wpisz zdanie: ")
                 sprawdzenie = ["i", "w", "na", "pod", "dla"]
                 zadanie5 = Zadanie5LR(szkolenie, zadanie, zdanie, sprawdzenie)
+
+        elif szkolenie == 9:
+            if zadanie == 1:
+                zadanie1 = Zadanie1PPR(szkolenie, zadanie)
+            elif zadanie == 2:
+                wyraz = input("Podaj wyraz, który chcesz sprawdzić czy palindromem: ")
+                zadanie2 = Zadanie2PPR(szkolenie, zadanie, wyraz)
+            elif zadanie == 3:
+                osoby = "Adam, Stanisław, Joanna, Kornelia, Kacper"
+                zadanie3 = Zadanie3PPR(szkolenie, zadanie, osoby)
+
 
 
 
