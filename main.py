@@ -5,7 +5,7 @@ from PodstawySzkolenie.c_PodstawyInstrukcjeWarunkowe import Szkolenie3
 from PodstawySzkolenie.d_PodstawyKrotkiIZbioryRozszerzenie import Zadanie1KZ, Zadanie2KZ, Zadanie3KZ, Zadanie4KZ
 from PodstawySzkolenie.e_PodstawySlownikiRozszerzenie import Zadanie1S, Zadanie3S, Zadanie4S, Zadanie5S, Zadanie6S, \
     Zadanie7S, Zadanie8S
-from PodstawySzkolenie.f_PodstawyListyRozszerzenie import Zadanie1LR, Zadanie2LR
+from PodstawySzkolenie.f_PodstawyListyRozszerzenie import Zadanie1LR, Zadanie2LR, Zadanie3LR, Zadanie4LR, Zadanie5LR
 
 
 def main():
@@ -383,6 +383,33 @@ def main():
                 max_losowanie = 49
                 zadanie2 = Zadanie2LR(szkolenie, zadanie, wynik, min_losowanie, max_losowanie)
                 print(f"Nowe wyniki: {zadanie2.nowe_wyniki}")
+            elif zadanie == 3:
+                lista1 = ["abc", "def", "ghi", "jkl"]
+                lista2 = [1, 2, 3, 4, 5]
+                lista3 = ["xyz", 1, '2']
+                zadanie3 = Zadanie3LR(szkolenie, zadanie, lista1, lista2, lista3)
+                wartosc = input("Wprowadź wartość do przypisania: ")
+                print(f"Lista3 z przypisane wartością z klawiatury:"
+                      f" {zadanie3.przypisz_wartosc_z_klawiatury(zadanie3.lista3, 2, wartosc)}")
+                print(f"Lista1 z dodanym metoda .append(), wyrazem 'slowo': "
+                      f"{zadanie3.dodaj_append('slowo', zadanie3.lista1)}")
+                print(f"Lista1 ze skasowanym elementem: "
+                      f"{zadanie3.skasuj_element(1, zadanie3.lista1)}")
+                print(f"Liczba elementów listy3: "
+                      f"{zadanie3.liczba_elementow(zadanie3.lista3)}")
+                print(f"Lista1 powiększona o elementy listy3: "
+                      f"{zadanie3.polacz(zadanie3.lista1, zadanie3.lista3)}")
+            elif zadanie == 4:
+                imiona = input("Podaj imiona oddzielone spacja: ")
+                zadanie4 = Zadanie4LR(szkolenie, zadanie, imiona)
+            elif zadanie == 5:
+                zdanie = input("Wpisz zdanie: ")
+                sprawdzenie = ["i", "w", "na", "pod", "dla"]
+                zadanie5 = Zadanie5LR(szkolenie, zadanie, zdanie, sprawdzenie)
+
+
+
+
 
 
 
