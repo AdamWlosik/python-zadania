@@ -8,6 +8,7 @@ from PodstawySzkolenie.e_PodstawySlownikiRozszerzenie import Zadanie1S, Zadanie3
 from PodstawySzkolenie.f_PodstawyListyRozszerzenie import Zadanie1LR, Zadanie2LR, Zadanie3LR, Zadanie4LR, Zadanie5LR
 from PodstawySzkolenie.g_PodstawyPetleRozszerzenie import Zadanie1PPR, Zadanie2PPR, Zadanie3PPR, Zadanie4PPR, \
     Zadanie5PPR, Zadanie6PPR, Zadanie7PPR
+from PodstawySzkolenie.h_PodstawyStrukturyDanychRozszerzenie import Zadanie1PSDR
 
 
 def main():
@@ -440,6 +441,12 @@ def main():
                     print("Nie psuj")
                 fibo = [0, 1]
                 zadanie7 = Zadanie7PPR(szkolenie, zadanie, n, fibo)
+
+        elif szkolenie == 10:
+            if zadanie == 1:
+                lista1 = input("Wprowadź elementy oddzielone spacją listy1: ")
+                lista2 = input("Wprowadź elementy oddzielone spacją listy2: ")
+                zadanie1 = Zadanie1PSDR(szkolenie, zadanie, lista1, lista2)
 
 
 if __name__ == "__main__":
