@@ -8,7 +8,8 @@ from PodstawySzkolenie.e_PodstawySlownikiRozszerzenie import Zadanie1S, Zadanie3
 from PodstawySzkolenie.f_PodstawyListyRozszerzenie import Zadanie1LR, Zadanie2LR, Zadanie3LR, Zadanie4LR, Zadanie5LR
 from PodstawySzkolenie.g_PodstawyPetleRozszerzenie import Zadanie1PPR, Zadanie2PPR, Zadanie3PPR, Zadanie4PPR, \
     Zadanie5PPR, Zadanie6PPR, Zadanie7PPR
-from PodstawySzkolenie.h_PodstawyStrukturyDanychRozszerzenie import Zadanie1PSDR
+from PodstawySzkolenie.h_PodstawyStrukturyDanychRozszerzenie import Zadanie1PSDR, Zadanie2PSDR, Zadanie3SPDR, \
+    Zadanie4PSDR, Zadanie5PSDR
 
 
 def main():
@@ -447,6 +448,33 @@ def main():
                 lista1 = input("Wprowadź elementy oddzielone spacją listy1: ")
                 lista2 = input("Wprowadź elementy oddzielone spacją listy2: ")
                 zadanie1 = Zadanie1PSDR(szkolenie, zadanie, lista1, lista2)
+            elif zadanie == 2:
+                ile_elementow = 15
+                przedzial_min = 5
+                przedzial_max = 120
+                zadanie2 = Zadanie2PSDR(szkolenie, zadanie, ile_elementow, przedzial_min, przedzial_max)
+            elif zadanie == 3:
+                slownik = {"a": 3, "b": 1, "c": 10, "d": 15, "e": 20}
+                zadanie3 = Zadanie3SPDR(szkolenie, zadanie, slownik)
+            elif zadanie == 4:
+                zadanie4 = Zadanie4PSDR(szkolenie, zadanie)
+            elif zadanie == 5:
+                lista = [
+                    ['Tom', 'Calamari', 6.00],
+                    ['Tom', 'American Hot', 11.50],
+                    ['Tom', 'Chocolate Fudge Cake', 4.45],
+                    ['Clare', 'Bruschetta Originale', 5.35],
+                    ['Clare', 'Fiorentina', 10.65],
+                    ['Clare', 'Tiramisu', 4.90],
+                    ['Rich', 'Bruschetta Originale', 5.35],
+                    ['Rich', 'La Reine', 10.65],
+                    ['Rich', 'Honeycomb Cream Slice', 4.90],
+                    ['Rosie', 'Garlic Bread', 4.35],
+                    ['Rosie', 'Veneziana', 9.40],
+                    ['Rosie', 'Tiramisu', 4.90],
+                ]
+                zadanie5 = Zadanie5PSDR(szkolenie, zadanie, lista)
+
 
 
 if __name__ == "__main__":
