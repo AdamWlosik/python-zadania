@@ -89,5 +89,105 @@ class Zadanie3PPR(Szkolenie):
                 print(f"{osoba1} - {osoba2}")
 
 
+class Zadanie4PPR(Szkolenie):
+    """Zad 4.
+        Napisz program generujący wszystkie możliwe kombinacje liczb 4-cyfrowych,
+        np. 1000, 1001, 1002, ..., 9999.
+    """
 
+    def __init__(self, szkolenie, zadanie, zakres_min, zakres_max):
+        super().__init__(szkolenie, zadanie)
+        self.generuj()
+        self.zakres_min = zakres_min
+        self.zakres_max = zakres_max
+
+    def generuj(self):
+        for i in range(self.zakres_min, self.zakres_max):
+            print(i)
+
+
+class Zadanie5PPR(Szkolenie):
+    """Zad 5.
+        Stwórz następującą strukturę danych (słownik):
+        zamowienia = {"Klient_1335" : {"nazwa_potrawy" : "rosół", "ocena" : 5, "rachunek" : 20.0}, "Klient_222"
+        {"nazwa_deseru” : "lody waniliowe", "rachunek" : 5.0 }}
+        Następnie wyświetl nazwy wszystkich klientów i dla każdego z nich stwórz podsumowanie zamówienia:
+    """
+
+    def __init__(self, szkolenie, zadanie, zamowienia):
+        super().__init__(szkolenie, zadanie)
+        self.zamowienia = zamowienia
+        self.wyswietl()
+
+    def wyswietl(self):
+        for klient, szczegoly in self.zamowienia.items():
+            print(f"Klient: {klient}")
+            for klucz, wartosc in szczegoly.items():
+                print(f"{klucz}: {wartosc}")
+            print("-" * 50)
+
+
+class Zadanie6PPR(Szkolenie):
+    """Zad 6.
+        Stwórz program, który policzy częstotliwość cyfr w danej liczbie (którą poda użytkownik).
+        Przykład:
+        Input: 1235555
+        Output:
+        1: 1
+        2: 1
+        3: 1
+        5: 4
+
+        Podpowiedź:
+        Aby łatwo przechodzić po wszystkich cyfrach w liczbie, przekonwertuj ją na typ str.
+         Częstotliwość występowania danych cyfr możesz przechowywać wewnątrz słownika.
+    """
+
+    def __init__(self, szkolenie, zadanie, liczba):
+        super().__init__(szkolenie, zadanie)
+        self.liczba = liczba
+        self.liczba_str = self.konwertuj_str()
+        self.wystepowanie = self.zlicz()
+        self.wyswietl()
+
+    def konwertuj_str(self):
+        napis = str(self.liczba)
+        return napis
+
+    def zlicz(self):
+        wystepowanie = {}
+        for cyfra in self.liczba_str:
+            wystepowanie[cyfra] = wystepowanie.get(cyfra, 0) + 1
+        return wystepowanie
+
+    def wyswietl(self):
+        for cyfra, ilosc in self.wystepowanie.items():
+            print(f"{cyfra}: {ilosc}")
+
+
+class Zadanie7PPR(Szkolenie):
+    """
+        Zad 7.
+        Napisz program wyznaczający n (podawane przez użytkownika)
+        pierwszych liczb ciągu Fibonacciego. Przykład:
+        dla n = 5
+        0, 1, 1, 2, 3, 5
+    """
+
+    def __init__(self, szkolenie, zadanie, n, fibo):
+        super().__init__(szkolenie, zadanie)
+        self.n = n
+        self.fibo = fibo
+        self.fibonacci = self.oblicz_fibo()
+        self.wyswietl()
+
+    def oblicz_fibo(self):
+        fibo = self.fibo
+        while len(fibo) < self.n:
+            fibo.append(fibo[-1] + fibo[-2])
+        return fibo
+
+    def wyswietl(self):
+        print(f"{self.n} pierwszych liczb ciągu Fibonacciego: ")
+        print(", ".join(map(str, self.fibonacci)))
 

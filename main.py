@@ -6,7 +6,8 @@ from PodstawySzkolenie.d_PodstawyKrotkiIZbioryRozszerzenie import Zadanie1KZ, Za
 from PodstawySzkolenie.e_PodstawySlownikiRozszerzenie import Zadanie1S, Zadanie3S, Zadanie4S, Zadanie5S, Zadanie6S, \
     Zadanie7S, Zadanie8S
 from PodstawySzkolenie.f_PodstawyListyRozszerzenie import Zadanie1LR, Zadanie2LR, Zadanie3LR, Zadanie4LR, Zadanie5LR
-from PodstawySzkolenie.g_PodstawyPetleRozszerzenie import Zadanie1PPR, Zadanie2PPR, Zadanie3PPR
+from PodstawySzkolenie.g_PodstawyPetleRozszerzenie import Zadanie1PPR, Zadanie2PPR, Zadanie3PPR, Zadanie4PPR, \
+    Zadanie5PPR, Zadanie6PPR, Zadanie7PPR
 
 
 def main():
@@ -417,14 +418,28 @@ def main():
             elif zadanie == 3:
                 osoby = "Adam, Stanisław, Joanna, Kornelia, Kacper"
                 zadanie3 = Zadanie3PPR(szkolenie, zadanie, osoby)
+            elif zadanie == 4:
+                zakres_min = 1000
+                zakres_max = 10000
+                zadanie4 = Zadanie4PPR(szkolenie, zadanie, zakres_min, zakres_max)
+            elif zadanie == 5:
+                zamowienia = {"Klient_1335": {"nazwa_potrawy": "rosół", "ocena": 5, "rachunek": 20.0},
+                              "Klient_222": {"nazwa_deseru": "lody waniliowe", "rachunek": 5.0}}
+                zadanie5 = Zadanie5PPR(szkolenie, zadanie, zamowienia)
+            elif zadanie == 6:
+                try:
+                    liczba = int(input("Wprowadź liczbę: "))
+                except ValueError:
+                    print("Nie psuj")
 
-
-
-
-
-
-
-
+                zadanie6 = Zadanie6PPR(szkolenie, zadanie, liczba)
+            elif zadanie == 7:
+                try:
+                    n = int(input("Podaj ile pierwszych wyrazu ciągu chcesz wyznaczyć: "))
+                except ValueError:
+                    print("Nie psuj")
+                fibo = [0, 1]
+                zadanie7 = Zadanie7PPR(szkolenie, zadanie, n, fibo)
 
 
 if __name__ == "__main__":
