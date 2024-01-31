@@ -1,3 +1,6 @@
+import datetime
+import random
+
 from PodstawySzkolenie.c_PodstawyPetle import Szkolenie4
 from PodstawySzkolenie.a_PodstawySzkolenie import Szkolenie1
 from PodstawySzkolenie.b_PodstawySzkolenie3_1StringiRozszerzenie import Szkolenie2
@@ -9,7 +12,9 @@ from PodstawySzkolenie.f_PodstawyListyRozszerzenie import Zadanie1LR, Zadanie2LR
 from PodstawySzkolenie.g_PodstawyPetleRozszerzenie import Zadanie1PPR, Zadanie2PPR, Zadanie3PPR, Zadanie4PPR, \
     Zadanie5PPR, Zadanie6PPR, Zadanie7PPR
 from PodstawySzkolenie.h_PodstawyStrukturyDanychRozszerzenie import Zadanie1PSDR, Zadanie2PSDR, Zadanie3SPDR, \
-    Zadanie4PSDR, Zadanie5PSDR
+    Zadanie4PSDR, Zadanie5PSDR, Zadanie6PSDR
+from PodstawySzkolenie.i_PodstawySzkolenie7 import Zadanie1PS7, Zadanie3PS7, Zadanie4PS7, Zadanie5PS7, Zadanie6PS7, \
+    Zadanie7PS7, Zadanie8PS7
 
 
 def main():
@@ -474,7 +479,56 @@ def main():
                     ['Rosie', 'Tiramisu', 4.90],
                 ]
                 zadanie5 = Zadanie5PSDR(szkolenie, zadanie, lista)
-
+            elif zadanie == 6:
+                dane = {
+                    "data": [1, 2, 'asd', [2, 3, 4, 5]],
+                    'nested_analysis': {
+                        'analysis_1': [1, 10, 15, 120.2, '120'],
+                        'analysis_2': [10, 100, "test", 200, 300],
+                    },
+                    'probes': [['probe_1', 'probe_2'], 'probe_3']
+                }
+                zadanie6 = Zadanie6PSDR(szkolenie, zadanie, dane)
+                # TODO
+        elif szkolenie == 11:
+            if zadanie == 1:
+                nums = [4, 6, 8, 24, 12, 2]
+                zadanie1 = Zadanie1PS7(szkolenie, zadanie, nums)
+                print(f"Index największego elementy to : {zadanie1.index}")
+            if zadanie == 2:
+                print("Odpwoiedź w classie Zadanie2PS7 dodana jako komentarz")
+            elif zadanie == 3:
+                try:
+                    liczba = int(input("Podaj liczbe: "))
+                except ValueError:
+                    print("Nie psuj")
+                zadanie3 = Zadanie3PS7(szkolenie, zadanie, liczba)
+                print(zadanie3.wynik)
+            elif zadanie == 4:
+                zadanie4 = Zadanie4PS7(szkolenie, zadanie)
+                print(f"{zadanie4.iloczyn(1, 2, 3, 4, 5, 6)}")
+            elif zadanie == 5:
+                lista_parzyste = [2, 4, 6, 8, 10]
+                lista_nieparzyste = [1, 3, 5, 7, 9]
+                zadanie5 = Zadanie5PS7(szkolenie, zadanie, lista_parzyste, lista_nieparzyste)
+                print(zadanie5.wynik)
+            elif zadanie == 6:
+                lista = []
+                for _ in range(10):
+                    lista.append(random.randint(0, 20))
+                print(lista)
+                zadanie6 = Zadanie6PS7(szkolenie, zadanie, lista)
+                print(zadanie6.wynik)
+            elif zadanie == 7:
+                zadanie7 = Zadanie7PS7(szkolenie, zadanie)
+            elif zadanie == 8:
+                godzina_minuta = datetime.datetime.now()
+                godzina = godzina_minuta.hour
+                minuta = godzina_minuta.minute
+                zadanie8 = Zadanie8PS7(szkolenie, zadanie, godzina, minuta)
+                print(f"Aktualna godzina: {godzina}\n"
+                      f"Aktualna minuta: {minuta}\n"
+                      f"Kąt między nimi: {zadanie8.kat}")
 
 
 if __name__ == "__main__":

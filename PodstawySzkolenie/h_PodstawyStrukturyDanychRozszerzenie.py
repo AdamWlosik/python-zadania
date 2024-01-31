@@ -186,3 +186,20 @@ class Zadanie5PSDR(Szkolenie):
         print(self.rachunki)
 
 
+class Zadanie6PSDR(Szkolenie):
+
+    def __init__(self, szkolenie, zadanie, dane):
+        super().__init__(szkolenie, zadanie)
+        self.dane = dane
+        self.wartosc = self.wyciagnij_wartosc()
+        self.napis = self.utworz_string()
+
+    def wyciagnij_wartosc(self):
+        wynik = str()
+        for klucz, wartosc in self.dane.items():
+            wynik += wartosc
+        return wynik
+
+    def utworz_string(self):
+        napis = str(self.wartosc)
+        return napis
