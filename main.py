@@ -53,9 +53,9 @@ def main():
                 try:
                     wzrost = int(input("Podaj wzrost: "))
                     waga = int(input("Podaj waga: "))
+                    bmi = szkolenie1.zad7(wzrost, waga)
                 except ValueError:
                     print("nie psuj!")
-                bmi = szkolenie1.zad7(wzrost, waga)
                 print(bmi)
             elif zadanie == 8:
                 szkolenie1.zad8("dzielenie", 5, 2)
@@ -309,17 +309,10 @@ def main():
                       f"{zadanie2.czy_wyswietlone_wyraz_takie_same(wyswietlone_wyrazy1, wyswietlone_wyrazy2)}")
                 # coś jest nie tak, bo za każdym razem są takie same, ale dużo zadań przede mną take wrócić
             elif zadanie == 3:
-                moj_zbior = {'niebieski', 'czerwony', 'zolty', 'zielony'}
-                zadanie3 = Zadanie3KZ(szkolenie, zadanie, moj_zbior)
-                zbior = zadanie3.utworz_zbior()
-                if zadanie3.czy_jednakowe():
-                    print("Kolory są jednakowe")
-                else:
-                    print(f"Kolory wybrane przez dwie osoby: {zadanie3.wspolne_kolory(zbior)}")
-                    print(f"Kolory wybrane tylko przez użytkownika: "
-                          f"{zadanie3.kolowy_wybrane_tylko_przez_uzytkownika(zbior, moj_zbior)}")
-                    print(f"Kolory wybranie tylko przez autora: "
-                          f"{zadanie3.kolowy_wybrane_tylko_przez_uzytkownika(moj_zbior, zbior)}")
+                zadanie3 = Zadanie3KZ(szkolenie, zadanie)
+                # print(zadanie3.__class__.__doc__)
+                zadanie3.rozwiazanie()
+                zadanie3._podaj_kolory()
             elif zadanie == 4:
                 zadanie4 = Zadanie4KZ(szkolenie, zadanie)
                 print(f"Zbiór A składa się z {zadanie4.zlicz_element(zadanie4.zbiorA)} elementów i zawiera:"
