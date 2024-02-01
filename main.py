@@ -15,7 +15,8 @@ from PodstawySzkolenie.h_PodstawyStrukturyDanychRozszerzenie import Zadanie1PSDR
     Zadanie4PSDR, Zadanie5PSDR, Zadanie6PSDR
 from PodstawySzkolenie.i_PodstawySzkolenie7 import Zadanie1PS7, Zadanie3PS7, Zadanie4PS7, Zadanie5PS7, Zadanie6PS7, \
     Zadanie7PS7, Zadanie8PS7
-from PodstawySzkolenie.j_Podstawy_Szkolenie_8 import Zadanie1PS8, Zadanie2PS8, Zadanie3PS8
+from PodstawySzkolenie.j_Podstawy_Szkolenie_8 import Zadanie1PS8, Zadanie2PS8, Zadanie3PS8, Zadanie4PS8, Zadanie5PS8, \
+    Zadanie6PS8, Zadanie7PS8
 
 
 def main():
@@ -546,6 +547,19 @@ def main():
             elif zadanie == 3:
                 zadanie3 = Zadanie3PS8(szkolenie, zadanie)
                 zadanie3.rozwiazanie()
+            elif zadanie == 4:
+                zadanie4 = Zadanie4PS8(szkolenie, zadanie)
+                zadanie4.rozwiazanie()
+            elif zadanie == 5:
+                zadanie5 = Zadanie5PS8(szkolenie, zadanie)
+                zadanie5.rozwiazanie()
+            elif zadanie == 6:
+                zadanie6 = Zadanie6PS8(szkolenie, zadanie)
+                zadanie6.rozwiazanie()
+            elif zadanie == 7:
+                zadanie7 = Zadanie7PS8(szkolenie, zadanie)
+                # zadanie7.rozwiazanie()
+                zadanie7.rozwiazanie_OrderDict()
 
 
 if __name__ == "__main__":
