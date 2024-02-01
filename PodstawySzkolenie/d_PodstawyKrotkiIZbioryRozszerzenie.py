@@ -154,17 +154,17 @@ class Zadanie3KZ(Szkolenie):
         zbior = set(slowa)
         return zbior
 
-    def czy_jednakowe(self):
+    def _czy_jednakowe(self):
         if self.zbior_wczytany == self.moj_zbior:
             return True
         else:
             return False
 
-    def wspolne_kolory(self, zbior):
+    def _wspolne_kolory(self, zbior):
         wspolne_kolory = zbior.intersection(self.moj_zbior)
         return wspolne_kolory
 
-    def kolowy_wybrane_tylko_przez_uzytkownika(self, zbior1, zbior2):
+    def _kolowy_wybrane_tylko_przez_uzytkownika(self, zbior1, zbior2):
         kolory = zbior1.difference(zbior2)
         return kolory
 

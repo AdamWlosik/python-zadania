@@ -15,12 +15,13 @@ from PodstawySzkolenie.h_PodstawyStrukturyDanychRozszerzenie import Zadanie1PSDR
     Zadanie4PSDR, Zadanie5PSDR, Zadanie6PSDR
 from PodstawySzkolenie.i_PodstawySzkolenie7 import Zadanie1PS7, Zadanie3PS7, Zadanie4PS7, Zadanie5PS7, Zadanie6PS7, \
     Zadanie7PS7, Zadanie8PS7
+from PodstawySzkolenie.j_Podstawy_Szkolenie_8 import Zadanie1PS8, Zadanie2PS8, Zadanie3PS8
 
 
 def main():
     while True:
         try:
-            szkolenie = int(input("Aby zakończyć wybierz 0 lub wprowadź numer szkolenia: "))
+            szkolenie = int(input("\nAby zakończyć wybierz 0 lub wprowadź numer szkolenia: "))
             if szkolenie == 0:
                 break
             zadanie = int(input("Wprowadź numer zadania: "))
@@ -29,6 +30,7 @@ def main():
             continue
 
         if szkolenie == 1:
+            szkolenie = str(szkolenie) + ": PodstawySzkolenie"
             szkolenie1 = Szkolenie1(szkolenie, zadanie)
 
             if zadanie == 1:
@@ -96,6 +98,7 @@ def main():
                 szkolenie1.zad14()
 
         elif szkolenie == 2:
+            szkolenie = str(szkolenie) + ": PodstawySzkolenie3_1StringiRozszerzenie"
             szkolenie2 = Szkolenie2(szkolenie, zadanie)
 
             if zadanie == 1:
@@ -124,6 +127,7 @@ def main():
                 print(szkolenie2.zad6(kolory))
 
         elif szkolenie == 3:
+            szkolenie = str(szkolenie) + ": PodstawyInstrukcjeWarunkowe"
             szkolenie3 = Szkolenie3(szkolenie, zadanie)
 
             if zadanie == 1:
@@ -188,6 +192,7 @@ def main():
                         break
 
         elif szkolenie == 4:
+            szkolenie = str(szkolenie) + ": PodstawyPetle"
             szkolenie4 = Szkolenie4(szkolenie, zadanie)
 
             if zadanie == 1:
@@ -267,10 +272,12 @@ def main():
                 print(doskonala)
 
         elif szkolenie == 5:
+
             # TODO
             print("6 Podstawy Szkolenie 4 - 6, Do zrobienia później ")
 
         elif szkolenie == 6:
+            szkolenie = str(szkolenie) + ": PodstawyKrotkiIZbioryRozszerzenie"
 
             if zadanie == 1:
                 kolor = "zolty"
@@ -329,6 +336,7 @@ def main():
                 print(f"Zbiór F składa się z {zadanie4.zlicz_element(zbiorF)} elementów i zawiera: {zbiorF}")
 
         elif szkolenie == 7:
+            szkolenie = str(szkolenie) + ": PodstawySlownikiRozszerzenie"
             if zadanie == 1:
                 zadanie1 = Zadanie1S(szkolenie, zadanie)
             elif zadanie == 2:
@@ -375,6 +383,7 @@ def main():
                 print(zadanie8.lista_unikalnych)
 
         elif szkolenie == 8:
+            szkolenie = str(szkolenie) + ": PodstawyListyRozszerzenie"
             if zadanie == 1:
                 zdanie = input("Podaj dowolne zdanie ze znakami interpunkcyjnymi: ")
                 zadanie1 = Zadanie1LR(szkolenie, zadanie, zdanie)
@@ -410,6 +419,7 @@ def main():
                 zadanie5 = Zadanie5LR(szkolenie, zadanie, zdanie, sprawdzenie)
 
         elif szkolenie == 9:
+            szkolenie = str(szkolenie) + ": PodstawyPetleRozszerzenie"
             if zadanie == 1:
                 zadanie1 = Zadanie1PPR(szkolenie, zadanie)
             elif zadanie == 2:
@@ -442,6 +452,7 @@ def main():
                 zadanie7 = Zadanie7PPR(szkolenie, zadanie, n, fibo)
 
         elif szkolenie == 10:
+            szkolenie = str(szkolenie) + ": PodstawyStrukturyDanychRozszerzenie"
             if zadanie == 1:
                 lista1 = input("Wprowadź elementy oddzielone spacją listy1: ")
                 lista2 = input("Wprowadź elementy oddzielone spacją listy2: ")
@@ -483,7 +494,9 @@ def main():
                 }
                 zadanie6 = Zadanie6PSDR(szkolenie, zadanie, dane)
                 # TODO
+
         elif szkolenie == 11:
+            szkolenie = str(szkolenie) + ": PodstawySzkolenie7"
             if zadanie == 1:
                 nums = [4, 6, 8, 24, 12, 2]
                 zadanie1 = Zadanie1PS7(szkolenie, zadanie, nums)
@@ -522,6 +535,17 @@ def main():
                 print(f"Aktualna godzina: {godzina}\n"
                       f"Aktualna minuta: {minuta}\n"
                       f"Kąt między nimi: {zadanie8.kat}")
+
+        elif szkolenie == 12:
+            if zadanie == 1:
+                zadanie1 = Zadanie1PS8(szkolenie, zadanie)
+                zadanie1.rozwiazanie()
+            elif zadanie == 2:
+                zadanie2 = Zadanie2PS8(szkolenie, zadanie)
+                zadanie2.rozwiazanie()
+            elif zadanie == 3:
+                zadanie3 = Zadanie3PS8(szkolenie, zadanie)
+                zadanie3.rozwiazanie()
 
 
 if __name__ == "__main__":
