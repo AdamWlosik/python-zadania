@@ -13,10 +13,11 @@ from PodstawySzkolenie.g_PodstawyPetleRozszerzenie import Zadanie1PPR, Zadanie2P
     Zadanie5PPR, Zadanie6PPR, Zadanie7PPR
 from PodstawySzkolenie.h_PodstawyStrukturyDanychRozszerzenie import Zadanie1PSDR, Zadanie2PSDR, Zadanie3SPDR, \
     Zadanie4PSDR, Zadanie5PSDR, Zadanie6PSDR
-from PodstawySzkolenie.i_PodstawySzkolenie7 import Zadanie1PS7, Zadanie3PS7, Zadanie4PS7, Zadanie5PS7, Zadanie6PS7, \
+from PodstawySzkolenie.i_Podstawy_Szkolenie_7 import Zadanie1PS7, Zadanie3PS7, Zadanie4PS7, Zadanie5PS7, Zadanie6PS7, \
     Zadanie7PS7, Zadanie8PS7
 from PodstawySzkolenie.j_Podstawy_Szkolenie_8 import Zadanie1PS8, Zadanie2PS8, Zadanie3PS8, Zadanie4PS8, Zadanie5PS8, \
     Zadanie6PS8, Zadanie7PS8, Zadanie8PS8, Zadanie9PS8
+from PodstawySzkolenie.k_Podstawy_Szkolenie_9 import Zadanie1PS9, Zadanie2PS9, Zadanie3PS9, Zadanie4PS9
 
 
 def main():
@@ -566,6 +567,24 @@ def main():
             elif zadanie == 8:
                 zadanie8 = Zadanie8PS8(szkolenie, zadanie)
                 zadanie8.rozwiazanie()
+
+        elif szkolenie == 13:
+            if zadanie == 1:
+                zadanie1 = Zadanie1PS9(szkolenie, zadanie, "Adam", "Włosik",
+                                       6273, "Infomratyka")
+                zadanie1.rozwiazanie()
+            elif zadanie == 2:
+                zadanie2 = Zadanie2PS9(szkolenie, zadanie, 100.12)
+                zadanie2.rozwiazanie()
+            elif zadanie == 3:
+                zadanie3 = Zadanie3PS9(szkolenie, zadanie, 10, 5)
+                zadanie3.rozwiazanie()
+            elif zadanie == 4:
+                zadanie4 = Zadanie4PS9(szkolenie, zadanie, 1111, "Adam", 100)
+                zadanie4.rozwiazanie()
+                # TODO
+                """Dokończyć!"""
+
 
 
 if __name__ == "__main__":
