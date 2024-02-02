@@ -1,3 +1,4 @@
+import json
 from collections import OrderedDict
 
 from PodstawySzkolenie.Szkolenie import Szkolenie
@@ -224,3 +225,68 @@ class Zadanie7PS8(Szkolenie):
     def _zapisz(self):
         with open("przyklad7odp.txt", "w", encoding="utf8") as plik:
             plik.write(str(self.nowy_str))
+
+
+class Zadanie9PS8(Szkolenie):
+    """Zad 9.
+        W załączeniu znajduje się plik data.json. Przechowuje on informacje o różnych pakietach informacji.
+        Twoim zadaniem jest napisanie skryptu, który będzie odczytywał taki pliku i drukował poniższy komunikat
+        zawierający informacje o każdym z pakietów:
+        """
+
+    def __init__(self, szkolenie, zadanie):
+        super().__init__(szkolenie, zadanie)
+
+    @print_doc
+    def rozwiazanie(self):
+        self._wydrukuj_interface()
+        dane_json = self._odczytaj_json()
+        self._wydrukuj_dane(dane_json)
+
+    def _wydrukuj_interface(self):
+        """Motoda służąca do drukowania górnej stopki interface"""
+        print("Interface Status")
+        print("=" * 80)
+        print("{:<50} {:<20} {:<8} {:<6}".format("DN", "Description", "Speed", "MTU"))
+        print("{:<50} {:<20} {:<8} {:<6}".format("-" * 50, "-" * 20, "-" * 8, "-" * 6))
+
+    def _odczytaj_json(self):
+        """Motoda wczytująca dane z pliku json do zmiennej"""
+        with open("10 Podstawy Szkolenie 8 - data.json", encoding="utf=8") as plik:
+            dane_json = json.load(plik)
+            return dane_json
+
+    def _wydrukuj_dane(self, dane_json):
+        """Motoda drukująca dane z pliku json do konsoli
+           Z json pracowałem raz także tutaj chat gpt pomógł"""
+        for dana in dane_json.get("imdata", []):
+            # pobiera wartość dla klucza imdata jęśli nie istnieje
+            # dzięki metodzie get używamy wrtości domyślnej, którą jest [}
+            l1PhysIf = dana.get("l1PhysIf", {}).get("attributes", {})
+            dn = l1PhysIf.get("dn", "")
+            description = l1PhysIf.get("descr", "")
+            speed = l1PhysIf.get("speed", "inherit")
+            mtu = l1PhysIf.get("mtu", "unspecified")
+            print("{:<50} {:<20} {:<8} {:<6}".format(dn, description, speed, mtu))
+
+
+class Zadanie8PS8(Szkolenie):
+
+    def __init__(self, szkolenie, zadanie):
+        super().__init__(szkolenie, zadanie)
+        self.odwrocony_slownik = {}
+
+    @print_doc
+    def rozwiazanie(self):
+        self.odwrocony_slownik = self._odwroc(klucz1='wartość1', klucz2='wartość2', klucz3='wartość3')
+        self._zapis_json()
+        print('Rozwiązanie zapisane do pliku "output.json"')
+
+    def _odwroc(self, **kwargs):
+        """Metoda odwracjąca słownik"""
+        odwrocony_slownik = {wartosc: klucz for klucz, wartosc in kwargs.items()}
+        return odwrocony_slownik
+
+    def _zapis_json(self):
+        with open("output.json", "w", encoding='utf8') as plik:
+            json.dump(self.odwrocony_slownik, plik, ensure_ascii=False)
