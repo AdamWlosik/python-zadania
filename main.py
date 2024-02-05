@@ -17,7 +17,8 @@ from PodstawySzkolenie.i_Podstawy_Szkolenie_7 import Zadanie1PS7, Zadanie3PS7, Z
     Zadanie7PS7, Zadanie8PS7
 from PodstawySzkolenie.j_Podstawy_Szkolenie_8 import Zadanie1PS8, Zadanie2PS8, Zadanie3PS8, Zadanie4PS8, Zadanie5PS8, \
     Zadanie6PS8, Zadanie7PS8, Zadanie8PS8, Zadanie9PS8
-from PodstawySzkolenie.k_Podstawy_Szkolenie_9 import Zadanie1PS9, Zadanie2PS9, Zadanie3PS9, Zadanie4PS9
+from PodstawySzkolenie.k_Podstawy_Szkolenie_9 import Zadanie1PS9, Zadanie2PS9, Zadanie3PS9, Zadanie4PS9, Zadanie5PS9, \
+    Zadanie6PS9, Zadanie8PS9, Zadanie7PS9, Zadanie9PS9
 
 
 def main():
@@ -582,9 +583,23 @@ def main():
             elif zadanie == 4:
                 zadanie4 = Zadanie4PS9(szkolenie, zadanie, 1111, "Adam", 100)
                 zadanie4.rozwiazanie()
+            elif zadanie == 5:
+                zadanie5 = Zadanie5PS9(szkolenie, zadanie)
+                zadanie5.rozwiazanie()
                 # TODO
-                """Dokończyć!"""
-
+                # pytanie do zadania w klasie
+            elif zadanie == 6:
+                zadanie6 = Zadanie6PS9(szkolenie, zadanie)
+                zadanie6.rozwiazanie()
+            elif zadanie == 8:
+                zadanie8 = Zadanie8PS9(szkolenie, zadanie)
+                zadanie8.rozwiazanie()
+            elif zadanie == 7:
+                zadanie7 = Zadanie7PS9(szkolenie, zadanie)
+                zadanie7.rozwiazanie()
+            elif zadanie == 9:
+                zadanie9 = Zadanie9PS9(szkolenie, zadanie)
+                zadanie9.rozwiazanie()
 
 
 if __name__ == "__main__":
