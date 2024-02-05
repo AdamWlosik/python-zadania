@@ -1,10 +1,20 @@
+import datetime
+import random
+
 from PodstawySzkolenie.c_PodstawyPetle import Szkolenie4
 from PodstawySzkolenie.a_PodstawySzkolenie import Szkolenie1
 from PodstawySzkolenie.b_PodstawySzkolenie3_1StringiRozszerzenie import Szkolenie2
 from PodstawySzkolenie.c_PodstawyInstrukcjeWarunkowe import Szkolenie3
-from PodstawySzkolenie.d_Podstawy_Krotki_i_Zbiory_Rozszerzenie import Zadanie1KZ, Zadanie2KZ, Zadanie3KZ, Zadanie4KZ
-from PodstawySzkolenie.e_Podstawy_Słowniki_Rozszerzenie import Zadanie1S, Zadanie3S, Zadanie4S, Zadanie5S, Zadanie6S, \
+from PodstawySzkolenie.d_PodstawyKrotkiIZbioryRozszerzenie import Zadanie1KZ, Zadanie2KZ, Zadanie3KZ, Zadanie4KZ
+from PodstawySzkolenie.e_PodstawySlownikiRozszerzenie import Zadanie1S, Zadanie3S, Zadanie4S, Zadanie5S, Zadanie6S, \
     Zadanie7S, Zadanie8S
+from PodstawySzkolenie.f_PodstawyListyRozszerzenie import Zadanie1LR, Zadanie2LR, Zadanie3LR, Zadanie4LR, Zadanie5LR
+from PodstawySzkolenie.g_PodstawyPetleRozszerzenie import Zadanie1PPR, Zadanie2PPR, Zadanie3PPR, Zadanie4PPR, \
+    Zadanie5PPR, Zadanie6PPR, Zadanie7PPR
+from PodstawySzkolenie.h_PodstawyStrukturyDanychRozszerzenie import Zadanie1PSDR, Zadanie2PSDR, Zadanie3SPDR, \
+    Zadanie4PSDR, Zadanie5PSDR, Zadanie6PSDR
+from PodstawySzkolenie.i_PodstawySzkolenie7 import Zadanie1PS7, Zadanie3PS7, Zadanie4PS7, Zadanie5PS7, Zadanie6PS7, \
+    Zadanie7PS7, Zadanie8PS7
 
 
 def main():
@@ -257,6 +267,10 @@ def main():
                 print(doskonala)
 
         elif szkolenie == 5:
+            # TODO
+            print("6 Podstawy Szkolenie 4 - 6, Do zrobienia później ")
+
+        elif szkolenie == 6:
 
             if zadanie == 1:
                 kolor = "zolty"
@@ -321,7 +335,7 @@ def main():
                 zbiorF = zadanie4.utworz_zbiorF()
                 print(f"Zbiór F składa się z {zadanie4.zlicz_element(zbiorF)} elementów i zawiera: {zbiorF}")
 
-        elif szkolenie == 6:
+        elif szkolenie == 7:
             if zadanie == 1:
                 zadanie1 = Zadanie1S(szkolenie, zadanie)
             elif zadanie == 2:
@@ -366,6 +380,155 @@ def main():
                            "XI": "S007"}
                 zadanie8 = Zadanie8S(szkolenie, zadanie, slownik)
                 print(zadanie8.lista_unikalnych)
+
+        elif szkolenie == 8:
+            if zadanie == 1:
+                zdanie = input("Podaj dowolne zdanie ze znakami interpunkcyjnymi: ")
+                zadanie1 = Zadanie1LR(szkolenie, zadanie, zdanie)
+                print(f"Odwrócona lista bez interpunkcji: {zadanie1.lista}")
+            elif zadanie == 2:
+                wynik = [12, 1, 45, 76, 50, 23]
+                min_losowanie = 1
+                max_losowanie = 49
+                zadanie2 = Zadanie2LR(szkolenie, zadanie, wynik, min_losowanie, max_losowanie)
+                print(f"Nowe wyniki: {zadanie2.nowe_wyniki}")
+            elif zadanie == 3:
+                lista1 = ["abc", "def", "ghi", "jkl"]
+                lista2 = [1, 2, 3, 4, 5]
+                lista3 = ["xyz", 1, '2']
+                zadanie3 = Zadanie3LR(szkolenie, zadanie, lista1, lista2, lista3)
+                wartosc = input("Wprowadź wartość do przypisania: ")
+                print(f"Lista3 z przypisane wartością z klawiatury:"
+                      f" {zadanie3.przypisz_wartosc_z_klawiatury(zadanie3.lista3, 2, wartosc)}")
+                print(f"Lista1 z dodanym metoda .append(), wyrazem 'slowo': "
+                      f"{zadanie3.dodaj_append('slowo', zadanie3.lista1)}")
+                print(f"Lista1 ze skasowanym elementem: "
+                      f"{zadanie3.skasuj_element(1, zadanie3.lista1)}")
+                print(f"Liczba elementów listy3: "
+                      f"{zadanie3.liczba_elementow(zadanie3.lista3)}")
+                print(f"Lista1 powiększona o elementy listy3: "
+                      f"{zadanie3.polacz(zadanie3.lista1, zadanie3.lista3)}")
+            elif zadanie == 4:
+                imiona = input("Podaj imiona oddzielone spacja: ")
+                zadanie4 = Zadanie4LR(szkolenie, zadanie, imiona)
+            elif zadanie == 5:
+                zdanie = input("Wpisz zdanie: ")
+                sprawdzenie = ["i", "w", "na", "pod", "dla"]
+                zadanie5 = Zadanie5LR(szkolenie, zadanie, zdanie, sprawdzenie)
+
+        elif szkolenie == 9:
+            if zadanie == 1:
+                zadanie1 = Zadanie1PPR(szkolenie, zadanie)
+            elif zadanie == 2:
+                wyraz = input("Podaj wyraz, który chcesz sprawdzić czy palindromem: ")
+                zadanie2 = Zadanie2PPR(szkolenie, zadanie, wyraz)
+            elif zadanie == 3:
+                osoby = "Adam, Stanisław, Joanna, Kornelia, Kacper"
+                zadanie3 = Zadanie3PPR(szkolenie, zadanie, osoby)
+            elif zadanie == 4:
+                zakres_min = 1000
+                zakres_max = 10000
+                zadanie4 = Zadanie4PPR(szkolenie, zadanie, zakres_min, zakres_max)
+            elif zadanie == 5:
+                zamowienia = {"Klient_1335": {"nazwa_potrawy": "rosół", "ocena": 5, "rachunek": 20.0},
+                              "Klient_222": {"nazwa_deseru": "lody waniliowe", "rachunek": 5.0}}
+                zadanie5 = Zadanie5PPR(szkolenie, zadanie, zamowienia)
+            elif zadanie == 6:
+                try:
+                    liczba = int(input("Wprowadź liczbę: "))
+                except ValueError:
+                    print("Nie psuj")
+
+                zadanie6 = Zadanie6PPR(szkolenie, zadanie, liczba)
+            elif zadanie == 7:
+                try:
+                    n = int(input("Podaj ile pierwszych wyrazu ciągu chcesz wyznaczyć: "))
+                except ValueError:
+                    print("Nie psuj")
+                fibo = [0, 1]
+                zadanie7 = Zadanie7PPR(szkolenie, zadanie, n, fibo)
+
+        elif szkolenie == 10:
+            if zadanie == 1:
+                lista1 = input("Wprowadź elementy oddzielone spacją listy1: ")
+                lista2 = input("Wprowadź elementy oddzielone spacją listy2: ")
+                zadanie1 = Zadanie1PSDR(szkolenie, zadanie, lista1, lista2)
+            elif zadanie == 2:
+                ile_elementow = 15
+                przedzial_min = 5
+                przedzial_max = 120
+                zadanie2 = Zadanie2PSDR(szkolenie, zadanie, ile_elementow, przedzial_min, przedzial_max)
+            elif zadanie == 3:
+                slownik = {"a": 3, "b": 1, "c": 10, "d": 15, "e": 20}
+                zadanie3 = Zadanie3SPDR(szkolenie, zadanie, slownik)
+            elif zadanie == 4:
+                zadanie4 = Zadanie4PSDR(szkolenie, zadanie)
+            elif zadanie == 5:
+                lista = [
+                    ['Tom', 'Calamari', 6.00],
+                    ['Tom', 'American Hot', 11.50],
+                    ['Tom', 'Chocolate Fudge Cake', 4.45],
+                    ['Clare', 'Bruschetta Originale', 5.35],
+                    ['Clare', 'Fiorentina', 10.65],
+                    ['Clare', 'Tiramisu', 4.90],
+                    ['Rich', 'Bruschetta Originale', 5.35],
+                    ['Rich', 'La Reine', 10.65],
+                    ['Rich', 'Honeycomb Cream Slice', 4.90],
+                    ['Rosie', 'Garlic Bread', 4.35],
+                    ['Rosie', 'Veneziana', 9.40],
+                    ['Rosie', 'Tiramisu', 4.90],
+                ]
+                zadanie5 = Zadanie5PSDR(szkolenie, zadanie, lista)
+            elif zadanie == 6:
+                dane = {
+                    "data": [1, 2, 'asd', [2, 3, 4, 5]],
+                    'nested_analysis': {
+                        'analysis_1': [1, 10, 15, 120.2, '120'],
+                        'analysis_2': [10, 100, "test", 200, 300],
+                    },
+                    'probes': [['probe_1', 'probe_2'], 'probe_3']
+                }
+                zadanie6 = Zadanie6PSDR(szkolenie, zadanie, dane)
+                # TODO
+        elif szkolenie == 11:
+            if zadanie == 1:
+                nums = [4, 6, 8, 24, 12, 2]
+                zadanie1 = Zadanie1PS7(szkolenie, zadanie, nums)
+                print(f"Index największego elementy to : {zadanie1.index}")
+            if zadanie == 2:
+                print("Odpwoiedź w classie Zadanie2PS7 dodana jako komentarz")
+            elif zadanie == 3:
+                try:
+                    liczba = int(input("Podaj liczbe: "))
+                except ValueError:
+                    print("Nie psuj")
+                zadanie3 = Zadanie3PS7(szkolenie, zadanie, liczba)
+                print(zadanie3.wynik)
+            elif zadanie == 4:
+                zadanie4 = Zadanie4PS7(szkolenie, zadanie)
+                print(f"{zadanie4.iloczyn(1, 2, 3, 4, 5, 6)}")
+            elif zadanie == 5:
+                lista_parzyste = [2, 4, 6, 8, 10]
+                lista_nieparzyste = [1, 3, 5, 7, 9]
+                zadanie5 = Zadanie5PS7(szkolenie, zadanie, lista_parzyste, lista_nieparzyste)
+                print(zadanie5.wynik)
+            elif zadanie == 6:
+                lista = []
+                for _ in range(10):
+                    lista.append(random.randint(0, 20))
+                print(lista)
+                zadanie6 = Zadanie6PS7(szkolenie, zadanie, lista)
+                print(zadanie6.wynik)
+            elif zadanie == 7:
+                zadanie7 = Zadanie7PS7(szkolenie, zadanie)
+            elif zadanie == 8:
+                godzina_minuta = datetime.datetime.now()
+                godzina = godzina_minuta.hour
+                minuta = godzina_minuta.minute
+                zadanie8 = Zadanie8PS7(szkolenie, zadanie, godzina, minuta)
+                print(f"Aktualna godzina: {godzina}\n"
+                      f"Aktualna minuta: {minuta}\n"
+                      f"Kąt między nimi: {zadanie8.kat}")
 
 
 if __name__ == "__main__":

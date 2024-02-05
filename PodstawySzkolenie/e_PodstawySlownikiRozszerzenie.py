@@ -4,7 +4,21 @@ from PodstawySzkolenie.Szkolenie import Szkolenie
 
 
 class Zadanie1S(Szkolenie):
+    """Zad 1.
+        Wprowadź poniższy słownik do programu. Program ma działać, tak jak poniżej:
+        • wyświetla wszystkie klucze na konsoli (tzn. nazwy wszystkich albumów),
+        • pobiera od użytkownika łańcuch tekstowy i sprawdza czy odpowiada on kluczowi ze słownika.
 
+        Jeśli tak, to wyświetlany jest odpowiedni komunikat, np.: "Wykonawcą albumu "Achtung baby" jest “U2".
+        W przeciwnym razie wyświetlany jest komunikat: "Brak danych".
+
+        {'The Sensual World' : 'Kate Bush', 'Shaday' : 'Ofra Haza', 'Achtung Baby' : 'U2', 'Aion' : 'Dead Can Dance',
+         'Invisible Touch' : 'Genesis'}
+    """
+    """Zad 2.
+          Zmodyfikuj kod z zadania 1 tak, aby możliwe było dodawanie i usuwanie przez użytkownika informacj
+          o nowych albumach do słownika. Program ma zawierać proste menu.
+    """
     def __init__(self, szkolenie, zadanie):
         super().__init__(szkolenie, zadanie)
         self.klucz = None
@@ -72,6 +86,15 @@ class Zadanie1S(Szkolenie):
 
 
 class Zadanie3S(Szkolenie):
+    """Zad 3.
+        Zapisz wszystkie wyrazy z poniższego tekstu do słownika (jako klucze). Wartości przypisane do tych kluczy
+         mają być równe ilości wystąpień słowa w tekście.
+
+        "Once upon a midnight dreary, while I pondered, weak and weary, Over many a quaint and curious volume
+         of forgotten lore, While I nodded, nearly napping, suddenly there came a tapping, As of someone gently rapping,
+         rapping at my chamber door. This visitor, I muttered, tapping at my chamber door
+         - Only this, and nothing more."
+    """
 
     def __init__(self, szkolenie, zadanie, tekst):
         super().__init__(szkolenie, zadanie)
@@ -103,6 +126,10 @@ class Zadanie3S(Szkolenie):
 
 
 class Zadanie4S(Szkolenie):
+    """Zad 4.
+        Przekształć poniższy tekst, dopisując w nawiasach do polskich nazw ptaków ich łacińskie odpowiedniki.
+        (TEkst w main)
+    """
 
     def __init__(self, szkolenie, zadanie, slownik, tekst):
         super().__init__(szkolenie, zadanie)
@@ -118,6 +145,11 @@ class Zadanie4S(Szkolenie):
 
 
 class Zadanie5S(Szkolenie):
+    """Zad 5.
+        Napisz skrypt, który wygeneruje i wyprintuje słownik zawierający liczby pomiędzy (1 - n; n jest liczbą podawaną przez użytkownika) w formie (x, x*x).
+        Przykładowy input: n = 5
+        Oczekiwany wynik: {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+    """
 
     def __init__(self, szkolenie, zadanie, n):
         super().__init__(szkolenie, zadanie)
@@ -132,6 +164,9 @@ class Zadanie5S(Szkolenie):
 
 
 class Zadanie6S(Szkolenie):
+    """Zad 6.
+        Wyszukaj w zewnętrznych źródłach, jakie obiekty nie mogą być kluczami w słowniku.
+    """
 
     def __init__(self, szkolenie, zadanie):
         super().__init__(szkolenie, zadanie)
@@ -142,6 +177,17 @@ class Zadanie6S(Szkolenie):
 
 
 class Zadanie7S(Szkolenie):
+    """Zad 7.
+        Napisz program, który scali ze sobą dwa dowolne słowniki.
+        Mając do dyspozycji następujące słowniki:
+        lovers = {1: 'Rahima', 2: 'Alishba', 3: 'Fizza'}
+        friends = {4: 'Bilal', 5: 'Arbab', 6: 'Shahzor'}
+
+        Otrzymamy:
+        {1: 'Rahima', 2: 'Alishba', 3: 'Fizza', 4: 'Bilal', 5: 'Arbab', 6: 'Shahzor'}
+
+        Zwróć uwagę na to, że słowniki mogą być różnej długości.
+    """
 
     def __init__(self, szkolenie, zadanie, slownik1, slownik2):
         super().__init__(szkolenie, zadanie)
@@ -155,6 +201,13 @@ class Zadanie7S(Szkolenie):
 
 
 class Zadanie8S(Szkolenie):
+    """Zad 8.
+        Napisz program, który wydrukuje wszystkie unikalne wartości ze słownika.
+        Dla danych:
+        { "V":"S001", "VI": "S002", "VII": "S001", "VIII": "S005", "IX":"S005", "X":"S009", "XI":"S007" }
+        Oczekujemy wyniku:
+        “S002”, “S009”, “S007”
+    """
 
     def __init__(self, szkolenie, zadanie, slownik):
         super().__init__(szkolenie, zadanie)
@@ -169,4 +222,5 @@ class Zadanie8S(Szkolenie):
 
     def utworz_liste_unikalnych(self):
         self.lista_unikalnych = [wartosc for wartosc in set(self.lista) if self.lista.count(wartosc) == 1]
-        # pętla przechodzi po wartości w set(self.lista) z warunkime wystąpenia wartosc raz w liście self.lista
+        # pętla przechodzi po wartości w wartości z set(self.lista)
+        # z warunkime wystąpenia wartosc raz w liście self.lista
