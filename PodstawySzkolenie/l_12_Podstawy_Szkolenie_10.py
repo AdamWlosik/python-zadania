@@ -103,15 +103,17 @@ class ZajezdniaTramwajowa(Zajezdnia):
         super().__init__(nazwa)
         self.pojazdy = []
 
-
     def dodaj_poojazd(self, pojazd):
+        """Metoda dodająca pojazd do listy pojazdów"""
         self.pojazdy.append(pojazd)
 
     def sumuj_wagony(self):
+        """Metoda sumująca wagony, wszystkich tramwajów z listy """
         suma_wagonow = sum(pojazd.ilosc_wagonow for pojazd in self.pojazdy if isinstance(pojazd, Tramwaj))
         return suma_wagonow
 
     def __str__(self):
+        """Metoda zmieniająca instancje klasy zapisane na liście w czytelnego stringa i drukująca dane"""
         opis_pojazdow = [str(pojazd) for pojazd in self.pojazdy]
         return (f"Nazwa zajezdni: {self.nazwa}, Typ: {type(self).__name__}, "
                 f"Opis pojazdów: {', '.join(opis_pojazdow)}, \nSumaryczne zużycie paliwa: {self.sumuj_wagony()}")
@@ -124,13 +126,16 @@ class ZajezdniaAutobusowa(Zajezdnia):
         self.pojazdy = []
 
     def dodaj_pojazd(self, pojazd):
+        """Metoda dodająca pojazd do listy"""
         self.pojazdy.append(pojazd)
 
     def sumuj_paliwo(self):
+        """Metoda sumująca ilość paliwa wszystkich autobusów z listy"""
         suma_paliwa = sum(pojazd.zuzycie_paliwa for pojazd in self.pojazdy if isinstance(pojazd, Autobus))
         return suma_paliwa
 
     def __str__(self):
+        """Metoda zmieniająca instancje klasy zapisane na liście w czytelnego stringa i drukująca dane"""
         opis_pojazdow = [str(pojazd) for pojazd in self.pojazdy]
         # zmienia w druk z domyślnego obiektu klasy na czytelnego str
         return (f"Nazwa zajezdni: {self.nazwa}, Typ: {type(self).__name__}, "
@@ -151,6 +156,7 @@ class Autobus(KompnikacjaMiejska):
         self.zuzycie_paliwa = zuzycie_paliwa
 
     def __str__(self):
+        """Metoda drukująca dane o pojeździe"""
         return (f"\n Pojazd: {type(self).__name__}, Szybkość maksymalna: {self.szybkosc_maksymalna}, "
                 f"Numer: {self.numer}, Zużycie paliwa: {self.zuzycie_paliwa}")
 
@@ -162,5 +168,74 @@ class Tramwaj(KompnikacjaMiejska):
         self.ilosc_wagonow = ilosc_wagonow
 
     def __str__(self):
+        """Metoda drukująca dane o pojeździe"""
         return (f"\n Pojazd: {type(self).__name__}, Szybkość maksymalna: {self.szybkosc_maksymalna}, "
                 f"Numer: {self.numer}, Ilość wagonów: {self.ilosc_wagonow}")
+
+
+class Zadanie4PS10(Szkolenie):
+    """Zad 4.
+        Napisz program, który będzie wyświetlał Menu z następującymi opcjami:
+        1.	Dodaj notatkę
+        2.	Dodaj wizytówkę (Card)
+        3.	Wyświetl wszystkie notatki
+        4.	Wyświetl wszystkie wizytówki
+        5.	Wyjdź
+
+
+        Program ma być podzielony na następujące klasy:
+        Manager (który zawierać będzie komponent: Menu, NotesSubManager, CardsSubManager).
+
+        Metody w Manager:
+        1.	start - metoda wywoływana jako pierwsza z poziomu main
+        2.	show_menu (wtedy metoda odwołuje się do obiektu Menu
+            i wywołuje z niej odpowiednią metodą wyświetlającą Menu)
+        3.	execute (metoda pobierająca od użytkownika wybór
+            i wywołująca odpowiednią metodę z NotesSubManager/CardSubManager)
+        4.	show_notes/show_cards (wywołujące metodę show z odpowiedniego SubManagera)
+
+        Metody w Menu:
+        1.	show (wyświetlanie menu)
+        2.	get_choice (pobieranie wyboru z menu od użytkownika)
+
+        Pola w SubManagerach:
+        1.	lista na obiekty reprezentujące dodane Notatki/Wizytówki
+
+        Metody w SubManagerach:
+        1.	add (dodawanie odpowiednio notatki lub karty)
+        2.	show (wyświetlanie wszystkich notatek lub kart z listy)
+        """
+
+    def __init__(self, szkolenie, zadanie):
+        super().__init__(szkolenie, zadanie)
+
+    @print_doc
+    def rozwiazanie(self):
+        while True:
+            print("\nMenu:")
+            print("1. Dodaj notatkę")
+            print("2. Dodaj wizytówkę")
+            print("3. Wyświetl wszystkie notatki")
+            print("4. Wyświetl wszystkie wizytówki")
+            print("5. Wyjdź")
+            try:
+                choice = int(input("Wybierz opcję: "))
+            except ValueError:
+                print('Nie psuj')
+                continue
+            self.menu(choice)
+
+    def menu(self, choice):
+        match choice:
+            case 1:
+                pass
+            case 2:
+                pass
+            case 3:
+                pass
+            case 4:
+                pass
+            case 5:
+                exit()
+            case _:
+                print("Nieprawidłowy wybór")
