@@ -600,6 +600,9 @@ def main():
             elif zadanie == 9:
                 zadanie9 = Zadanie9PS9(szkolenie, zadanie)
                 zadanie9.rozwiazanie()
+        elif szkolenie == 14:
+            if zadanie == 1:
+                pass
 
 
 if __name__ == "__main__":
