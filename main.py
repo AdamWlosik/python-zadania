@@ -19,7 +19,7 @@ from PodstawySzkolenie.j_Podstawy_Szkolenie_8 import Zadanie1PS8, Zadanie2PS8, Z
     Zadanie6PS8, Zadanie7PS8, Zadanie8PS8, Zadanie9PS8
 from PodstawySzkolenie.k_Podstawy_Szkolenie_9 import Zadanie1PS9, Zadanie2PS9, Zadanie3PS9, Zadanie4PS9, Zadanie5PS9, \
     Zadanie6PS9, Zadanie8PS9, Zadanie7PS9, Zadanie9PS9
-from PodstawySzkolenie.l_12_Podstawy_Szkolenie_10 import Zadanie1PS10, Zadanie2PS10, Zadanie4PS10
+from PodstawySzkolenie.l_12_Podstawy_Szkolenie_10 import Zadanie1PS10, Zadanie2PS10, Zadanie4PS10, Zadanie3PS10
 
 
 def main():
@@ -611,6 +611,9 @@ def main():
             elif zadanie == 4:
                 zadanie4 = Zadanie4PS10(szkolenie, zadanie)
                 zadanie4.rozwiazanie()
+            elif zadanie == 3:
+                zadanie3 = Zadanie3PS10(szkolenie, zadanie)
+                zadanie3.rozwiazanie()
 
 
 if __name__ == "__main__":
