@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta
 import random
+from pprint import pprint
 
 from PodstawySzkolenie.Szkolenie import Szkolenie
 from helpers import print_doc
@@ -181,6 +182,10 @@ class Karta:
 
     def __str__(self):
         return f"{self.wartosc} - {self.figura}"
+
+    def __repr__(self):
+        """Wyświetla dobrze jako obiekt złozony lista itd"""
+        return str(self)
 
     """def utworz_karte(self):
         return str(f"{self.wartosc} - {self.figura}")"""
@@ -543,7 +548,7 @@ class Zadanie9PS9(Szkolenie):
         print("Check state: ", operation.check_state(tank1, 50))
         for tank_name, tank_data in operation.tanks_dict.items():
             print(tank_name)
-            print(tank_data)
+            pprint(tank_data)
 
 
 class Tank:
