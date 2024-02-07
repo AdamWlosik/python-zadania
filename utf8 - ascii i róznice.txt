@@ -1,0 +1,25 @@
+UTF-8 i ASCII to dwa różne sposoby kodowania znaków, a ich główna różnica polega na zakresie znaków,
+które mogą reprezentować.
+
+ASCII (American Standard Code for Information Interchange):
+
+ ASCII jest starszym standardem kodowania, który obejmuje tylko 7 bitów, co daje 128 różnych możliwych kombinacji.
+ Obejmuje podstawowe znaki alfanumeryczne, znaki interpunkcyjne oraz kilka znaków kontrolnych.
+ Nie zawiera znaków specyficznych dla innych języków niż angielski, takich jak polskie litery.
+
+
+UTF-8 (Unicode Transformation Format - 8-bit):
+
+ UTF-8 jest bardziej nowoczesnym standardem, który jest kompatybilny z Unicode. Unicode to standard kodowania,
+  który obejmuje znaki dla wielu języków na całym świecie.
+ UTF-8 jest zgodny z ASCII, ale może również reprezentować znaki spoza zakresu ASCII, używając od 8 do 32 bitów na znak,
+  w zależności od potrzeb.
+
+W przypadku polskich liter, takich jak ą, ę, ć, są one reprezentowane w UTF-8 przy użyciu sekwencji kilku bajtów,
+ podczas gdy w ASCII nie mają swojego odpowiednika.
+
+Rezultat odczytu polskich liter z pliku bez zmiany sposobu formatowania danych będzie zależał od tego,
+w jakim formacie zostały one zapisane. Jeśli plik jest zapisany w formacie UTF-8,
+to odczytanie polskich liter powinno być poprawne. Jeśli jednak plik jest w formacie ASCII,
+to polskie litery mogą być błędnie zinterpretowane lub nieprawidłowo wyświetlone,
+ponieważ ASCII nie obejmuje tych znaków.

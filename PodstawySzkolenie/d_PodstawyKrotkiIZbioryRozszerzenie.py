@@ -1,6 +1,7 @@
 import string
 
 from PodstawySzkolenie.Szkolenie import Szkolenie
+from helpers import print_doc
 
 
 class Zadanie1KZ(Szkolenie):
@@ -121,32 +122,49 @@ class Zadanie3KZ(Szkolenie):
         ●	preferuje jedynie autor programu
     """
 
-    def __init__(self, szkolenie, zadanie, moj_zbior):
+    def __init__(self, szkolenie, zadanie, moj_zbior: set = None):
         super().__init__(szkolenie, zadanie)
-        self.moj_zbior = moj_zbior
-        self.zbior = None
-        self.podaj_kolory()
+        if not moj_zbior:
+            self.moj_zbior = {'niebieski', 'czerwony', 'zolty', 'zielony'}
+        else:
+            self.moj_zbior = moj_zbior
+        self.zbior_wczytany = None
 
-    def podaj_kolory(self):
-        self.zbior = input("Podaj kolory w jednej lini i rozdzielone spacją: ")
-        return self.zbior
+    @print_doc
+    def rozwiazanie(self):
+        self._podaj_kolory()
+        zbior_stala = self._utworz_zbior()
 
-    def utworz_zbior(self):
-        slowa = self.zbior.split()
+        if self.czy_jednakowe():
+            print("Kolory są jednakowe")
+        else:
+            print(f"Kolory wybrane przez dwie osoby: {self.wspolne_kolory(zbior_stala)}")
+            print(f"Kolory wybrane tylko przez użytkownika: "
+                  f"{self.kolowy_wybrane_tylko_przez_uzytkownika(zbior_stala, self.moj_zbior)}")
+            print(f"Kolory wybranie tylko przez autora: "
+                  f"{self.kolowy_wybrane_tylko_przez_uzytkownika(self.moj_zbior, zbior_stala)}")
+
+    def _podaj_kolory(self):
+        """Dokumentacja metod"""
+        self.zbior_wczytany = input("Podaj kolory w jednej lini i rozdzielone spacją: ")
+        return self.zbior_wczytany
+
+    def _utworz_zbior(self):
+        slowa = self.zbior_wczytany.split()
         zbior = set(slowa)
         return zbior
 
-    def czy_jednakowe(self):
-        if self.zbior == self.moj_zbior:
+    def _czy_jednakowe(self):
+        if self.zbior_wczytany == self.moj_zbior:
             return True
         else:
             return False
 
-    def wspolne_kolory(self, zbior):
+    def _wspolne_kolory(self, zbior):
         wspolne_kolory = zbior.intersection(self.moj_zbior)
         return wspolne_kolory
 
-    def kolowy_wybrane_tylko_przez_uzytkownika(self, zbior1, zbior2):
+    def _kolowy_wybrane_tylko_przez_uzytkownika(self, zbior1, zbior2):
         kolory = zbior1.difference(zbior2)
         return kolory
 

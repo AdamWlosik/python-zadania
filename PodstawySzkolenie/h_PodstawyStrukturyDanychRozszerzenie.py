@@ -187,19 +187,34 @@ class Zadanie5PSDR(Szkolenie):
 
 
 class Zadanie6PSDR(Szkolenie):
+    """Wyboraź sobie, że otrzymałeś z API następujące dane:
+
+{
+    data: [1, 2, 'asd', [2, 3, 4, 5]],
+    'nested_analysis': {
+        'analysis_1': [1, 10, 15, 120.2, '120'],
+        'analysis_2': [10, 100, ‘test’, 200, 300],
+    },
+    'probes': [['probe_1', 'probe_2'], 'probe_3']
+}
+
+Twoim zadaniem jest wyłuskanie spod każdego klucza w powyższym słowniku tylko tych danych,
+ które są typu str i wyświetlić je na ekranie.
+"""
 
     def __init__(self, szkolenie, zadanie, dane):
         super().__init__(szkolenie, zadanie)
         self.dane = dane
         self.wartosc = self.wyciagnij_wartosc()
-        self.napis = self.utworz_string()
 
     def wyciagnij_wartosc(self):
         wynik = str()
         for klucz, wartosc in self.dane.items():
-            wynik += wartosc
-        return wynik
+            print(f"klucz: {klucz}")
+            print(f"wartość: {wartosc}")
+            if isinstance(wartosc, list):
+                print("Lista ", wartosc)
+            elif isinstance(wartosc, dict):
+                print("Dict", wartosc)
 
-    def utworz_string(self):
-        napis = str(self.wartosc)
-        return napis
+        return wynik

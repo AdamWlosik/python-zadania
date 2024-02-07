@@ -13,14 +13,18 @@ from PodstawySzkolenie.g_PodstawyPetleRozszerzenie import Zadanie1PPR, Zadanie2P
     Zadanie5PPR, Zadanie6PPR, Zadanie7PPR
 from PodstawySzkolenie.h_PodstawyStrukturyDanychRozszerzenie import Zadanie1PSDR, Zadanie2PSDR, Zadanie3SPDR, \
     Zadanie4PSDR, Zadanie5PSDR, Zadanie6PSDR
-from PodstawySzkolenie.i_PodstawySzkolenie7 import Zadanie1PS7, Zadanie3PS7, Zadanie4PS7, Zadanie5PS7, Zadanie6PS7, \
+from PodstawySzkolenie.i_Podstawy_Szkolenie_7 import Zadanie1PS7, Zadanie3PS7, Zadanie4PS7, Zadanie5PS7, Zadanie6PS7, \
     Zadanie7PS7, Zadanie8PS7
+from PodstawySzkolenie.j_Podstawy_Szkolenie_8 import Zadanie1PS8, Zadanie2PS8, Zadanie3PS8, Zadanie4PS8, Zadanie5PS8, \
+    Zadanie6PS8, Zadanie7PS8, Zadanie8PS8, Zadanie9PS8
+from PodstawySzkolenie.k_Podstawy_Szkolenie_9 import Zadanie1PS9, Zadanie2PS9, Zadanie3PS9, Zadanie4PS9, Zadanie5PS9, \
+    Zadanie6PS9, Zadanie8PS9, Zadanie7PS9, Zadanie9PS9
 
 
 def main():
     while True:
         try:
-            szkolenie = int(input("Aby zakończyć wybierz 0 lub wprowadź numer szkolenia: "))
+            szkolenie = int(input("\nAby zakończyć wybierz 0 lub wprowadź numer szkolenia: "))
             if szkolenie == 0:
                 break
             zadanie = int(input("Wprowadź numer zadania: "))
@@ -29,6 +33,7 @@ def main():
             continue
 
         if szkolenie == 1:
+            szkolenie = str(szkolenie) + ": PodstawySzkolenie"
             szkolenie1 = Szkolenie1(szkolenie, zadanie)
 
             if zadanie == 1:
@@ -53,9 +58,9 @@ def main():
                 try:
                     wzrost = int(input("Podaj wzrost: "))
                     waga = int(input("Podaj waga: "))
+                    bmi = szkolenie1.zad7(wzrost, waga)
                 except ValueError:
                     print("nie psuj!")
-                bmi = szkolenie1.zad7(wzrost, waga)
                 print(bmi)
             elif zadanie == 8:
                 szkolenie1.zad8("dzielenie", 5, 2)
@@ -96,6 +101,7 @@ def main():
                 szkolenie1.zad14()
 
         elif szkolenie == 2:
+            szkolenie = str(szkolenie) + ": PodstawySzkolenie3_1StringiRozszerzenie"
             szkolenie2 = Szkolenie2(szkolenie, zadanie)
 
             if zadanie == 1:
@@ -124,6 +130,7 @@ def main():
                 print(szkolenie2.zad6(kolory))
 
         elif szkolenie == 3:
+            szkolenie = str(szkolenie) + ": PodstawyInstrukcjeWarunkowe"
             szkolenie3 = Szkolenie3(szkolenie, zadanie)
 
             if zadanie == 1:
@@ -188,6 +195,7 @@ def main():
                         break
 
         elif szkolenie == 4:
+            szkolenie = str(szkolenie) + ": PodstawyPetle"
             szkolenie4 = Szkolenie4(szkolenie, zadanie)
 
             if zadanie == 1:
@@ -267,10 +275,12 @@ def main():
                 print(doskonala)
 
         elif szkolenie == 5:
+
             # TODO
             print("6 Podstawy Szkolenie 4 - 6, Do zrobienia później ")
 
         elif szkolenie == 6:
+            szkolenie = str(szkolenie) + ": PodstawyKrotkiIZbioryRozszerzenie"
 
             if zadanie == 1:
                 kolor = "zolty"
@@ -309,17 +319,10 @@ def main():
                       f"{zadanie2.czy_wyswietlone_wyraz_takie_same(wyswietlone_wyrazy1, wyswietlone_wyrazy2)}")
                 # coś jest nie tak, bo za każdym razem są takie same, ale dużo zadań przede mną take wrócić
             elif zadanie == 3:
-                moj_zbior = {'niebieski', 'czerwony', 'zolty', 'zielony'}
-                zadanie3 = Zadanie3KZ(szkolenie, zadanie, moj_zbior)
-                zbior = zadanie3.utworz_zbior()
-                if zadanie3.czy_jednakowe():
-                    print("Kolory są jednakowe")
-                else:
-                    print(f"Kolory wybrane przez dwie osoby: {zadanie3.wspolne_kolory(zbior)}")
-                    print(f"Kolory wybrane tylko przez użytkownika: "
-                          f"{zadanie3.kolowy_wybrane_tylko_przez_uzytkownika(zbior, moj_zbior)}")
-                    print(f"Kolory wybranie tylko przez autora: "
-                          f"{zadanie3.kolowy_wybrane_tylko_przez_uzytkownika(moj_zbior, zbior)}")
+                zadanie3 = Zadanie3KZ(szkolenie, zadanie)
+                # print(zadanie3.__class__.__doc__)
+                zadanie3.rozwiazanie()
+                zadanie3._podaj_kolory()
             elif zadanie == 4:
                 zadanie4 = Zadanie4KZ(szkolenie, zadanie)
                 print(f"Zbiór A składa się z {zadanie4.zlicz_element(zadanie4.zbiorA)} elementów i zawiera:"
@@ -336,6 +339,7 @@ def main():
                 print(f"Zbiór F składa się z {zadanie4.zlicz_element(zbiorF)} elementów i zawiera: {zbiorF}")
 
         elif szkolenie == 7:
+            szkolenie = str(szkolenie) + ": PodstawySlownikiRozszerzenie"
             if zadanie == 1:
                 zadanie1 = Zadanie1S(szkolenie, zadanie)
             elif zadanie == 2:
@@ -382,6 +386,7 @@ def main():
                 print(zadanie8.lista_unikalnych)
 
         elif szkolenie == 8:
+            szkolenie = str(szkolenie) + ": PodstawyListyRozszerzenie"
             if zadanie == 1:
                 zdanie = input("Podaj dowolne zdanie ze znakami interpunkcyjnymi: ")
                 zadanie1 = Zadanie1LR(szkolenie, zadanie, zdanie)
@@ -417,6 +422,7 @@ def main():
                 zadanie5 = Zadanie5LR(szkolenie, zadanie, zdanie, sprawdzenie)
 
         elif szkolenie == 9:
+            szkolenie = str(szkolenie) + ": PodstawyPetleRozszerzenie"
             if zadanie == 1:
                 zadanie1 = Zadanie1PPR(szkolenie, zadanie)
             elif zadanie == 2:
@@ -449,6 +455,7 @@ def main():
                 zadanie7 = Zadanie7PPR(szkolenie, zadanie, n, fibo)
 
         elif szkolenie == 10:
+            szkolenie = str(szkolenie) + ": PodstawyStrukturyDanychRozszerzenie"
             if zadanie == 1:
                 lista1 = input("Wprowadź elementy oddzielone spacją listy1: ")
                 lista2 = input("Wprowadź elementy oddzielone spacją listy2: ")
@@ -490,7 +497,9 @@ def main():
                 }
                 zadanie6 = Zadanie6PSDR(szkolenie, zadanie, dane)
                 # TODO
+
         elif szkolenie == 11:
+            szkolenie = str(szkolenie) + ": PodstawySzkolenie7"
             if zadanie == 1:
                 nums = [4, 6, 8, 24, 12, 2]
                 zadanie1 = Zadanie1PS7(szkolenie, zadanie, nums)
@@ -529,6 +538,68 @@ def main():
                 print(f"Aktualna godzina: {godzina}\n"
                       f"Aktualna minuta: {minuta}\n"
                       f"Kąt między nimi: {zadanie8.kat}")
+
+        elif szkolenie == 12:
+            if zadanie == 1:
+                zadanie1 = Zadanie1PS8(szkolenie, zadanie)
+                zadanie1.rozwiazanie()
+            elif zadanie == 2:
+                zadanie2 = Zadanie2PS8(szkolenie, zadanie)
+                zadanie2.rozwiazanie()
+            elif zadanie == 3:
+                zadanie3 = Zadanie3PS8(szkolenie, zadanie)
+                zadanie3.rozwiazanie()
+            elif zadanie == 4:
+                zadanie4 = Zadanie4PS8(szkolenie, zadanie)
+                zadanie4.rozwiazanie()
+            elif zadanie == 5:
+                zadanie5 = Zadanie5PS8(szkolenie, zadanie)
+                zadanie5.rozwiazanie()
+            elif zadanie == 6:
+                zadanie6 = Zadanie6PS8(szkolenie, zadanie)
+                zadanie6.rozwiazanie()
+            elif zadanie == 7:
+                zadanie7 = Zadanie7PS8(szkolenie, zadanie)
+                # zadanie7.rozwiazanie()
+                zadanie7.rozwiazanie_OrderDict()
+            elif zadanie == 9:
+                zadanie9 = Zadanie9PS8(szkolenie, zadanie)
+                zadanie9.rozwiazanie()
+            elif zadanie == 8:
+                zadanie8 = Zadanie8PS8(szkolenie, zadanie)
+                zadanie8.rozwiazanie()
+
+        elif szkolenie == 13:
+            if zadanie == 1:
+                zadanie1 = Zadanie1PS9(szkolenie, zadanie, "Adam", "Włosik",
+                                       6273, "Infomratyka")
+                zadanie1.rozwiazanie()
+            elif zadanie == 2:
+                zadanie2 = Zadanie2PS9(szkolenie, zadanie, 100.12)
+                zadanie2.rozwiazanie()
+            elif zadanie == 3:
+                zadanie3 = Zadanie3PS9(szkolenie, zadanie, 10, 5)
+                zadanie3.rozwiazanie()
+            elif zadanie == 4:
+                zadanie4 = Zadanie4PS9(szkolenie, zadanie, 1111, "Adam", 100)
+                zadanie4.rozwiazanie()
+            elif zadanie == 5:
+                zadanie5 = Zadanie5PS9(szkolenie, zadanie)
+                zadanie5.rozwiazanie()
+                # TODO
+                # pytanie do zadania w klasie
+            elif zadanie == 6:
+                zadanie6 = Zadanie6PS9(szkolenie, zadanie)
+                zadanie6.rozwiazanie()
+            elif zadanie == 8:
+                zadanie8 = Zadanie8PS9(szkolenie, zadanie)
+                zadanie8.rozwiazanie()
+            elif zadanie == 7:
+                zadanie7 = Zadanie7PS9(szkolenie, zadanie)
+                zadanie7.rozwiazanie()
+            elif zadanie == 9:
+                zadanie9 = Zadanie9PS9(szkolenie, zadanie)
+                zadanie9.rozwiazanie()
 
 
 if __name__ == "__main__":
