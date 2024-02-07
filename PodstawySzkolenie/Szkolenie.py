@@ -1,7 +1,4 @@
-import abc
 from abc import ABC
-
-from helpers import print_doc
 
 
 class Szkolenie(ABC):

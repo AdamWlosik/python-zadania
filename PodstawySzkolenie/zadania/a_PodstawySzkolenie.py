@@ -185,7 +185,7 @@ class Szkolenie1(Szkolenie):
         """
         # używając zad14.txt zamiast pełnej ścieżki błąd:
         # FileNotFoundError: [Errno 2] No such file or directory: 'zad14.txt'
-        with open("C:\\Users\\adamw\\OneDrive\\Pulpit\\Mentoring\\python-zadania\\PodstawySzkolenie\\zad14.txt",
+        with open("/PodstawySzkolenie/zad14.txt",
                   encoding="utf-8") as plik:
             for line in plik.readlines():
                 print(line, end="")

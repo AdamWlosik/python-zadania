@@ -1,25 +1,25 @@
 import datetime
 import random
 
-from PodstawySzkolenie.c_PodstawyPetle import Szkolenie4
-from PodstawySzkolenie.a_PodstawySzkolenie import Szkolenie1
-from PodstawySzkolenie.b_PodstawySzkolenie3_1StringiRozszerzenie import Szkolenie2
-from PodstawySzkolenie.c_PodstawyInstrukcjeWarunkowe import Szkolenie3
-from PodstawySzkolenie.d_PodstawyKrotkiIZbioryRozszerzenie import Zadanie1KZ, Zadanie2KZ, Zadanie3KZ, Zadanie4KZ
-from PodstawySzkolenie.e_PodstawySlownikiRozszerzenie import Zadanie1S, Zadanie3S, Zadanie4S, Zadanie5S, Zadanie6S, \
+from PodstawySzkolenie.zadania.c_PodstawyPetle import Szkolenie4
+from PodstawySzkolenie.zadania.a_PodstawySzkolenie import Szkolenie1
+from PodstawySzkolenie.zadania.b_PodstawySzkolenie3_1StringiRozszerzenie import Szkolenie2
+from PodstawySzkolenie.zadania.c_PodstawyInstrukcjeWarunkowe import Szkolenie3
+from PodstawySzkolenie.zadania.d_PodstawyKrotkiIZbioryRozszerzenie import Zadanie1KZ, Zadanie2KZ, Zadanie3KZ, Zadanie4KZ
+from PodstawySzkolenie.zadania.e_PodstawySlownikiRozszerzenie import Zadanie1S, Zadanie3S, Zadanie4S, Zadanie5S, Zadanie6S, \
     Zadanie7S, Zadanie8S
-from PodstawySzkolenie.f_PodstawyListyRozszerzenie import Zadanie1LR, Zadanie2LR, Zadanie3LR, Zadanie4LR, Zadanie5LR
-from PodstawySzkolenie.g_PodstawyPetleRozszerzenie import Zadanie1PPR, Zadanie2PPR, Zadanie3PPR, Zadanie4PPR, \
+from PodstawySzkolenie.zadania.f_PodstawyListyRozszerzenie import Zadanie1LR, Zadanie2LR, Zadanie3LR, Zadanie4LR, Zadanie5LR
+from PodstawySzkolenie.zadania.g_PodstawyPetleRozszerzenie import Zadanie1PPR, Zadanie2PPR, Zadanie3PPR, Zadanie4PPR, \
     Zadanie5PPR, Zadanie6PPR, Zadanie7PPR
-from PodstawySzkolenie.h_PodstawyStrukturyDanychRozszerzenie import Zadanie1PSDR, Zadanie2PSDR, Zadanie3SPDR, \
+from PodstawySzkolenie.zadania.h_PodstawyStrukturyDanychRozszerzenie import Zadanie1PSDR, Zadanie2PSDR, Zadanie3SPDR, \
     Zadanie4PSDR, Zadanie5PSDR, Zadanie6PSDR
-from PodstawySzkolenie.i_Podstawy_Szkolenie_7 import Zadanie1PS7, Zadanie3PS7, Zadanie4PS7, Zadanie5PS7, Zadanie6PS7, \
+from PodstawySzkolenie.zadania.i_Podstawy_Szkolenie_7 import Zadanie1PS7, Zadanie3PS7, Zadanie4PS7, Zadanie5PS7, Zadanie6PS7, \
     Zadanie7PS7, Zadanie8PS7
-from PodstawySzkolenie.j_Podstawy_Szkolenie_8 import Zadanie1PS8, Zadanie2PS8, Zadanie3PS8, Zadanie4PS8, Zadanie5PS8, \
+from PodstawySzkolenie.zadania.j_Podstawy_Szkolenie_8 import Zadanie1PS8, Zadanie2PS8, Zadanie3PS8, Zadanie4PS8, Zadanie5PS8, \
     Zadanie6PS8, Zadanie7PS8, Zadanie8PS8, Zadanie9PS8
-from PodstawySzkolenie.k_Podstawy_Szkolenie_9 import Zadanie1PS9, Zadanie2PS9, Zadanie3PS9, Zadanie4PS9, Zadanie5PS9, \
+from PodstawySzkolenie.zadania.k_Podstawy_Szkolenie_9 import Zadanie1PS9, Zadanie2PS9, Zadanie3PS9, Zadanie4PS9, Zadanie5PS9, \
     Zadanie6PS9, Zadanie8PS9, Zadanie7PS9, Zadanie9PS9
-from PodstawySzkolenie.l_12_Podstawy_Szkolenie_10 import Zadanie1PS10, Zadanie2PS10, Zadanie4PS10
+from PodstawySzkolenie.zadania.l_Podstawy_Szkolenie_10 import Zadanie1PS10, Zadanie2PS10, Zadanie4PS10
 
 
 def main():
