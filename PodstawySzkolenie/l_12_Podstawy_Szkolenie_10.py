@@ -1,3 +1,5 @@
+from pprint import pprint, pformat
+
 from PodstawySzkolenie.Szkolenie import Szkolenie
 from helpers import print_doc
 
@@ -113,7 +115,8 @@ class ZajezdniaTramwajowa(Zajezdnia):
         return suma_wagonow
 
     def __str__(self):
-        """Metoda zmieniająca instancje klasy zapisane na liście w czytelnego stringa i drukująca dane"""
+        """Metoda zmieniająca instancje klasy zapisane na liście w czytelnego stringa i drukująca dane
+            Celowo nie zmieniałem metody na repr, żeby mieć zapisane dwa rozwiązania """
         opis_pojazdow = [str(pojazd) for pojazd in self.pojazdy]
         return (f"Nazwa zajezdni: {self.nazwa}, Typ: {type(self).__name__}, "
                 f"Opis pojazdów: {', '.join(opis_pojazdow)}, \nSumaryczne zużycie paliwa: {self.sumuj_wagony()}")
@@ -134,12 +137,10 @@ class ZajezdniaAutobusowa(Zajezdnia):
         suma_paliwa = sum(pojazd.zuzycie_paliwa for pojazd in self.pojazdy if isinstance(pojazd, Autobus))
         return suma_paliwa
 
-    def __str__(self):
-        """Metoda zmieniająca instancje klasy zapisane na liście w czytelnego stringa i drukująca dane"""
-        opis_pojazdow = [str(pojazd) for pojazd in self.pojazdy]
-        # zmienia w druk z domyślnego obiektu klasy na czytelnego str
-        return (f"Nazwa zajezdni: {self.nazwa}, Typ: {type(self).__name__}, "
-                f"Opis pojazdów: {', '.join(opis_pojazdow)}, \nSumaryczne zużycie paliwa: {self.sumuj_paliwo()}")
+    def __repr__(self):
+        """Meotda drukująca dane"""
+        return f"Nazwa zajezdni: {self.nazwa}, Typ: {type(self).__name__}, " \
+               f"Opis pojazdów: {self.pojazdy}, \nSumaryczne zużycie paliwa: {self.sumuj_paliwo()}"
 
 
 class KompnikacjaMiejska(Pojazdy):
@@ -155,7 +156,7 @@ class Autobus(KompnikacjaMiejska):
         super().__init__(szybkosc_maksymalna, numer)
         self.zuzycie_paliwa = zuzycie_paliwa
 
-    def __str__(self):
+    def __repr__(self):
         """Metoda drukująca dane o pojeździe"""
         return (f"\n Pojazd: {type(self).__name__}, Szybkość maksymalna: {self.szybkosc_maksymalna}, "
                 f"Numer: {self.numer}, Zużycie paliwa: {self.zuzycie_paliwa}")
@@ -305,6 +306,37 @@ class CardsSubManager:
 
 
 class Zadanie3PS10(Szkolenie):
+    """Part I: Members, Students and Instructors
+        You're starting your own web development school called Codebar!
+        Everybody at Codebar - whether they are attending workshops or teaching them - is a Member:
+
+        Each member has a full_name.
+        Each member should be able to introduce themselves (e.g., "Hi, my name is Kevin!").
+        Each Member is also either a Student or an Instructor:
+
+        Each Student has a reason for attending Codebar (e.g., "I've always wanted to make websites!").
+        Each Instructor a bio (e.g., "I've been coding in Python for 5 years and want to share the love!").
+        Each Instructor also has a set of skills (e.g., ["Python", "Javascript", "C++"]).
+        An Instructor can gain a new skill using add_skill.
+        Part II: Workshops
+        Codebar also has Workshops. Each Workshop has:
+
+        A date.
+        A subject.
+        A group of instructors.
+        A roster of students.
+        An add_participant method that accepts a member as an argument.
+        If the Member is an Instructor, add them to the instructors list.
+        If a Member is a Student, add them to the students list.
+        Create another method print_details that outputs the details of the workshop.
+
+        Bonus
+        The print_details method currently does a number of different things,
+        like printing out workshop details, the list of Students and the list of Coaches.
+
+        Create separate methods to print the workshop details (date and classroom),
+        a method to print out the students and one to print out the coaches.
+        Call these from print_details instead of having all the code there."""
 
     def __init__(self, szkolenie, zadanie):
         super().__init__(szkolenie, zadanie)
