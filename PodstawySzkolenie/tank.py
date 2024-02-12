@@ -1,5 +1,5 @@
 from datetime import datetime
-from pprint import pprint
+import pprint
 from typing import Dict
 
 
@@ -12,10 +12,11 @@ class Tank:
         self.operations_history = []
 
     def __str__(self):
-        return pprint(self.__dict__)
+        # użycie pprint.pformat rozwiązało problem
+        return pprint.pformat(self.__dict__)
 
     def __repr__(self):
-        return pprint(self.__dict__)
+        return pprint.pformat(self.__dict__)
 
 
 class Operation:
@@ -206,17 +207,17 @@ def main():
     tank2 = Tank("Tank2", 100, 40)
     tank3 = Tank("Tank3", 200, 50)
     tank4 = Tank("Tank4", 100, 50)
-    #tank5 = Tank("Tank5", 200, 50)
-    #tank6 = Tank("Tank6", 100, 0)
-    #tank7 = Tank("Tank7", 100, 0)
+    tank5 = Tank("Tank5", 200, 50)
+    tank6 = Tank("Tank6", 100, 0)
+    tank7 = Tank("Tank7", 100, 0)
 
     operation.add_tank_to_list(tank1)
     operation.add_tank_to_list(tank2)
     operation.add_tank_to_list(tank3)
     operation.add_tank_to_list(tank4)
-    #operation.add_tank_to_list(tank5)
-    #operation.add_tank_to_list(tank6)
-    #operation.add_tank_to_list(tank7)
+    operation.add_tank_to_list(tank5)
+    operation.add_tank_to_list(tank6)
+    operation.add_tank_to_list(tank7)
 
     """print("Tank1:")
         operation.pour_water(tank1, 20)
@@ -267,7 +268,10 @@ def main():
     """for tank_name, tank_data in operation.tanks_dict.items():
         print(tank_name)
         print(tank_data)"""
-    print(operation.tanks_dict)
+    # TODO
+    # dlaczego drukuje w kolejnośc capacity': 200, 'name': 'Tank5', 'operations_history': [], 'water_lvl': 50
+    # jak to zmienić
+    pprint.pprint(operation.tanks_dict)
 
 
 if __name__ == "__main__":
