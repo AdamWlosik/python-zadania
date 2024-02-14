@@ -1,4 +1,4 @@
-from python_zaawansowany.zadania.regex import Task1Regex, Task2Regex, Task3Regex
+from python_zaawansowany.zadania.regex import Task1Regex, Task2Regex, Task3Regex, Task4Regex
 
 
 def main():
@@ -22,6 +22,9 @@ def main():
             elif task == 3:
                 task3 = Task3Regex(training, task)
                 task3.rozwiazanie()
+            elif task == 4:
+                task4 = Task4Regex(training, task)
+                task4.rozwiazanie()
 
 
 if __name__ == "__main__":

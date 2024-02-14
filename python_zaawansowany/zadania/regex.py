@@ -77,6 +77,38 @@ class Task3Regex(Szkolenie):
 
     @staticmethod
     def check(text):
+        """Metoda sprawdzająca, czy ciąg liter jest rozdzielony _"""
         pattern = r'^[a-z]+_+[a-z]+$'
         return bool(re.match(pattern, text))
+
+
+class Task4Regex(Szkolenie):
+    """Zad. 4
+        Znajdź słowa, które kończą się co najmniej dwiema literami ‘s’, np.
+        -	hiss
+        -	hisssss
+        -	His
+        """
+
+    def __init__(self, training, task):
+        super().__init__(training, task)
+
+    @print_doc
+    def rozwiazanie(self):
+        text = "hiss hisssss His"
+        print(self.find_word_findall(text))
+        print(self.find_word_search(text))
+
+    @staticmethod
+    def find_word_findall(text):
+        """Metoda szukająca słów zakończonych ss przy użyciu findall()"""
+        pattern = r'\b\w*ss+\b'
+        return re.findall(pattern, text)
+
+    @staticmethod
+    def find_word_search(text):
+        """Metoda szukająca słów zakończonych ss przy użyciu search() oraz inny sposób zapisu patternu"""
+        pattern = r'\S{2}s{2}\S{0,}'
+        match = re.search(pattern, text)
+        return match.group()
 
