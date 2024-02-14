@@ -1,7 +1,7 @@
 import string
 
 from PodstawySzkolenie.Szkolenie import Szkolenie
-from helpers import print_doc
+from PodstawySzkolenie.helpers import print_doc
 
 
 class Zadanie1KZ(Szkolenie):

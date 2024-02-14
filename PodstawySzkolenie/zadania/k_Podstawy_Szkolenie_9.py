@@ -1,8 +1,8 @@
-from datetime import datetime, timedelta
+from datetime import datetime
 import random
 
 from PodstawySzkolenie.Szkolenie import Szkolenie
-from helpers import print_doc
+from PodstawySzkolenie.helpers import print_doc
 
 
 class Zadanie1PS9(Szkolenie):

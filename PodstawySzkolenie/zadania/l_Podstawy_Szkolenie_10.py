@@ -1,7 +1,7 @@
 from pprint import pprint, pformat
 
 from PodstawySzkolenie.Szkolenie import Szkolenie
-from helpers import print_doc
+from PodstawySzkolenie.helpers import print_doc
 
 
 class Zadanie1PS10(Szkolenie):
