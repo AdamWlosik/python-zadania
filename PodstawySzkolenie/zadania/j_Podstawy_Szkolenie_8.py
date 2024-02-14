@@ -2,7 +2,7 @@ import json
 from collections import OrderedDict
 
 from PodstawySzkolenie.Szkolenie import Szkolenie
-from helpers import print_doc
+from PodstawySzkolenie.helpers import print_doc
 
 
 class Zadanie1PS8(Szkolenie):
@@ -73,12 +73,12 @@ class Zadanie3PS8(Szkolenie):
 
     def _zapisz_plik(self):
         """Metoda zapisująca podany tekst do pliku"""
-        with open("przyklad.txt", "w", encoding="utf8") as plik:
+        with open("../przyklad.txt", "w", encoding="utf8") as plik:
             plik.write(self.INWOKACJA)
 
     def _wyswietl_parzyste(self):
         """Metoda wyświetlająca parzyste linie wczytane z pliku"""
-        with open("przyklad.txt", encoding="utf8") as plik:
+        with open("../przyklad.txt", encoding="utf8") as plik:
             linie = plik.readlines()
             for index, linia in enumerate(linie, start=1):
                 if index % 2 == 0:
@@ -96,7 +96,7 @@ class Zadanie4PS8(Szkolenie):
 
     @print_doc
     def rozwiazanie(self):
-        with open("utf8 - ascii i róznice.txt", encoding="utf8") as plik:
+        with open("../utf8 - ascii i róznice.txt", encoding="utf8") as plik:
             for linia in plik:
                 print(linia, end='')
 
@@ -117,7 +117,7 @@ class Zadanie5PS8(Szkolenie):
 
     @print_doc
     def rozwiazanie(self):
-        with open("przyklad2.txt", encoding="utf-8") as plik:
+        with open("../przyklad2.txt", encoding="utf-8") as plik:
             plik.tell()
             plik.seek(43)
             print(plik.read(1))
@@ -143,7 +143,7 @@ class Zadanie6PS8(Szkolenie):
 
     @print_doc
     def rozwiazanie(self):
-        with open("text.txt") as plik:
+        with open("../text.txt") as plik:
             for index, line in enumerate(plik):
                 if index == 3:
                     print(line)
@@ -192,7 +192,7 @@ class Zadanie7PS8(Szkolenie):
 
     def _wczytaj_plik(self):
         """Motoda wczczytująca plik txt do zmiennej"""
-        with open("przyklad7.txt", encoding="utf=8") as plik:
+        with open("../przyklad7.txt", encoding="utf=8") as plik:
             zawartosc_pliku = plik.read()
             return zawartosc_pliku
 
@@ -223,7 +223,7 @@ class Zadanie7PS8(Szkolenie):
         return nowy_str
 
     def _zapisz(self):
-        with open("przyklad7odp.txt", "w", encoding="utf8") as plik:
+        with open("../przyklad7odp.txt", "w", encoding="utf8") as plik:
             plik.write(str(self.nowy_str))
 
 
@@ -252,7 +252,7 @@ class Zadanie9PS8(Szkolenie):
 
     def _odczytaj_json(self):
         """Motoda wczytująca dane z pliku json do zmiennej"""
-        with open("10 Podstawy Szkolenie 8 - data.json", encoding="utf=8") as plik:
+        with open("../10 Podstawy Szkolenie 8 - data.json", encoding="utf=8") as plik:
             dane_json = json.load(plik)
             return dane_json
 
@@ -288,5 +288,5 @@ class Zadanie8PS8(Szkolenie):
         return odwrocony_slownik
 
     def _zapis_json(self):
-        with open("output.json", "w", encoding='utf8') as plik:
+        with open("../output.json", "w", encoding='utf8') as plik:
             json.dump(self.odwrocony_slownik, plik, ensure_ascii=False)
