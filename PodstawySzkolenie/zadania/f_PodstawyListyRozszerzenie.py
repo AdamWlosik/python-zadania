@@ -1,7 +1,7 @@
 import random
 import string
 
-from PodstawySzkolenie.Szkolenie import Szkolenie
+from Szkolenie import Szkolenie
 
 
 class Zadanie1LR(Szkolenie):

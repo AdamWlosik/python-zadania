@@ -1,4 +1,4 @@
-from PodstawySzkolenie.Szkolenie import Szkolenie
+from Szkolenie import Szkolenie
 
 
 class Szkolenie1(Szkolenie):

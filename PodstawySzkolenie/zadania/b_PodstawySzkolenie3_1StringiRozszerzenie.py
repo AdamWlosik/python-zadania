@@ -1,6 +1,6 @@
 import random
 
-from PodstawySzkolenie.Szkolenie import Szkolenie
+from Szkolenie import Szkolenie
 
 
 class Szkolenie2(Szkolenie):
