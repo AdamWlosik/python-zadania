@@ -113,7 +113,8 @@ class ZajezdniaTramwajowa(Zajezdnia):
         return suma_wagonow
 
     def __str__(self):
-        """Metoda zmieniająca instancje klasy zapisane na liście w czytelnego stringa i drukująca dane"""
+        """Metoda zmieniająca instancje klasy zapisane na liście w czytelnego stringa i drukująca dane
+            Celowo nie zmieniałem metody na repr, żeby mieć zapisane dwa rozwiązania """
         opis_pojazdow = [str(pojazd) for pojazd in self.pojazdy]
         return (f"Nazwa zajezdni: {self.nazwa}, Typ: {type(self).__name__}, "
                 f"Opis pojazdów: {', '.join(opis_pojazdow)}, \nSumaryczne zużycie paliwa: {self.sumuj_wagony()}")
@@ -134,12 +135,10 @@ class ZajezdniaAutobusowa(Zajezdnia):
         suma_paliwa = sum(pojazd.zuzycie_paliwa for pojazd in self.pojazdy if isinstance(pojazd, Autobus))
         return suma_paliwa
 
-    def __str__(self):
-        """Metoda zmieniająca instancje klasy zapisane na liście w czytelnego stringa i drukująca dane"""
-        opis_pojazdow = [str(pojazd) for pojazd in self.pojazdy]
-        # zmienia w druk z domyślnego obiektu klasy na czytelnego str
-        return (f"Nazwa zajezdni: {self.nazwa}, Typ: {type(self).__name__}, "
-                f"Opis pojazdów: {', '.join(opis_pojazdow)}, \nSumaryczne zużycie paliwa: {self.sumuj_paliwo()}")
+    def __repr__(self):
+        """Meotda drukująca dane"""
+        return f"Nazwa zajezdni: {self.nazwa}, Typ: {type(self).__name__}, " \
+               f"Opis pojazdów: {self.pojazdy}, \nSumaryczne zużycie paliwa: {self.sumuj_paliwo()}"
 
 
 class KompnikacjaMiejska(Pojazdy):
@@ -155,7 +154,7 @@ class Autobus(KompnikacjaMiejska):
         super().__init__(szybkosc_maksymalna, numer)
         self.zuzycie_paliwa = zuzycie_paliwa
 
-    def __str__(self):
+    def __repr__(self):
         """Metoda drukująca dane o pojeździe"""
         return (f"\n Pojazd: {type(self).__name__}, Szybkość maksymalna: {self.szybkosc_maksymalna}, "
                 f"Numer: {self.numer}, Zużycie paliwa: {self.zuzycie_paliwa}")
@@ -211,31 +210,208 @@ class Zadanie4PS10(Szkolenie):
 
     @print_doc
     def rozwiazanie(self):
-        while True:
-            print("\nMenu:")
-            print("1. Dodaj notatkę")
-            print("2. Dodaj wizytówkę")
-            print("3. Wyświetl wszystkie notatki")
-            print("4. Wyświetl wszystkie wizytówki")
-            print("5. Wyjdź")
-            try:
-                choice = int(input("Wybierz opcję: "))
-            except ValueError:
-                print('Nie psuj')
-                continue
-            self.menu(choice)
+        manager = Manager()
+        manager.start()
 
-    def menu(self, choice):
+
+class Manager:
+
+    def __init__(self):
+        self.menu = Menu()
+        self.notes_sub_manager = NotesSubManager()
+        self.cards_sub_manager = CardsSubManager()
+
+    def start(self):
+        """Metoda startowa uruchamiająca metody menu, get_choice i execute"""
+        while True:
+            self.show_menu()
+            choice = self.menu.get_choice()
+            self.execute(choice)
+
+    def show_menu(self):
+        """Metoda wyświetlająca menu"""
+        self.menu.show()
+
+    def execute(self, choice):
+        """Metoda przyjmująca wybór użytkownika jako argument"""
         match choice:
             case 1:
-                pass
+                self.notes_sub_manager.add()
             case 2:
-                pass
+                self.cards_sub_manager.add()
             case 3:
-                pass
+                self.notes_sub_manager.show()
             case 4:
-                pass
+                self.cards_sub_manager.show()
             case 5:
                 exit()
             case _:
                 print("Nieprawidłowy wybór")
+
+
+class Menu:
+
+    def __init__(self):
+        pass
+
+    def show(self):
+        """Metoda wyświetlająca opcje z mennu"""
+        print("\nMenu:")
+        print("1. Dodaj notatkę")
+        print("2. Dodaj wizytówkę")
+        print("3. Wyświetl wszystkie notatki")
+        print("4. Wyświetl wszystkie wizytówki")
+        print("5. Wyjdź")
+
+    def get_choice(self):
+        """Metoda wczytująca od użtykownika wybraną opcje z menu i zwracająca ten wybór"""
+        try:
+            choice = int(input("Wybierz opcję: "))
+        except ValueError:
+            print('Nie psuj')
+            exit()
+        return choice
+
+
+class NotesSubManager:
+
+    def __init__(self):
+        self.notes_list = []
+
+    def add(self):
+        """Metoda służąca do dodania notatki do listy"""
+        note = input("Wprowadź notatkę: ")
+        self.notes_list.append(note)
+
+    def show(self):
+        """Metodaa wyświetlająca liste notatek"""
+        print(self.notes_list)
+
+
+class CardsSubManager:
+
+    def __init__(self):
+        self.cards_list = []
+
+    def add(self):
+        """Metoda służąca do dodania wizytówki do listy"""
+        card = input("Podaj wizytówkę: ")
+        self.cards_list.append(card)
+
+    def show(self):
+        """Metodaa wyświetlająca liste wizytówek"""
+        print(self.cards_list)
+
+
+class Zadanie3PS10(Szkolenie):
+    """Part I: Members, Students and Instructors
+        You're starting your own web development school called Codebar!
+        Everybody at Codebar - whether they are attending workshops or teaching them - is a Member:
+
+        Each member has a full_name.
+        Each member should be able to introduce themselves (e.g., "Hi, my name is Kevin!").
+        Each Member is also either a Student or an Instructor:
+
+        Each Student has a reason for attending Codebar (e.g., "I've always wanted to make websites!").
+        Each Instructor a bio (e.g., "I've been coding in Python for 5 years and want to share the love!").
+        Each Instructor also has a set of skills (e.g., ["Python", "Javascript", "C++"]).
+        An Instructor can gain a new skill using add_skill.
+        Part II: Workshops
+        Codebar also has Workshops. Each Workshop has:
+
+        A date.
+        A subject.
+        A group of instructors.
+        A roster of students.
+        An add_participant method that accepts a member as an argument.
+        If the Member is an Instructor, add them to the instructors list.
+        If a Member is a Student, add them to the students list.
+        Create another method print_details that outputs the details of the workshop.
+
+        Bonus
+        The print_details method currently does a number of different things,
+        like printing out workshop details, the list of Students and the list of Coaches.
+
+        Create separate methods to print the workshop details (date and classroom),
+        a method to print out the students and one to print out the coaches.
+        Call these from print_details instead of having all the code there."""
+
+    def __init__(self, szkolenie, zadanie):
+        super().__init__(szkolenie, zadanie)
+
+    @print_doc
+    def rozwiazanie(self):
+        workshop = Workshop("12/03/2014", "Shutl")
+
+        jane = Student("Jane Doe", "I am trying to learn programming and need some help")
+        lena = Student("Lena Smith", "I am really excited about learning to program!")
+        vicky = Instructor("Vicky Python", "I want to help people learn coding.")
+        vicky.add_skill("HTML")
+        vicky.add_skill("JavaScript")
+        nicole = Instructor("Nicole McMillan",
+                            "I have been programming for 5 years in Python and want to spread the love")
+        nicole.add_skill("Python")
+
+        workshop.add_participant(jane)
+        workshop.add_participant(lena)
+        workshop.add_participant(vicky)
+        workshop.add_participant(nicole)
+        workshop.print_details()
+
+
+class Member:
+
+    def __init__(self, full_name):
+        self.full_name = full_name
+
+    def introduce(self):
+        """Metoda wyświetlająca przywitanie + full_name"""
+        print(f"Hi my name is {self.full_name}!")
+
+
+class Student(Member):
+
+    def __init__(self, full_name, reason):
+        super().__init__(full_name)
+        self.reason = reason
+
+
+class Instructor(Member):
+
+    def __init__(self, full_name, bio):
+        super().__init__(full_name)
+        self.bio = bio
+        self.skills = []
+
+    def add_skill(self, skill):
+        """Metoda przyjmująca skill i dodająca go do listy"""
+        self.skills.append(skill)
+        # print(self.skills)
+
+
+class Workshop:
+
+    def __init__(self, data, subject):
+        self.data = data
+        self.subject = subject
+        self.instructors = []
+        self.students = []
+
+    def add_participant(self, member):
+        """Metoda dodająca do listy w zależności od classy"""
+        if member.__class__.__name__ == "Instructor":
+            self.instructors.append(member)
+        elif member.__class__.__name__ == "Student":
+            self.students.append(member)
+
+    def print_details(self):
+        """Metoda wyświetlająca"""
+        print(f"Date: {self.data}, Subject: {self.subject}")
+        print("Instructors: ")
+        for instrucktor in self.instructors:
+            print(f"Name: {instrucktor.full_name}, bio: {instrucktor.bio}")
+            for skill in instrucktor.skills:
+                print(f"Skills: {skill}")
+        print("Students: ")
+        for student in self.students:
+            print(f"Name: {student.full_name}, Reason: {student.reason}")
