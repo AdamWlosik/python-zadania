@@ -112,3 +112,32 @@ class Task4Regex(Szkolenie):
         match = re.search(pattern, text)
         return match.group()
 
+
+class Task5Regex(Szkolenie):
+    """Zad. 5
+        Znajdź stringa, który zawiera co najmniej sześć liter i nie zawiera litery ‘A’, np.
+
+        -	unique New York
+        ale niepasujące:
+        -	Regular Expressions
+        -	ALOHA
+        -	Python should match
+        """
+
+    def __init__(self, training, taks):
+        super().__init__(training, taks)
+
+    @print_doc
+    def rozwiazanie(self):
+        lines = ["unique New York", "Regular Expressions", "ALOHA", "Python should match", "new"]
+        for line in lines:
+            if self.found(line) is not None:
+                print(self.found(line))
+
+    @staticmethod
+    def found(txt):
+        """Funkcja zwracająca stringa bez A i z minimum 6 znaków"""
+        pattern = r'\b(?!(?:.*a){1})[a-zA-Z]{6,}\b'
+        match = re.match(pattern, txt)
+        if match is not None:
+            return txt
