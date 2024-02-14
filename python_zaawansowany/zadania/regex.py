@@ -131,8 +131,9 @@ class Task5Regex(Szkolenie):
     def rozwiazanie(self):
         lines = ["unique New York", "Regular Expressions", "ALOHA", "Python should match", "new"]
         for line in lines:
-            if self.found(line) is not None:
-                print(self.found(line))
+            found = self.found(line)
+            if found is not None:
+                print(found)
 
     @staticmethod
     def found(txt):
