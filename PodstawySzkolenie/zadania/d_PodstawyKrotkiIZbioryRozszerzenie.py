@@ -1,6 +1,6 @@
 import string
 
-from Szkolenie import Szkolenie
+from PodstawySzkolenie.Szkolenie import Szkolenie
 from helpers import print_doc
 
 

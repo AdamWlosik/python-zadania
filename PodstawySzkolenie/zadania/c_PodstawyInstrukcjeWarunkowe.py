@@ -1,7 +1,7 @@
 import random
 import time
 
-from Szkolenie import Szkolenie
+from PodstawySzkolenie.Szkolenie import Szkolenie
 
 
 class Szkolenie3(Szkolenie):

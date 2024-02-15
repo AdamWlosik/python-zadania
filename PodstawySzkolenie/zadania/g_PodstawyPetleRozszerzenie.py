@@ -1,6 +1,6 @@
 import string
 
-from Szkolenie import Szkolenie
+from PodstawySzkolenie.Szkolenie import Szkolenie
 
 
 class Zadanie1PPR(Szkolenie):

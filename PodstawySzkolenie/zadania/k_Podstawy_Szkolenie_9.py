@@ -2,7 +2,7 @@ from datetime import datetime
 import random
 from pprint import pprint
 
-from Szkolenie import Szkolenie
+from PodstawySzkolenie.Szkolenie import Szkolenie
 from helpers import print_doc
 
 
