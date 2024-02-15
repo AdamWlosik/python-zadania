@@ -1,5 +1,5 @@
 from python_zaawansowany.zadania.regex import Task1Regex, Task2Regex, Task3Regex, Task4Regex, Task5Regex, Task6Regex, \
-    Task7Regex, Task8Regex, Task9Regex, Task10Regex
+    Task7Regex, Task8Regex, Task9Regex, Task10Regex, Task11Regex
 
 
 def main():
@@ -44,7 +44,9 @@ def main():
             elif task == 10:
                 task10 = Task10Regex(training, task)
                 task10.solution()
-
+            elif task == 11:
+                task11 = Task11Regex(training, task)
+                task11.solution()
 
 
 if __name__ == "__main__":

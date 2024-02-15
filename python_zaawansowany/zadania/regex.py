@@ -286,3 +286,35 @@ class Task10Regex(Training):
                              r'|sierpień|wrzesień|październik|lisopad|grudzień)'
                              r'[-/.](?:0[1-9]|[12][0-9]|3[01]|d{2})\b')
         return pattern.findall(txt)
+
+
+class Task11Regex(Training):
+    """Zad. 11
+        Sprawdź, czy podany string jest zapisem koloru w systemie szesnastkowym (HEX).
+        -	string musi się zaczynać znakiem #
+        -	następnie musi zawierać 3 lub 6 (ale nie 4 lub 5)
+            znaki kodu szesnastkowego pisane małą lub wielką literą;
+
+        Przykłady:
+        #ab4
+        #AB4B72
+
+        Błędne przykłady:
+        #ab43
+        #aaaaaaaaa
+        #ahl
+        """
+
+    def __init__(self, training, task):
+        super().__init__(training, task)
+
+    @print_doc
+    def solution(self):
+        colors = ["#ab4", "#AB4B72", "#ab43", "#aaaaaaaaa", "#ahl"]
+        for color in colors:
+            print(f"{color}: {self.check_hex(color)}")
+
+    @staticmethod
+    def check_hex(color):
+        pattern = re.compile(r'^#[0-9a-fA-F]{3}(?:[0-9a-fA-F]{3})$')
+        return bool(pattern.match(color))
