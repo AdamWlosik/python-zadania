@@ -3,7 +3,7 @@ import random
 from pprint import pprint
 
 from PodstawySzkolenie.Szkolenie import Szkolenie
-from PodstawySzkolenie.helpers import print_doc
+from helpers import print_doc
 
 
 class Zadanie1PS9(Szkolenie):
