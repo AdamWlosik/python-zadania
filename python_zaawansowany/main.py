@@ -1,3 +1,6 @@
+from python_zaawansowany.zadania.dekoratory import Task1Dek
+
+
 def main():
     while True:
         try:
@@ -12,7 +15,9 @@ def main():
         if training == 1:
             pass
         elif training == 2:
-            pass
+            if task == 1:
+                task1 = Task1Dek(training, task)
+                task1.solution()
 
 
 if __name__ == "__main__":
