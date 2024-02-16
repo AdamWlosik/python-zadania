@@ -47,6 +47,8 @@ def main():
             elif task == 11:
                 task11 = Task11Regex(training, task)
                 task11.solution()
+            elif training == 2:
+                pass
 
 
 if __name__ == "__main__":
