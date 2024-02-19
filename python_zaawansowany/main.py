@@ -13,6 +13,11 @@ def main():
             pass
         elif training == 2:
             pass
+        elif training == 3:
+            pass
+        elif training == 4:
+            if task == 1:
+                pass
 
 
 if __name__ == "__main__":

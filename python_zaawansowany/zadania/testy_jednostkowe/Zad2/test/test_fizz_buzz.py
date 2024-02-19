@@ -1,0 +1,26 @@
+from python_zaawansowany.zadania.testy_jednostkowe.Zad2.funcionality.fizz_buzz import fizz_buzz
+
+
+class TestFizzBuzz:
+    """Zad. 2
+        Napisz funkcję, która zwracać będzie “Fizz”,
+        gdy prześlesz do niej wartość podzielną przez 3, “Buzz”,
+        gdy podzielną przez 5, a “FizzBuzz”, gdy liczba będzie podzielna przez obie te wartości.
+        Napisz do niej testy jednostkowe.
+        """
+
+    def test_when_number_is_3(self):
+        number = 3
+        assert fizz_buzz(number) == "Fizz"
+
+    def test_when_number_is_5(self):
+        number = 5
+        assert fizz_buzz(number) == "Buzz"
+
+    def test_when_number_is_15(self):
+        number = 15
+        assert fizz_buzz(number) == "FizzBuzz"
+
+    def test_when_number_is_1(self):
+        number = 1
+        assert fizz_buzz(number) is None
