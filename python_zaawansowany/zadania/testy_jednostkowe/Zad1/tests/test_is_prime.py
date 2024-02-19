@@ -1,7 +1,7 @@
 import pytest
 
 from helpers import print_doc
-from python_zaawansowany.zadania.testy_jednostkowe.Zad1.funcionality.is_prime import is_prime
+from python_zaawansowany.zadania.testy_jednostkowe.Zad1.functionality.is_prime import is_prime
 
 
 class TestIsPrime:
@@ -22,18 +22,20 @@ class TestIsPrime:
         (8, False),
         (9, False),
         (10, False),
+        (-1, False),
+        (0, False),
     ])
-    def test_number_1_to_10(self, number, expect):
+    def test_number_negative_1_to_10(self, number, expect):
         assert is_prime(number) == expect
 
-    def test_negative_number(self):
+    """def test_negative_number(self):
         number = -1
         assert not is_prime(number)
 
     def test_0(self):
         number = 0
         assert not is_prime(number)
-
+"""
     def test_float_number(self):
         number = 0.5
         assert not is_prime(number)
