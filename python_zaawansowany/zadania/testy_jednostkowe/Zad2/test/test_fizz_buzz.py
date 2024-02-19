@@ -1,3 +1,5 @@
+import pytest
+
 from python_zaawansowany.zadania.testy_jednostkowe.Zad2.funcionality.fizz_buzz import fizz_buzz
 
 
@@ -24,3 +26,12 @@ class TestFizzBuzz:
     def test_when_number_is_1(self):
         number = 1
         assert fizz_buzz(number) is None
+
+    def test_when_number_is_float(self):
+        number = 0.5
+        assert fizz_buzz(number) is None
+
+    def test_when_number_is_str_should_raise_exception(self):
+        number = "a"
+        with pytest.raises(TypeError):
+            fizz_buzz(number)
