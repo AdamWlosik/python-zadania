@@ -1,6 +1,7 @@
 from datetime import datetime, timezone
 
 
+
 def calc_diff(case):
     end_time = case['end_time']
     start_time = case['start_time']
@@ -25,3 +26,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

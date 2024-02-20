@@ -10,6 +10,7 @@ class TestFizzBuzz:
         gdy podzielną przez 5, a “FizzBuzz”, gdy liczba będzie podzielna przez obie te wartości.
         Napisz do niej testy jednostkowe.
         """
+
     @pytest.mark.parametrize("number, expect", [
         (3, "Fizz"),
         (5, "Buzz"),
@@ -31,6 +32,7 @@ class TestFizzBuzz:
           number = 1
           assert fizz_buzz(number) is None
   """
+
     def test_when_number_is_float(self):
         number = 0.5
         assert fizz_buzz(number) is None
@@ -39,3 +41,5 @@ class TestFizzBuzz:
         number = "a"
         with pytest.raises(TypeError):
             fizz_buzz(number)
+
+
