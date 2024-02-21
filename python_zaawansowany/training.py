@@ -1,4 +1,4 @@
-from abc import ABC, abstractmethod
+from abc import ABC
 
 
 class Training(ABC):
@@ -11,6 +11,6 @@ class Training(ABC):
     def title(self):
         print(f"Wybrałeś szkolenie: {self.training} i zadanie: {self.task}: ")
 
-    @abstractmethod
+    # @abc.abstractmethod
     def solution(self):
         pass
