@@ -1,8 +1,11 @@
+import tkinter
+
 from ciphering_rot47_rot13.functionality.main import MenuApp
 
 
 class TestMenuApp:
-    menu_app = MenuApp
+    tkinter_root = tkinter.Tk()
+    menu_app = MenuApp(tkinter_root)
 
     # TODO
     # sprawdzic testy
@@ -60,3 +63,8 @@ class TestMenuApp:
         self.menu_app.print_encrypted_words()
         captured = capsys.readouterr()
         assert captured.out.strip() == '[{"test": "test"}]'
+        # with capsys.readouterr():
+        #     self.menu_app.memory = [{"test": "test"}]
+        #     self.menu_app.print_encrypted_words()
+        #     captured = capsys.readouterr()
+        #     assert captured.out.strip() == '[{"test": "test"}]'

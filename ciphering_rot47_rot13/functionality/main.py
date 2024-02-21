@@ -9,7 +9,7 @@ from ciphering_rot47_rot13.functionality.rot47_cipher import Rot47Cipher
 class MenuApp:
     memory: list = []
 
-    def __init__(self):
+    def __init__(self, root):
         self.root = root
         self.root.title = "Ciphering App"
         self.menu_button()
@@ -20,12 +20,12 @@ class MenuApp:
         self.decrypt_button = None
         self.encrypted_text = None
         # TODO
-        # jak powinien wyglądać model fasadowy czy classa MenuApp łapię się na niego
-        # czy powinienem sptworzyć osobna classe, która najpierw wywoływała by menu
-        # potem zależnie od zwróconego wyniku wywoływała dalsze metody
+        # instancje class w init
 
     def menu_button(self) -> None:
         """Metoda tworząca gui menu"""
+        #TODO
+        # metody znikają buttony wywołują metody z manager
         self.encrypt_button = tkinter.Button(
             self.root,
             text="Encrypt plain text (ROT47)",
@@ -133,6 +133,6 @@ class MenuApp:
 
 
 if __name__ == "__main__":
-    root = tkinter.Tk()
-    app = MenuApp()
+    tkinter_root = tkinter.Tk()
+    app = MenuApp(tkinter_root)
     app.root.mainloop()
