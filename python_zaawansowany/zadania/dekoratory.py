@@ -2,7 +2,7 @@ import time
 from dataclasses import dataclass
 
 from helpers import print_doc
-from python_zaawansowany.Training import Training
+from python_zaawansowany.training import Training
 from python_zaawansowany.zadania.decorators import logged, stars_decorator, StarsDecorator, count, arg_check, timethis
 
 

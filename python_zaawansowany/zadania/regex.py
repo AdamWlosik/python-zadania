@@ -1,6 +1,6 @@
 import re
 from helpers import print_doc
-from python_zaawansowany.Training import Training
+from python_zaawansowany.training import Training
 
 
 class Task1Regex(Training):
