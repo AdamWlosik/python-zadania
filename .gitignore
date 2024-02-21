@@ -120,7 +120,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-.env
+python_zaawansowany/zadania/testy_jednostkowe/Zad6/exampleenv
 .venv
 env/
 venv/
