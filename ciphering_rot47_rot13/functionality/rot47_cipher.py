@@ -1,4 +1,3 @@
-import pprint
 
 
 class Rot47Cipher:
@@ -13,7 +12,7 @@ class Rot47Cipher:
                 encrypted_text.append(chr(33 + ((j + 14) % 94)))
             else:
                 encrypted_text.append(text[char])
-        return ''.join(encrypted_text)
+        return "".join(encrypted_text)
 
     def decrypt(self, text: str) -> str:
         """Metoda deszyfrująca text rot47"""

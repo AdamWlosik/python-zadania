@@ -1,8 +1,8 @@
 import json
 from collections import OrderedDict
 
-from PodstawySzkolenie.Szkolenie import Szkolenie
 from helpers import print_doc
+from PodstawySzkolenie.Szkolenie import Szkolenie
 
 
 class Zadanie1PS8(Szkolenie):

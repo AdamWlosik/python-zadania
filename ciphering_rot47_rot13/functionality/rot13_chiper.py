@@ -11,7 +11,9 @@ class Rot13Cipher:
         shift: int = 13
         shift_lowercase: str = lowercase[shift:] + lowercase[:shift]
         shift_uppercase: str = uppercase[shift:] + lowercase[:shift]
-        translator: dict = str.maketrans(lowercase + uppercase, shift_lowercase + shift_uppercase)
+        translator: dict = str.maketrans(
+            lowercase + uppercase, shift_lowercase + shift_uppercase
+        )
         return translator
 
     def encrypt(self, text: str) -> str:
@@ -23,9 +25,3 @@ class Rot13Cipher:
         """Metoda deszyfrująca text rot 13"""
         table: dict = self.translator()
         return text.translate(table)
-
-
-
-
-
-

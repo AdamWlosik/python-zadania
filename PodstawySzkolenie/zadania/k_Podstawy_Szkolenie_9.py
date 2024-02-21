@@ -1,9 +1,9 @@
-from datetime import datetime
 import random
+from datetime import datetime
 from pprint import pprint
 
-from PodstawySzkolenie.Szkolenie import Szkolenie
 from helpers import print_doc
+from PodstawySzkolenie.Szkolenie import Szkolenie
 
 
 class Zadanie1PS9(Szkolenie):

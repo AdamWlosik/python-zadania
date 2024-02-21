@@ -19,7 +19,6 @@ class MenuApp:
         self.print_button = None
         self.decrypt_button = None
         self.encrypted_text = None
-        memory: list = []
         # TODO
         # jak powinien wyglądać model fasadowy czy classa MenuApp łapię się na niego
         # czy powinienem sptworzyć osobna classe, która najpierw wywoływała by menu
@@ -27,32 +26,48 @@ class MenuApp:
 
     def menu_button(self) -> None:
         """Metoda tworząca gui menu"""
-        self.encrypt_button = tkinter.Button(self.root, text="Encrypt plain text (ROT47)",
-                                             command=self.encrypt_text_rot47)
+        self.encrypt_button = tkinter.Button(
+            self.root,
+            text="Encrypt plain text (ROT47)",
+            command=self.encrypt_text_rot47,
+        )
         self.encrypt_button.pack(pady=10)
 
-        self.encrypt_button = tkinter.Button(self.root, text="Encrypt plain text (ROT13)",
-                                             command=self.encrypt_text_rot13)
+        self.encrypt_button = tkinter.Button(
+            self.root,
+            text="Encrypt plain text (ROT13)",
+            command=self.encrypt_text_rot13,
+        )
         self.encrypt_button.pack(pady=10)
 
-        self.save_button = tkinter.Button(self.root, text="Save encrypted texts to file",
-                                          command=self.save_to_file)
+        self.save_button = tkinter.Button(
+            self.root, text="Save encrypted texts to file", command=self.save_to_file)
         self.save_button.pack(pady=10)
 
-        self.decrypt_button = tkinter.Button(self.root, text="Decrypt encrypted text from file (ROT47)",
-                                             command=self.decrypt_from_file_rot47)
+        self.decrypt_button = tkinter.Button(
+            self.root,
+            text="Decrypt encrypted text from file (ROT47)",
+            command=self.decrypt_from_file_rot47,
+        )
         self.decrypt_button.pack(pady=10)
 
-        self.decrypt_button = tkinter.Button(self.root, text="Decrypt encrypted text from file (ROT13)",
-                                             command=self.decrypt_from_file_rot13)
+        self.decrypt_button = tkinter.Button(
+            self.root,
+            text="Decrypt encrypted text from file (ROT13)",
+            command=self.decrypt_from_file_rot13,
+        )
         self.decrypt_button.pack(pady=10)
 
-        self.print_button = tkinter.Button(self.root, text="Print encrypted words stored in memory",
-                                           command=self.print_encrypted_words)
+        self.print_button = tkinter.Button(
+            self.root,
+            text="Print encrypted words stored in memory",
+            command=self.print_encrypted_words,
+        )
         self.print_button.pack(pady=10)
 
-        self.exit_button = tkinter.Button(self.root, text="Exit",
-                                          command=self.root.quit)
+        self.exit_button = tkinter.Button(
+            self.root, text="Exit", command=self.root.quit
+        )
         self.exit_button.pack(pady=10)
 
     def encrypt_text_rot47(self) -> None:
@@ -62,7 +77,9 @@ class MenuApp:
         rot47_cipher = Rot47Cipher()
         self.encrypted_text = rot47_cipher.encrypt(text)
         print(self.encrypted_text)
-        self.memory.append([{"encryption rot47 text": text}, {"encrypted": self.encrypted_text}])
+        self.memory.append(
+            [{"encryption rot47 text": text}, {"encrypted": self.encrypted_text}]
+        )
 
     def encrypt_text_rot13(self) -> None:
         """Metoda uruchamiająca szyfrowanie rot 13"""
@@ -71,7 +88,9 @@ class MenuApp:
         rot13_cipher = Rot13Cipher()
         self.encrypted_text = rot13_cipher.encrypt(text)
         print(self.encrypted_text)
-        self.memory.append([{"encryption rot13 text": text}, {"encrypted": self.encrypted_text}])
+        self.memory.append(
+            [{"encryption rot13 text": text}, {"encrypted": self.encrypted_text}]
+        )
 
     def save_to_file(self) -> None:
         """Metoda uruchamiająca zapis do pliku"""
@@ -91,7 +110,9 @@ class MenuApp:
         rot47_cipher = Rot47Cipher()
         decrypted_text = rot47_cipher.decrypt(text)
         print(decrypted_text)
-        self.memory.append([{"decryption rot47 text": text}, {"decrypted": decrypted_text}])
+        self.memory.append(
+            [{"decryption rot47 text": text}, {"decrypted": decrypted_text}]
+        )
 
     def decrypt_from_file_rot13(self) -> None:
         """Metoda uruchamiająca deszyfrowanie rot13"""
@@ -102,7 +123,9 @@ class MenuApp:
         rot13_cipher = Rot13Cipher()
         decrypted_text = rot13_cipher.decrypt(text)
         print(decrypted_text)
-        self.memory.append([{"decryption rot13 text": text}, {"decrypted": decrypted_text}])
+        self.memory.append(
+            [{"decryption rot13 text": text}, {"decrypted": decrypted_text}]
+        )
 
     def print_encrypted_words(self) -> None:
         """Metoda wyświetlająca dziennik operacji"""
