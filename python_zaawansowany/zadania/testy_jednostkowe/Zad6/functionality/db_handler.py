@@ -7,6 +7,7 @@ class Config:
     DB_PASSWORD: str = config('DB_PASSWORD')
     OK_MSG: str = config('OK_MSG')
     NOK_MSG: str = config('NOK_MSG')
+    TEST: str = config('TEST')
 
 
 class DbHandler:
@@ -18,3 +19,9 @@ class DbHandler:
 
     def show_msg_when_interrputed(self):
         return f"{Config.NOK_MSG}"
+
+    def get_test(self):
+        return Config.TEST
+
+
+
