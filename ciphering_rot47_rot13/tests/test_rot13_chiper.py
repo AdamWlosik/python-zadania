@@ -7,12 +7,12 @@ class TestRot13Ciper:
         """Test metody szyfrującej rot47"""
         expect = "ebg13 vf gur rnfvrfg naq lrg cbjreshy pvcure!"
         text = "rot13 is the easiest and yet powerful cipher!"
-        encrypt = Rot13Cipher()
-        assert encrypt.encrypt(text) == expect
+        rot13_cipher = Rot13Cipher()
+        assert rot13_cipher.encrypt(text) == expect
 
     def test_decrypt(self):
         """Test metody deszyfrującej rot47"""
         text = "ebg13 vf gur rnfvrfg naq lrg cbjreshy pvcure!"
         expect = "rot13 is the easiest and yet powerful cipher!"
-        encrypt = Rot13Cipher()
-        assert encrypt.encrypt(text) == expect
+        rot13_cipher = Rot13Cipher()
+        assert rot13_cipher.encrypt(text) == expect

@@ -1,11 +1,15 @@
 import tkinter
+from pprint import pprint
 
+from ciphering_rot47_rot13.functionality.file_handler import FileHandler
 from ciphering_rot47_rot13.functionality.rot13_chiper import Rot13Cipher
 from ciphering_rot47_rot13.functionality.rot47_cipher import Rot47Cipher
 
 
 class MenuApp:
-    def __init__(self, root):
+    memory: list = []
+
+    def __init__(self):
         self.root = root
         self.root.title = "Ciphering App"
         self.menu_button()
@@ -14,8 +18,14 @@ class MenuApp:
         self.exit_button = None
         self.print_button = None
         self.decrypt_button = None
+        self.encrypted_text = None
+        memory: list = []
+        # TODO
+        # jak powinien wyglądać model fasadowy czy classa MenuApp łapię się na niego
+        # czy powinienem sptworzyć osobna classe, która najpierw wywoływała by menu
+        # potem zależnie od zwróconego wyniku wywoływała dalsze metody
 
-    def menu_button(self):
+    def menu_button(self) -> None:
         """Metoda tworząca gui menu"""
         self.encrypt_button = tkinter.Button(self.root, text="Encrypt plain text (ROT47)",
                                              command=self.encrypt_text_rot47)
@@ -45,42 +55,61 @@ class MenuApp:
                                           command=self.root.quit)
         self.exit_button.pack(pady=10)
 
-    @staticmethod
-    def encrypt_text_rot47():
+    def encrypt_text_rot47(self) -> None:
         """Metoda uruchamiająca szyfrowanie rot 47"""
         text = "ROT47 is the easiest and yet powerful cipher!"
-        encrypt = Rot47Cipher()
-        print(encrypt.encrypt(text))
+        # text = input("Podaj tekst do zaszyfrowania")
+        rot47_cipher = Rot47Cipher()
+        self.encrypted_text = rot47_cipher.encrypt(text)
+        print(self.encrypted_text)
+        self.memory.append([{"encryption rot47 text": text}, {"encrypted": self.encrypted_text}])
 
-    def encrypt_text_rot13(self):
+    def encrypt_text_rot13(self) -> None:
         """Metoda uruchamiająca szyfrowanie rot 13"""
         text = "rot13 is the easiest and yet powerful cipher!"
-        encrypt = Rot13Cipher()
-        print(encrypt.encrypt(text))
+        # text = input("Podaj tekst do zaszyfrowania")
+        rot13_cipher = Rot13Cipher()
+        self.encrypted_text = rot13_cipher.encrypt(text)
+        print(self.encrypted_text)
+        self.memory.append([{"encryption rot13 text": text}, {"encrypted": self.encrypted_text}])
 
-    def save_to_file(self):
+    def save_to_file(self) -> None:
         """Metoda uruchamiająca zapis do pliku"""
-        pass
+        if self.encrypted_text is None:
+            print("Brak zaszyfrowanego tekst do zapsiu")
+        else:
+            file_handler = FileHandler("test_file.txt")
+            file_handler.save_to_file(self.encrypted_text, append=False)
+        self.memory.append("saved to file")
 
-    @staticmethod
-    def decrypt_from_file_rot47():
+    def decrypt_from_file_rot47(self) -> None:
         """Metoda uruchamiająca deszyfrowanie rot47"""
-        text = "#~%cf :D E96 62D:6DE 2?5 J6E A@H6C7F= 4:A96CP"
-        decrypt = Rot47Cipher()
-        print(decrypt.decrypt(text))
+        # text = "#~%cf :D E96 62D:6DE 2?5 J6E A@H6C7F= 4:A96CP"
+        filename = "test_file.txt"
+        file_handler = FileHandler(filename)
+        text = file_handler.read_from_file()
+        rot47_cipher = Rot47Cipher()
+        decrypted_text = rot47_cipher.decrypt(text)
+        print(decrypted_text)
+        self.memory.append([{"decryption rot47 text": text}, {"decrypted": decrypted_text}])
 
-    def decrypt_from_file_rot13(self):
+    def decrypt_from_file_rot13(self) -> None:
         """Metoda uruchamiająca deszyfrowanie rot13"""
-        text = "ebg13 vf gur rnfvrfg naq lrg cbjreshy pvcure!"
-        decrypt = Rot13Cipher()
-        print(decrypt.decrypt(text))
+        # text = "ebg13 vf gur rnfvrfg naq lrg cbjreshy pvcure!"
+        filename = "test_file.txt"
+        file_handler = FileHandler(filename)
+        text = file_handler.read_from_file()
+        rot13_cipher = Rot13Cipher()
+        decrypted_text = rot13_cipher.decrypt(text)
+        print(decrypted_text)
+        self.memory.append([{"decryption rot13 text": text}, {"decrypted": decrypted_text}])
 
-    def print_encrypted_words(self):
-        """Metoda uruchamiająca wyświetlanie zaszyfrowanych słów"""
-        pass
+    def print_encrypted_words(self) -> None:
+        """Metoda wyświetlająca dziennik operacji"""
+        pprint(self.memory)
 
 
 if __name__ == "__main__":
     root = tkinter.Tk()
-    app = MenuApp(root)
-    root.mainloop()
+    app = MenuApp()
+    app.root.mainloop()
