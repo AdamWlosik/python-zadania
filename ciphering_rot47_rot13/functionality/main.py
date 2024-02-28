@@ -1,10 +1,6 @@
 import tkinter
-from pprint import pprint
 
-from ciphering_rot47_rot13.functionality.file_handler import FileHandler
 from ciphering_rot47_rot13.functionality.manager import Manager
-from ciphering_rot47_rot13.functionality.rot13_chiper import Rot13Cipher
-from ciphering_rot47_rot13.functionality.rot47_cipher import Rot47Cipher
 
 
 class MenuApp:
@@ -37,7 +33,10 @@ class MenuApp:
         self.encrypt_button.pack(pady=10)
 
         self.save_button = tkinter.Button(
-            self.root, text="Save encrypted texts to file", command=self.manager.save_to_file)
+            self.root,
+            text="Save encrypted texts to file",
+            command=self.manager.save_to_file,
+        )
         self.save_button.pack(pady=10)
 
         self.decrypt_button = tkinter.Button(

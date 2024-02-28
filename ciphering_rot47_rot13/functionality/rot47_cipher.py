@@ -1,5 +1,3 @@
-
-
 class Rot47Cipher:
 
     @staticmethod

@@ -2,9 +2,9 @@ import string
 
 
 class Rot13Cipher:
-    #TODO klasa abstrakcyjna ROT(SHIFT: int=NONE), metody encrypt i decrypt, S
+    # TODO klasa abstrakcyjna ROT(SHIFT: int=NONE), metody encrypt i decrypt, S
     # translator do inita
-    #SHIFT: int = 13 stała na cała klase
+    # SHIFT: int = 13 stała na cała klase
 
     @staticmethod
     def translator() -> dict:

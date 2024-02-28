@@ -3,8 +3,6 @@ from ciphering_rot47_rot13.functionality.file_handler import FileHandler
 
 class TestFileHandler:
 
-    # TODO
-    # problem z importem mocker
     def test_save_to_file_overwrite(self, mocker):
         """Test metody zapisującej do pliku w przypadku nadpisania"""
         # Zastępuje wbudowaną funkcję open mockowaną w module builtins
