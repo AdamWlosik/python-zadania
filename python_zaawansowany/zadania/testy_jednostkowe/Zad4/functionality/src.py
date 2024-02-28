@@ -28,8 +28,7 @@ def remove_all():
     todos.clear()
 
 
-#add_todo("Go to bed")
-#remove_todo(0)
-#edit_todo(0, "Get up from bed")
-#remove_all()
-
+# add_todo("Go to bed")
+# remove_todo(0)
+# edit_todo(0, "Get up from bed")
+# remove_all()

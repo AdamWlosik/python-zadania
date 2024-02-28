@@ -1,10 +1,9 @@
 from datetime import datetime, timezone
 
 
-
 def calc_diff(case):
-    end_time = case['end_time']
-    start_time = case['start_time']
+    end_time = case["end_time"]
+    start_time = case["start_time"]
 
     start_time_obj = datetime.fromisoformat(start_time)
 
@@ -18,12 +17,11 @@ def calc_diff(case):
 
 def main():
     case = {
-        'start_time': '2021-11-03T09:22:28+00:00',
-        'end_time': None  # None means that case is currently on-going
+        "start_time": "2021-11-03T09:22:28+00:00",
+        "end_time": None,  # None means that case is currently on-going
     }
     print(calc_diff(case))
 
 
 if __name__ == "__main__":
     main()
-

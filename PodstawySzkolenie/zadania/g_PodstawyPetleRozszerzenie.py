@@ -5,17 +5,17 @@ from PodstawySzkolenie.Szkolenie import Szkolenie
 
 class Zadanie1PPR(Szkolenie):
     """Zad 1.
-        Napisz program wydrukowywujący poniższy wzór:
+    Napisz program wydrukowywujący poniższy wzór:
 
-        *
-        * *
-        * * *
-        * * * *
-        * * * * *
-        * * * *
-        * * *
-        * *
-        *
+    *
+    * *
+    * * *
+    * * * *
+    * * * * *
+    * * * *
+    * * *
+    * *
+    *
     """
 
     def __init__(self, szkolenie, zadanie):
@@ -33,8 +33,8 @@ class Zadanie1PPR(Szkolenie):
 
 class Zadanie2PPR(Szkolenie):
     """Zad 2.
-        Napisz program, sprawdzający czy dany wyraz jest palindromem
-        (jest czytany tak samo od przodu i tyłu), np. sedes, Anna.
+    Napisz program, sprawdzający czy dany wyraz jest palindromem
+    (jest czytany tak samo od przodu i tyłu), np. sedes, Anna.
     """
 
     def __init__(self, szkolenie, zadanie, wyraz):
@@ -61,10 +61,10 @@ class Zadanie2PPR(Szkolenie):
 
 class Zadanie3PPR(Szkolenie):
     """Zad 3.
-        W trakcie Wigilii Bożego Narodzenia, pięciu członków rodziny: Adam, Stanisław, Joanna, Kornelia i Kacper
-        składają sobie życzenia. Stwórz program, który wyświetli wszystkie możliwe połączenia między członkami rodzin,
-        jakie mogą zajść w trakcie składania sobie życzeń, np. Adam - Stanisław, Adam - Joanna, Adam - Kornelia,
-        Adam - Kacper itd.
+    W trakcie Wigilii Bożego Narodzenia, pięciu członków rodziny: Adam, Stanisław, Joanna, Kornelia i Kacper
+    składają sobie życzenia. Stwórz program, który wyświetli wszystkie możliwe połączenia między członkami rodzin,
+    jakie mogą zajść w trakcie składania sobie życzeń, np. Adam - Stanisław, Adam - Joanna, Adam - Kornelia,
+    Adam - Kacper itd.
     """
 
     def __init__(self, szkolenie, zadanie, osoby):
@@ -91,8 +91,8 @@ class Zadanie3PPR(Szkolenie):
 
 class Zadanie4PPR(Szkolenie):
     """Zad 4.
-        Napisz program generujący wszystkie możliwe kombinacje liczb 4-cyfrowych,
-        np. 1000, 1001, 1002, ..., 9999.
+    Napisz program generujący wszystkie możliwe kombinacje liczb 4-cyfrowych,
+    np. 1000, 1001, 1002, ..., 9999.
     """
 
     def __init__(self, szkolenie, zadanie, zakres_min, zakres_max):
@@ -108,10 +108,10 @@ class Zadanie4PPR(Szkolenie):
 
 class Zadanie5PPR(Szkolenie):
     """Zad 5.
-        Stwórz następującą strukturę danych (słownik):
-        zamowienia = {"Klient_1335" : {"nazwa_potrawy" : "rosół", "ocena" : 5, "rachunek" : 20.0}, "Klient_222"
-        {"nazwa_deseru” : "lody waniliowe", "rachunek" : 5.0 }}
-        Następnie wyświetl nazwy wszystkich klientów i dla każdego z nich stwórz podsumowanie zamówienia:
+    Stwórz następującą strukturę danych (słownik):
+    zamowienia = {"Klient_1335" : {"nazwa_potrawy" : "rosół", "ocena" : 5, "rachunek" : 20.0}, "Klient_222"
+    {"nazwa_deseru” : "lody waniliowe", "rachunek" : 5.0 }}
+    Następnie wyświetl nazwy wszystkich klientów i dla każdego z nich stwórz podsumowanie zamówienia:
     """
 
     def __init__(self, szkolenie, zadanie, zamowienia):
@@ -129,18 +129,18 @@ class Zadanie5PPR(Szkolenie):
 
 class Zadanie6PPR(Szkolenie):
     """Zad 6.
-        Stwórz program, który policzy częstotliwość cyfr w danej liczbie (którą poda użytkownik).
-        Przykład:
-        Input: 1235555
-        Output:
-        1: 1
-        2: 1
-        3: 1
-        5: 4
+    Stwórz program, który policzy częstotliwość cyfr w danej liczbie (którą poda użytkownik).
+    Przykład:
+    Input: 1235555
+    Output:
+    1: 1
+    2: 1
+    3: 1
+    5: 4
 
-        Podpowiedź:
-        Aby łatwo przechodzić po wszystkich cyfrach w liczbie, przekonwertuj ją na typ str.
-         Częstotliwość występowania danych cyfr możesz przechowywać wewnątrz słownika.
+    Podpowiedź:
+    Aby łatwo przechodzić po wszystkich cyfrach w liczbie, przekonwertuj ją na typ str.
+     Częstotliwość występowania danych cyfr możesz przechowywać wewnątrz słownika.
     """
 
     def __init__(self, szkolenie, zadanie, liczba):
@@ -167,11 +167,11 @@ class Zadanie6PPR(Szkolenie):
 
 class Zadanie7PPR(Szkolenie):
     """
-        Zad 7.
-        Napisz program wyznaczający n (podawane przez użytkownika)
-        pierwszych liczb ciągu Fibonacciego. Przykład:
-        dla n = 5
-        0, 1, 1, 2, 3, 5
+    Zad 7.
+    Napisz program wyznaczający n (podawane przez użytkownika)
+    pierwszych liczb ciągu Fibonacciego. Przykład:
+    dla n = 5
+    0, 1, 1, 2, 3, 5
     """
 
     def __init__(self, szkolenie, zadanie, n, fibo):
@@ -190,4 +190,3 @@ class Zadanie7PPR(Szkolenie):
     def wyswietl(self):
         print(f"{self.n} pierwszych liczb ciągu Fibonacciego: ")
         print(", ".join(map(str, self.fibonacci)))
-

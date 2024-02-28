@@ -75,7 +75,11 @@ class SavingsAccount(BankAccount):
 
 
 def account_factory(account):
-    account_type = {"Personal": PersonalAccount, "Business": BusinessAccount, "Savings": SavingsAccount}
+    account_type = {
+        "Personal": PersonalAccount,
+        "Business": BusinessAccount,
+        "Savings": SavingsAccount,
+    }
     account_type.get(account)()
     """if account == "Personal":
         return PersonalAccount()

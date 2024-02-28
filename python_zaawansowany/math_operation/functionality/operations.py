@@ -1,5 +1,5 @@
 def calc_power(base, exp):
-    return base ** exp
+    return base**exp
 
 
 def calc_arith_seq_sum(start, end):

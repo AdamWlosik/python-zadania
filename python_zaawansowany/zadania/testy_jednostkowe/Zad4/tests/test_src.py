@@ -1,20 +1,30 @@
 import pytest
 
-from python_zaawansowany.zadania.testy_jednostkowe.Zad4.functionality.src import *
+from python_zaawansowany.zadania.testy_jednostkowe.Zad4.functionality.src import (
+    add_todo,
+    check_pos,
+    edit_todo,
+    remove_all,
+    remove_todo,
+    todos,
+)
 
 
 class TestSrc:
     """Zad. 4
-        Poniższy kod realizuje funkcjonalność prostego notatnika
-        Możemy do niego dodawać dowolne notatki, usuwać niektóre oraz czyścić całą listę.
-        Umieść go w pliku src.py i otestuj każdą z funkcji. Zapewnij sprawdzenie przypadków,
-        w których zostanie rzucony wyjątek.
+    Poniższy kod realizuje funkcjonalność prostego notatnika
+    Możemy do niego dodawać dowolne notatki, usuwać niektóre oraz czyścić całą listę.
+    Umieść go w pliku src.py i otestuj każdą z funkcji. Zapewnij sprawdzenie przypadków,
+    w których zostanie rzucony wyjątek.
 
-        """
+    """
+
     @pytest.fixture
     def set_check_pos_mock(self, mocker):
-        mocker.patch('python_zaawansowany.zadania.testy_jednostkowe.Zad4.functionality.src.check_pos',
-                     side_effect=Exception("No such item number!"))
+        mocker.patch(
+            "python_zaawansowany.zadania.testy_jednostkowe.Zad4.functionality.src.check_pos",
+            side_effect=Exception("No such item number!"),
+        )
 
     @pytest.mark.parametrize("pos", [5, -1])
     def test_check_pos_raises_exception_for(self, pos, set_check_pos_mock):

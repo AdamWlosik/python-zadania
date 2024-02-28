@@ -1,7 +1,8 @@
 import io
-import pytest
 
-from python_zaawansowany.zadania.testy_jednostkowe.Zad8.functionality.show_message import show_message
+from python_zaawansowany.zadania.testy_jednostkowe.Zad8.functionality.show_message import (
+    show_message,
+)
 
 
 def test_show_message(mocker):

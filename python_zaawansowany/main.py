@@ -1,16 +1,42 @@
-from python_zaawansowany.zadania.programowanie_funkcyjne import Task1PF, Task2PF, Task3PF, Task4PF, Task5PF, Task6PF, \
-    Task7PF, Task8PF
-
-from python_zaawansowany.zadania.dekoratory import Task1Dek, Task2Dek, Task3Dek, Task4Dek, Task5Dek, Task6Dek
-
-from python_zaawansowany.zadania.regex import Task1Regex, Task2Regex, Task3Regex, Task4Regex, Task5Regex, Task6Regex, \
-    Task7Regex, Task8Regex, Task9Regex, Task10Regex, Task11Regex
+from python_zaawansowany.zadania.dekoratory import (
+    Task1Dek,
+    Task2Dek,
+    Task3Dek,
+    Task4Dek,
+    Task5Dek,
+    Task6Dek,
+)
+from python_zaawansowany.zadania.programowanie_funkcyjne import (
+    Task1PF,
+    Task2PF,
+    Task3PF,
+    Task4PF,
+    Task5PF,
+    Task6PF,
+    Task7PF,
+    Task8PF,
+)
+from python_zaawansowany.zadania.regex import (
+    Task1Regex,
+    Task2Regex,
+    Task3Regex,
+    Task4Regex,
+    Task5Regex,
+    Task6Regex,
+    Task7Regex,
+    Task8Regex,
+    Task9Regex,
+    Task10Regex,
+    Task11Regex,
+)
 
 
 def main():
     while True:
         try:
-            training = int(input("\nAby zakończyć wybierz 0 lub wprowadź numer szkolenia: "))
+            training = int(
+                input("\nAby zakończyć wybierz 0 lub wprowadź numer szkolenia: ")
+            )
             if training == 0:
                 break
             task = int(input("Wprowadź numer zadania: "))

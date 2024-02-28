@@ -1,4 +1,4 @@
-from python_zaawansowany.math_operation.functionality.operations import *
+from python_zaawansowany.math_operation.functionality.operations import calc_power
 
 
 def test_should_return_correct_value_for_positive_exp():

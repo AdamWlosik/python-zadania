@@ -5,7 +5,7 @@ from PodstawySzkolenie.Szkolenie import Szkolenie
 
 class Zadanie1PSDR(Szkolenie):
     """Zad 1.
-        Utwórz dwie listy a i b. Sprawdź czy listy te mają chociaż jeden wspólny element.
+    Utwórz dwie listy a i b. Sprawdź czy listy te mają chociaż jeden wspólny element.
 
     """
 
@@ -37,9 +37,9 @@ class Zadanie1PSDR(Szkolenie):
 
 class Zadanie2PSDR(Szkolenie):
     """
-        Zad 2.
-        Utwórz zbiór składający się z 15 losowo wygenerowanych wartości typu int z przedziału 5 - 120.
-        Następnie usuń ze zbioru wszystkie liczby parzyste.
+    Zad 2.
+    Utwórz zbiór składający się z 15 losowo wygenerowanych wartości typu int z przedziału 5 - 120.
+    Następnie usuń ze zbioru wszystkie liczby parzyste.
     """
 
     def __init__(self, szkolenie, zadanie, ile_elemetow, przedzial_min, przedzial_max):
@@ -69,18 +69,20 @@ class Zadanie2PSDR(Szkolenie):
         return nieparzyste
 
     def wyswietl(self):
-        print(f"Zbiór {self.ile_elementow} wylosowanych liczb z przedziału "
-              f"{self.przedzial_min} - {self.przedzial_max}: {self.zbior}")
+        print(
+            f"Zbiór {self.ile_elementow} wylosowanych liczb z przedziału "
+            f"{self.przedzial_min} - {self.przedzial_max}: {self.zbior}"
+        )
         print(f"Zbiór z usuniętymi liczbami parzystymi: {self.bez_parzystych}")
 
 
 class Zadanie3SPDR(Szkolenie):
     """Zad 3.
-        Mając poniższy słownik:
-        {‘a’ : 3, ‘b’ : 1, ‘c’ : 10, ‘d’ : 15, ‘e’ : 20}
-        dokonaj jego odwrócenia, tzn. niech wartości staną się kluczami, a klucze wartościami.
-        Dla powyższego przykładu poprawnym wynikiem będzie:
-        {3 : ‘a’, 1 : ‘b’, 10 : ‘c’, 15 : ‘d’, 20 : ‘e’}
+    Mając poniższy słownik:
+    {‘a’ : 3, ‘b’ : 1, ‘c’ : 10, ‘d’ : 15, ‘e’ : 20}
+    dokonaj jego odwrócenia, tzn. niech wartości staną się kluczami, a klucze wartościami.
+    Dla powyższego przykładu poprawnym wynikiem będzie:
+    {3 : ‘a’, 1 : ‘b’, 10 : ‘c’, 15 : ‘d’, 20 : ‘e’}
     """
 
     def __init__(self, szkolenie, zadanie, slownik):
@@ -102,20 +104,20 @@ class Zadanie3SPDR(Szkolenie):
 
 class Zadanie4PSDR(Szkolenie):
     """Zad 4.
-        Wyobraź sobie, że jesteś pogodynką i robisz zestawienie opadów deszczu na dany miesiąc.
-        Problem polega jednak na tym, że dane miasta wraz z opadami są nieuporządkowane oraz użytkownik może
-        wpisywać nieskończenie wiele par: miasto oraz opad aż do momentu podania pustej linii. Twoim zadaniem jest
-        zinterpretowanie podanych danych wejściowych i podać wynik na wzór poniższego przykładu.
+    Wyobraź sobie, że jesteś pogodynką i robisz zestawienie opadów deszczu na dany miesiąc.
+    Problem polega jednak na tym, że dane miasta wraz z opadami są nieuporządkowane oraz użytkownik może
+    wpisywać nieskończenie wiele par: miasto oraz opad aż do momentu podania pustej linii. Twoim zadaniem jest
+    zinterpretowanie podanych danych wejściowych i podać wynik na wzór poniższego przykładu.
 
-        Wejście:
-        Boston 12
-        Londyn 10
-        Boston 12
-        [pusta linia]
+    Wejście:
+    Boston 12
+    Londyn 10
+    Boston 12
+    [pusta linia]
 
-        Wyjście:
-        Boston : 24
-        Londyn : 10
+    Wyjście:
+    Boston : 24
+    Londyn : 10
     """
 
     def __init__(self, szkolenie, zadanie):
@@ -155,7 +157,7 @@ class Zadanie4PSDR(Szkolenie):
 
 class Zadanie5PSDR(Szkolenie):
     """Zad 5.
-        Program ma tworzyć rachunek za prestiżową kolację w restauracji dla poszczególnych osób.
+    Program ma tworzyć rachunek za prestiżową kolację w restauracji dla poszczególnych osób.
     """
 
     def __init__(self, szkolenie, zadanie, lista):
@@ -172,7 +174,7 @@ class Zadanie5PSDR(Szkolenie):
         for pozycja in self.lista:
             self.rozdziel_liste(pozycja)
             self.dodaj_osobe()
-            self.rachunki[self.osoba]['potrawy'].append(self.potrawa)
+            self.rachunki[self.osoba]["potrawy"].append(self.potrawa)
             self.rachunki[self.osoba]["cena"] += self.cena
 
     def rozdziel_liste(self, pozycja):
@@ -189,18 +191,18 @@ class Zadanie5PSDR(Szkolenie):
 class Zadanie6PSDR(Szkolenie):
     """Wyboraź sobie, że otrzymałeś z API następujące dane:
 
-{
-    data: [1, 2, 'asd', [2, 3, 4, 5]],
-    'nested_analysis': {
-        'analysis_1': [1, 10, 15, 120.2, '120'],
-        'analysis_2': [10, 100, ‘tests’, 200, 300],
-    },
-    'probes': [['probe_1', 'probe_2'], 'probe_3']
-}
+    {
+        data: [1, 2, 'asd', [2, 3, 4, 5]],
+        'nested_analysis': {
+            'analysis_1': [1, 10, 15, 120.2, '120'],
+            'analysis_2': [10, 100, ‘tests’, 200, 300],
+        },
+        'probes': [['probe_1', 'probe_2'], 'probe_3']
+    }
 
-Twoim zadaniem jest wyłuskanie spod każdego klucza w powyższym słowniku tylko tych danych,
- które są typu str i wyświetlić je na ekranie.
-"""
+    Twoim zadaniem jest wyłuskanie spod każdego klucza w powyższym słowniku tylko tych danych,
+     które są typu str i wyświetlić je na ekranie.
+    """
 
     def __init__(self, szkolenie, zadanie, dane):
         super().__init__(szkolenie, zadanie)

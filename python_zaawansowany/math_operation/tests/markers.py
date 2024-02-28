@@ -35,4 +35,5 @@ def test_reversed_str_comparison():
 
     assert examp == "1pmaxe"
 
+
 # uruchamianie w konsoli: pytest -m <markername> <filenam> -v
