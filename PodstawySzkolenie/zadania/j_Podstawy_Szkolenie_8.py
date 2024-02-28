@@ -128,7 +128,7 @@ class Zadanie5PS8(Szkolenie):
 
 class Zadanie6PS8(Szkolenie):
     """Zad 6.
-        Odczytaj 4. linię z pliku: test.txt o zawartości:
+        Odczytaj 4. linię z pliku: tests.txt o zawartości:
         line1
         line2
         line3
