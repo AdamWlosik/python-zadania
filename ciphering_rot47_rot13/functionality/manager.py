@@ -7,6 +7,7 @@ from ciphering_rot47_rot13.functionality.rot47_cipher import Rot47Cipher
 
 class Manager:
     memory: list = []
+    encrypted_text = None
 
     def encrypt_text_rot47(self) -> None:
         """Metoda uruchamiająca szyfrowanie rot 47"""

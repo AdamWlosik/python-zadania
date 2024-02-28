@@ -19,7 +19,6 @@ class MenuApp:
         self.exit_button = None
         self.print_button = None
         self.decrypt_button = None
-        self.encrypted_text = None
 
     def menu_button(self) -> None:
         """Metoda tworząca gui menu"""
