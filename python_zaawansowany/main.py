@@ -6,7 +6,7 @@ from python_zaawansowany.zadania.dekoratory import (
     Task5Dek,
     Task6Dek,
 )
-from python_zaawansowany.zadania.exceptions import FileHandlerEX
+from python_zaawansowany.zadania.exceptions import FileHandlerEX, Task2EX
 from python_zaawansowany.zadania.programowanie_funkcyjne import (
     Task1PF,
     Task2PF,
@@ -125,9 +125,10 @@ def main():
                 task8.solution()
         elif training == 5:
             if task == 1:
-                task1 = FileHandlerEX(
-                    training, task,
-                    "a", 12, 2000)
+                task1 = FileHandlerEX(training, task, "a", 12, 2000)
+            elif task == 2:
+                task2 = Task2EX(training, task)
+                task2.solution()
 
 
 if __name__ == "__main__":
