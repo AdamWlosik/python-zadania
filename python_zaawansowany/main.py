@@ -122,6 +122,9 @@ def main():
             elif task == 8:
                 task8 = Task8PF(training, task)
                 task8.solution()
+        elif training == 5:
+            if task == 1:
+                pass
 
 
 if __name__ == "__main__":
