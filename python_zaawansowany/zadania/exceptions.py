@@ -94,25 +94,30 @@ class Task2EX(Training):
                 y = int(input("enter another number: "))
                 if y == 0:
                     raise DivisionByZeroError
+                print(x, "/", y, "=", x / y)
             except ValueError:
                 print("Nie podano wartości int")
-            print(x, "/", y, "=", x / y)
 
     @staticmethod
     def example2(input_list):
         print("\n\nExample 2")
         sum_of_pairs: input_list = []
-        for i in range(len(input_list)):
-            sum_of_pairs.append(input_list[i] + input_list[i + 1])
-
+        try:
+            for i in range(len(input_list)):
+                sum_of_pairs.append(input_list[i] + input_list[i + 1])
+        except IndexError:
+            print("Indeks spoza listy")
         print("sum_of_pairs = ", sum_of_pairs)
 
     @staticmethod
-    def printUpperFile(file_name):
-        file = open(file_name, "r")
-        for line in file:
-            print(line.upper())
-        file.close()
+    def print_upper_file(file_name):
+        try:
+            file = open(file_name, "r")
+            for line in file:
+                print(line.upper())
+            file.close()
+        except FileNotFoundError:
+            print("Nie znaleziono pliku")
 
     def main(self):
         self.example1()
@@ -121,5 +126,5 @@ class Task2EX(Training):
         self.example2([10, 3, 5, 6, "NA", 3])
         self.example3([10, 3, 5, 6])
 
-        self.printUpperFile("doesNotExistYest.txt")
-        self.printUpperFile("./Dessssktop/misspelled.txt")
+        self.print_upper_file("doesNotExistYest.txt")
+        self.print_upper_file("./Dessssktop/misspelled.txt")
