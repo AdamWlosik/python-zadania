@@ -29,6 +29,7 @@ from python_zaawansowany.zadania.regex import (
     Task10Regex,
     Task11Regex,
 )
+from python_zaawansowany.zadania.wielowatkowosc import Task1W
 
 
 def main():
@@ -122,6 +123,10 @@ def main():
             elif task == 8:
                 task8 = Task8PF(training, task)
                 task8.solution()
+        elif training == 6:
+            if task == 1:
+                task1 = Task1W(training, task)
+                task1.solution()
 
 
 if __name__ == "__main__":

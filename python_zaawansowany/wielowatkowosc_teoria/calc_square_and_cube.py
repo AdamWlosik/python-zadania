@@ -5,14 +5,15 @@ import time
 def calc_square(numbers):
     print("Calculate square numbers: ")
     for i in numbers:
-        print("square: ", str(i ** 2))
+        print("square: ", str(i**2))
         time.sleep(0.1)
+        # przeż uśpienie wyświetla 1 wykoananie tej metody potem cała cube i pozostałe iteracje tej
 
 
 def calc_cube(numbers):
     print("Calculate cube numbers")
     for i in numbers:
-        print("cube", str(i ** 3))
+        print("cube", str(i**3))
 
 
 def main():
