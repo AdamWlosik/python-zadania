@@ -30,6 +30,7 @@ from python_zaawansowany.zadania.regex import (
     Task10Regex,
     Task11Regex,
 )
+from python_zaawansowany.zadania.wielowatkowosc import Task1W
 
 
 def main():
@@ -123,6 +124,16 @@ def main():
             elif task == 8:
                 task8 = Task8PF(training, task)
                 task8.solution()
+        elif training == 5:
+            if task == 1:
+                task1 = FileHandlerEX(training, task, "a", 12, 2000)
+            elif task == 2:
+                task2 = Task2EX(training, task)
+                task2.solution()
+        elif training == 6:
+            if task == 1:
+                task1 = Task1W(training, task)
+                task1.solution()
         elif training == 5:
             if task == 1:
                 task1 = FileHandlerEX(training, task, "a", 12, 2000)
