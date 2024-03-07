@@ -1,7 +1,4 @@
-import pytest
 from pytest_mock import MockerFixture
-
-
 
 # TODO
 # problme z from decouple import config w programie do przetestowania
@@ -21,7 +18,10 @@ def test_connect_to_database(mocker: MockerFixture):
     """Test metody connect_to_database klasy DbHandler. Sprawdza, czy metoda zwraca oczekiwany napis."""
     mocked_config = mocker.patch("decouple.config")
     mocked_config.return_value = "pytest1"
-    from python_zaawansowany.zadania.testy_jednostkowe.Zad6.functionality.db_handler import DbHandler
+    from python_zaawansowany.zadania.testy_jednostkowe.Zad6.functionality.db_handler import (
+        DbHandler,
+    )
+
     db_handler = DbHandler()
     expect = "I am connecting to pytest1 as pytest1 with pass: pytest1..."
     assert db_handler.connect_to_database() == expect

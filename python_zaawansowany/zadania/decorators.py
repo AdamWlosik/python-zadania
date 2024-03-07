@@ -54,13 +54,18 @@ def count(func):
 
 def arg_check(arg):
     """Dekorator sprawdzający że został przekazany argument odpowiedniego typu"""
+
     def check(old_func):
         def new_func(arg_type):
             if isinstance(arg_type, arg):
                 return old_func(arg)
             else:
-                raise TypeError(f"Oczekiwano argumentu typu {arg.__name__}, otrzymano {type(arg_type).__name__}")
+                raise TypeError(
+                    f"Oczekiwano argumentu typu {arg.__name__}, otrzymano {type(arg_type).__name__}"
+                )
+
         return new_func
+
     return check
 
 
@@ -72,4 +77,5 @@ def timethis(func):
         execution_time = end_time - start_time
         print(f"Czas wykonania funkcji '{func.__name__}': {execution_time:} sekund")
         return results
+
     return wrapper

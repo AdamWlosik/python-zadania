@@ -1,3 +1,4 @@
+
 from python_zaawansowany.zadania.generatory_listy_skladane import *
 from python_zaawansowany.zadania.programowanie_funkcyjne import Task1PF, Task2PF, Task3PF, Task4PF, Task5PF, Task6PF, \
     Task7PF, Task8PF
@@ -6,12 +7,47 @@ from python_zaawansowany.zadania.dekoratory import Task1Dek, Task2Dek, Task3Dek,
 
 from python_zaawansowany.zadania.regex import Task1Regex, Task2Regex, Task3Regex, Task4Regex, Task5Regex, Task6Regex, \
     Task7Regex, Task8Regex, Task9Regex, Task10Regex, Task11Regex
+from python_zaawansowany.zadania.dekoratory import (
+    Task1Dek,
+    Task2Dek,
+    Task3Dek,
+    Task4Dek,
+    Task5Dek,
+    Task6Dek,
+)
+from python_zaawansowany.zadania.exceptions import FileHandlerEX, Task2EX
+from python_zaawansowany.zadania.programowanie_funkcyjne import (
+    Task1PF,
+    Task2PF,
+    Task3PF,
+    Task4PF,
+    Task5PF,
+    Task6PF,
+    Task7PF,
+    Task8PF,
+)
+from python_zaawansowany.zadania.regex import (
+    Task1Regex,
+    Task2Regex,
+    Task3Regex,
+    Task4Regex,
+    Task5Regex,
+    Task6Regex,
+    Task7Regex,
+    Task8Regex,
+    Task9Regex,
+    Task10Regex,
+    Task11Regex,
+)
+from python_zaawansowany.zadania.wielowatkowosc import Task1W
 
 
 def main():
     while True:
         try:
-            training = int(input("\nAby zakończyć wybierz 0 lub wprowadź numer szkolenia: "))
+            training = int(
+                input("\nAby zakończyć wybierz 0 lub wprowadź numer szkolenia: ")
+            )
             if training == 0:
                 break
             task = int(input("Wprowadź numer zadania: "))
@@ -119,6 +155,22 @@ def main():
             elif task == 7:
                 task7 = Task7GLS(training, task)
                 task7.solution()
+        elif training == 5:
+            if task == 1:
+                task1 = FileHandlerEX(training, task, "a", 12, 2000)
+            elif task == 2:
+                task2 = Task2EX(training, task)
+                task2.solution()
+        elif training == 6:
+            if task == 1:
+                task1 = Task1W(training, task)
+                task1.solution()
+        elif training == 5:
+            if task == 1:
+                task1 = FileHandlerEX(training, task, "a", 12, 2000)
+            elif task == 2:
+                task2 = Task2EX(training, task)
+                task2.solution()
 
 
 if __name__ == "__main__":

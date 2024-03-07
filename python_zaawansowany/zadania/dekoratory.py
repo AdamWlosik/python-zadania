@@ -3,26 +3,33 @@ from dataclasses import dataclass
 
 from helpers import print_doc
 from python_zaawansowany.training import Training
-from python_zaawansowany.zadania.decorators import logged, stars_decorator, StarsDecorator, count, arg_check, timethis
+from python_zaawansowany.zadania.decorators import (
+    StarsDecorator,
+    arg_check,
+    count,
+    logged,
+    stars_decorator,
+    timethis,
+)
 
 
 class Task1Dek(Training):
     """
-        Zad. 1
-        Napisz dekorator, który służyć będzie do logowania, z jakimi argumentami dana funkcja została wywołana.
-        Skorzystaj z **kwargs, *args oraz zmiennej specjalnej __name__,
-        aby logować również nazwę funkcji, którą wywołujemy.
+    Zad. 1
+    Napisz dekorator, który służyć będzie do logowania, z jakimi argumentami dana funkcja została wywołana.
+    Skorzystaj z **kwargs, *args oraz zmiennej specjalnej __name__,
+    aby logować również nazwę funkcji, którą wywołujemy.
 
-        Kod:
-        @logged
-        def func(*args):
-           return 3 + len(args)
+    Kod:
+    @logged
+    def func(*args):
+       return 3 + len(args)
 
-        func(4, 4, 4)
+    func(4, 4, 4)
 
-        Output:
-        you called func(4, 4, 4) it returned 6
-        """
+    Output:
+    you called func(4, 4, 4) it returned 6
+    """
 
     def __init__(self, training: int, task: int):
         super().__init__(training, task)
@@ -39,17 +46,17 @@ class Task1Dek(Training):
 
 class Task2Dek(Training):
     """Zad. 2
-        Stwórz dekorator, który będzie służył do przyozdabiania wyświetlanego tekstu gwiazdkami.
-        Dowolny tekst ten ma być wyświetlany z poziomu dekorowanej funkcji.
+    Stwórz dekorator, który będzie służył do przyozdabiania wyświetlanego tekstu gwiazdkami.
+    Dowolny tekst ten ma być wyświetlany z poziomu dekorowanej funkcji.
 
-        Efekt:
-        ************
-        Hello World!
-        ************
+    Efekt:
+    ************
+    Hello World!
+    ************
 
-        Dodatkowo:
-        Zrealizuj tę samą funkcjonalność, ale dekorator stwórz w oparciu o klasę i jej protokoły __call__ oraz __init__.
-        """
+    Dodatkowo:
+    Zrealizuj tę samą funkcjonalność, ale dekorator stwórz w oparciu o klasę i jej protokoły __call__ oraz __init__.
+    """
 
     def __init__(self, training: int, task: int):
         super().__init__(training, task)
@@ -73,10 +80,10 @@ class Task2Dek(Training):
 
 class Task3Dek(Training):
     """Zad. 3
-        Napisz dekorator @count, który wyświetlał będzie tworzył słownik,
-        w którym będziemy przechowywali informację, ile razy zostały wywołane poszczególne funkcje
-        udekorowane właśnie tym dekoratorem.
-        """
+    Napisz dekorator @count, który wyświetlał będzie tworzył słownik,
+    w którym będziemy przechowywali informację, ile razy zostały wywołane poszczególne funkcje
+    udekorowane właśnie tym dekoratorem.
+    """
 
     def __init__(self, training: int, taks: int):
         super().__init__(training, taks)
@@ -103,30 +110,30 @@ class Task3Dek(Training):
 
 class Task4Dek(Training):
     """Zad. 4
-        W szkoleniu nie zostało o tym wspomniane, ale możemy również określać przesyłane argumenty dekoratorów!
-        Jedyna konieczność jaka będzie do zrealizowania, to dodanie kolejnej funkcji wrappującej, czyli np:
+    W szkoleniu nie zostało o tym wspomniane, ale możemy również określać przesyłane argumenty dekoratorów!
+    Jedyna konieczność jaka będzie do zrealizowania, to dodanie kolejnej funkcji wrappującej, czyli np:
 
-        def arg_check(arg):
-            def check(old_func):
-                def new_func():
-                    # do sth with arg and call old_func as examp
+    def arg_check(arg):
+        def check(old_func):
+            def new_func():
+                # do sth with arg and call old_func as examp
 
-                return new_func
-            return check
+            return new_func
+        return check
 
-        @arg_check(arg)
-        def examp(num):
-            # do sth
+    @arg_check(arg)
+    def examp(num):
+        # do sth
 
-        Twoje zadanie to stworzyć dekorator, który sprawdzać będzie, czy określony w dekoratorze
-        typ jest zgodny z typem zmiennej przesłanej do funkcji.
+    Twoje zadanie to stworzyć dekorator, który sprawdzać będzie, czy określony w dekoratorze
+    typ jest zgodny z typem zmiennej przesłanej do funkcji.
 
-        Podpowiedź:
-        -	Przesyłaj jako argument do dekoratora obiekt typu: int, float itd
-        -	Sprawdzaj, czy typy są zgodne przy użyciu isinstance(zmienna, typ_oczekiwany)
-        -	Jeżeli typ będzie niezgodny, rzucaj wyjątkiem
+    Podpowiedź:
+    -	Przesyłaj jako argument do dekoratora obiekt typu: int, float itd
+    -	Sprawdzaj, czy typy są zgodne przy użyciu isinstance(zmienna, typ_oczekiwany)
+    -	Jeżeli typ będzie niezgodny, rzucaj wyjątkiem
 
-        """
+    """
 
     def __init__(self, training: int, task: int):
         super().__init__(training, task)
@@ -147,9 +154,9 @@ class Task4Dek(Training):
 
 class Task5Dek(Training):
     """Zad. 5
-        Utwórz dekorator @timethis mierzący czas wykonania dekorowanej funkcji.
-        Wykorzystaj moduł time i metodę time.time().
-        """
+    Utwórz dekorator @timethis mierzący czas wykonania dekorowanej funkcji.
+    Wykorzystaj moduł time i metodę time.time().
+    """
 
     def __init__(self, training: int, task: int):
         super().__init__(training, task)
@@ -199,27 +206,36 @@ class Task6Dek(Training):
     @print_doc
     def solution(self):
         self.display_theory()
-        property_class = PropertyClass("Klasa ProperytyClass i metoda data_metod() jest przykładem użycia @property")
+        property_class = PropertyClass(
+            "Klasa ProperytyClass i metoda data_metod() jest przykładem użycia @property"
+        )
         print(property_class.data_metod)
-        print("Klasa Training i metoda solution() jest przykładem użycia @abstractmethod")
+        print(
+            "Klasa Training i metoda solution() jest przykładem użycia @abstractmethod"
+        )
         data = Data(self.training, self.task)
         print("Klasa Data jest przykładem użycia @dataclass,\n", data)
 
-        print(f"Klasa Addition jest przykładem użycia @classmethod, "
-              f"\n {self.task} + {self.training} =", Addition.add(self.task, self.training))
+        print(
+            f"Klasa Addition jest przykładem użycia @classmethod, "
+            f"\n {self.task} + {self.training} =",
+            Addition.add(self.task, self.training),
+        )
         print("Funkcja display_theory() jest przykładem użycia @staticmethod")
 
     @staticmethod
     def display_theory():
-        print("@property: Ten dekorator służy do definiowania tzw. właściwości (properties) dla klasy. "
-              "Pozwala na wywoływanie metody bez użycia nawiasów, co sprawia, że kod jest bardziej czytelny i zwięzły."
-              "\n@abstractmethod: Ten dekorator jest często używany w klasach abstrakcyjnych. "
-              "Metody oznaczone jako abstrakcyjne muszą być zaimplementowane w klasach dziedziczących, "
-              "w przeciwnym razie zostanie zgłoszony błąd."
-              "\n@dataclass: Ten dekorator służy do tworzenia klas, które służą głównie do przechowywania danych. "
-              "Automatycznie generuje metody takie jak __init__(), __repr__(), __eq__(), itd., "
-              "na podstawie zdefiniowanych pól."
-              "\n@classmethod: Ten dekorator definiuje metodę, która jest powiązana z klasą, a nie z instancją klasy. "
-              "Metoda ta przyjmuje jako pierwszy argument klasę (cls) zamiast instancji."
-              "\n@staticmethod: Ten dekorator definiuje metodę, która nie ma dostępu do instancji ani do klasy. "
-              "Jest to po prostu funkcja wewnątrz klasy, która jest logicznie związana z tą klasą.\n\n")
+        print(
+            "@property: Ten dekorator służy do definiowania tzw. właściwości (properties) dla klasy. "
+            "Pozwala na wywoływanie metody bez użycia nawiasów, co sprawia, że kod jest bardziej czytelny i zwięzły."
+            "\n@abstractmethod: Ten dekorator jest często używany w klasach abstrakcyjnych. "
+            "Metody oznaczone jako abstrakcyjne muszą być zaimplementowane w klasach dziedziczących, "
+            "w przeciwnym razie zostanie zgłoszony błąd."
+            "\n@dataclass: Ten dekorator służy do tworzenia klas, które służą głównie do przechowywania danych. "
+            "Automatycznie generuje metody takie jak __init__(), __repr__(), __eq__(), itd., "
+            "na podstawie zdefiniowanych pól."
+            "\n@classmethod: Ten dekorator definiuje metodę, która jest powiązana z klasą, a nie z instancją klasy. "
+            "Metoda ta przyjmuje jako pierwszy argument klasę (cls) zamiast instancji."
+            "\n@staticmethod: Ten dekorator definiuje metodę, która nie ma dostępu do instancji ani do klasy. "
+            "Jest to po prostu funkcja wewnątrz klasy, która jest logicznie związana z tą klasą.\n\n"
+        )

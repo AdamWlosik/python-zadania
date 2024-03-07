@@ -1,4 +1,6 @@
-from python_zaawansowany.math_operation.functionality.operations import *
+from python_zaawansowany.math_operation.functionality.operations import (
+    calc_arith_seq_sum,
+)
 
 
 def test_should_return_correct_sum_for_positive_range():

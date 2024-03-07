@@ -1,6 +1,8 @@
-from pytest_bdd import given, when, then
+from pytest_bdd import given, then, when
 
-from python_zaawansowany.zadania.testy_jednostkowe.Zad2.functionality.fizz_buzz import fizz_buzz
+from python_zaawansowany.zadania.testy_jednostkowe.Zad2.functionality.fizz_buzz import (
+    fizz_buzz,
+)
 
 
 @given("a number is divisible by 3")
