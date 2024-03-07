@@ -1,3 +1,12 @@
+
+from python_zaawansowany.zadania.generatory_listy_skladane import *
+from python_zaawansowany.zadania.programowanie_funkcyjne import Task1PF, Task2PF, Task3PF, Task4PF, Task5PF, Task6PF, \
+    Task7PF, Task8PF
+
+from python_zaawansowany.zadania.dekoratory import Task1Dek, Task2Dek, Task3Dek, Task4Dek, Task5Dek, Task6Dek
+
+from python_zaawansowany.zadania.regex import Task1Regex, Task2Regex, Task3Regex, Task4Regex, Task5Regex, Task6Regex, \
+    Task7Regex, Task8Regex, Task9Regex, Task10Regex, Task11Regex
 from python_zaawansowany.zadania.dekoratory import (
     Task1Dek,
     Task2Dek,
@@ -124,6 +133,28 @@ def main():
             elif task == 8:
                 task8 = Task8PF(training, task)
                 task8.solution()
+        elif training == 4:
+            if task == 1:
+                task1 = Task1GLS(training, task)
+                task1.solution()
+            elif task == 2:
+                task2 = Task2GLS(training, task)
+                task2.solution()
+            elif task == 3:
+                task3 = Task3GLS(training, task)
+                task3.solution()
+            elif task == 4:
+                task4 = Task4GLS(training, task)
+                task4.solution()
+            elif task == 5:
+                task5 = Task5GLS(training, task)
+                task5.solution()
+            elif task == 6:
+                task6 = Task6GLS(training, task)
+                task6.solution()
+            elif task == 7:
+                task7 = Task7GLS(training, task)
+                task7.solution()
         elif training == 5:
             if task == 1:
                 task1 = FileHandlerEX(training, task, "a", 12, 2000)
