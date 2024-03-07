@@ -58,8 +58,6 @@ class Testmanager:
         assert self.manager.decrypt_from_file_rot13() == expect
 
     def test_print_encrypted_words(self, capsys):
-        # TODO
-        # nie działa
         self.manager.memory = [{"test": "test"}]
         self.manager.print_encrypted_words()
         captured = capsys.readouterr()

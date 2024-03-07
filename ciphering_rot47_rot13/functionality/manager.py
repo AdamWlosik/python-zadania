@@ -34,7 +34,7 @@ class Manager:
     def save_to_file(self) -> None:
         """Metoda uruchamiająca zapis do pliku"""
         if self.encrypted_text is None:
-            print("Brak zaszyfrowanego tekst do zapsiu")
+            print("Brak zaszyfrowanego tekst do zapisu")
         else:
             file_handler = FileHandler("test_file.txt")
             file_handler.save_to_file(self.encrypted_text, append=False)

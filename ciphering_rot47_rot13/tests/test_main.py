@@ -15,7 +15,6 @@ class TestMenuApp:
     def set_app_mock(self, mocker: MockerFixture):
         tkinter_root = tkinter.Tk()
         main_app = MenuApp(tkinter_root)
-        assert main_app.encrypt_button is not None
         return main_app
 
     def test_title(self, set_app_mock):

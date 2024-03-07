@@ -1,4 +1,7 @@
-class Rot47Cipher:
+from ciphering_rot47_rot13.functionality.rot_chiper import Rot
+
+
+class Rot47Cipher(Rot):
 
     @staticmethod
     def encrypt(text: str) -> str:
