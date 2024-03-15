@@ -4,9 +4,9 @@ from PodstawySzkolenie.Szkolenie import Szkolenie
 
 class Zadanie1PS10(Szkolenie):
     """Zad 1.
-        Stwórz klasę Shape i jej podklasę Square. Square ma posiadać konstruktor, który przyjmie length jako argument.
-        Obie klasy mają posiadać metodę obliczającą pole figury. Domyślnie Shape ma zwracać wartość 0.
-        """
+    Stwórz klasę Shape i jej podklasę Square. Square ma posiadać konstruktor, który przyjmie length jako argument.
+    Obie klasy mają posiadać metodę obliczającą pole figury. Domyślnie Shape ma zwracać wartość 0.
+    """
 
     def __init__(self, szkolenie, zadanie):
         super().__init__(szkolenie, zadanie)
@@ -32,35 +32,35 @@ class Square(Shape):
         self.length = lenght
 
     def calculate_area(self):
-        return self.length ** 2
+        return self.length**2
 
 
 class Zadanie2PS10(Szkolenie):
     """Zad 2.
-        Zaprojektuj z użyciem koncepcji dziedziczenia hierarchię klas opisujących pojazdy komunikacji
-        miejskiej. Wyraź w tej hierarchii następujące fakty:
+    Zaprojektuj z użyciem koncepcji dziedziczenia hierarchię klas opisujących pojazdy komunikacji
+    miejskiej. Wyraź w tej hierarchii następujące fakty:
 
-        1. wszystkie pojazdy komunikacji miejskiej (k. m.) są pojazdami,
-        2. komunikacja miejska używa tramwajów i autobusów,
-        3. pojazdy są garażowane w zajezdniach, odpowiednio tramwajowych i autobusowych,
-        4. każdy pojazd zna swoją szybkość maksymalną,
-        5. każdy pojazd k. m. zna swój numer,
-        6. każdy pojazd k. m. zna swoją zajezdnię,
-        7. każdy tramwaj jest zestawem 1 do 3 wagonów (i wie, z ilu wagonów się składa),
-        8. każdy autobus wie, ile zużył paliwa w bieżącym miesiącu,
-        9. każda zajezdnia wie, jakie pojazdy do niej należą,
-        10. każda zajezdnia ma nazwę.
+    1. wszystkie pojazdy komunikacji miejskiej (k. m.) są pojazdami,
+    2. komunikacja miejska używa tramwajów i autobusów,
+    3. pojazdy są garażowane w zajezdniach, odpowiednio tramwajowych i autobusowych,
+    4. każdy pojazd zna swoją szybkość maksymalną,
+    5. każdy pojazd k. m. zna swój numer,
+    6. każdy pojazd k. m. zna swoją zajezdnię,
+    7. każdy tramwaj jest zestawem 1 do 3 wagonów (i wie, z ilu wagonów się składa),
+    8. każdy autobus wie, ile zużył paliwa w bieżącym miesiącu,
+    9. każda zajezdnia wie, jakie pojazdy do niej należą,
+    10. każda zajezdnia ma nazwę.
 
-        Każdy pojazd powinien mieć możliwość podawania swojego opisu w postaci napisu.
-        Opis ma zawierać wszystkie informacje, które zna dany pojazd (np. numer, czy szybkość maksymalną).
-        Opis zajezdni to nazwa zajezdni, jej typ i opisy poszczególnych pojazdów.
-        Zajezdnia autobusowa podaje dodatkowo sumaryczne zużycie paliwa w bieżącym miesiącu,
-        a tramwajowa ogólną liczbę wagonów.
-        Do prezentowania informacji o obiekcie, wykorzystaj metodę specjalną __str__().
+    Każdy pojazd powinien mieć możliwość podawania swojego opisu w postaci napisu.
+    Opis ma zawierać wszystkie informacje, które zna dany pojazd (np. numer, czy szybkość maksymalną).
+    Opis zajezdni to nazwa zajezdni, jej typ i opisy poszczególnych pojazdów.
+    Zajezdnia autobusowa podaje dodatkowo sumaryczne zużycie paliwa w bieżącym miesiącu,
+    a tramwajowa ogólną liczbę wagonów.
+    Do prezentowania informacji o obiekcie, wykorzystaj metodę specjalną __str__().
 
-        Napisz program, który utworzy kilka obiektów reprezentujących wszystkie pojazdy i dwie zajezdnie
-        (autobusową i tramwajową), przydzieli pojazdy do zajezdni, a następnie wypisze opis obu zajezdni.
-        """
+    Napisz program, który utworzy kilka obiektów reprezentujących wszystkie pojazdy i dwie zajezdnie
+    (autobusową i tramwajową), przydzieli pojazdy do zajezdni, a następnie wypisze opis obu zajezdni.
+    """
 
     def __init__(self, szkolenie, zadanie):
         super().__init__(szkolenie, zadanie)
@@ -108,16 +108,22 @@ class ZajezdniaTramwajowa(Zajezdnia):
         self.pojazdy.append(pojazd)
 
     def sumuj_wagony(self):
-        """Metoda sumująca wagony, wszystkich tramwajów z listy """
-        suma_wagonow = sum(pojazd.ilosc_wagonow for pojazd in self.pojazdy if isinstance(pojazd, Tramwaj))
+        """Metoda sumująca wagony, wszystkich tramwajów z listy"""
+        suma_wagonow = sum(
+            pojazd.ilosc_wagonow
+            for pojazd in self.pojazdy
+            if isinstance(pojazd, Tramwaj)
+        )
         return suma_wagonow
 
     def __str__(self):
         """Metoda zmieniająca instancje klasy zapisane na liście w czytelnego stringa i drukująca dane
-            Celowo nie zmieniałem metody na repr, żeby mieć zapisane dwa rozwiązania """
+        Celowo nie zmieniałem metody na repr, żeby mieć zapisane dwa rozwiązania"""
         opis_pojazdow = [str(pojazd) for pojazd in self.pojazdy]
-        return (f"Nazwa zajezdni: {self.nazwa}, Typ: {type(self).__name__}, "
-                f"Opis pojazdów: {', '.join(opis_pojazdow)}, \nSumaryczne zużycie paliwa: {self.sumuj_wagony()}")
+        return (
+            f"Nazwa zajezdni: {self.nazwa}, Typ: {type(self).__name__}, "
+            f"Opis pojazdów: {', '.join(opis_pojazdow)}, \nSumaryczne zużycie paliwa: {self.sumuj_wagony()}"
+        )
 
 
 class ZajezdniaAutobusowa(Zajezdnia):
@@ -132,13 +138,19 @@ class ZajezdniaAutobusowa(Zajezdnia):
 
     def sumuj_paliwo(self):
         """Metoda sumująca ilość paliwa wszystkich autobusów z listy"""
-        suma_paliwa = sum(pojazd.zuzycie_paliwa for pojazd in self.pojazdy if isinstance(pojazd, Autobus))
+        suma_paliwa = sum(
+            pojazd.zuzycie_paliwa
+            for pojazd in self.pojazdy
+            if isinstance(pojazd, Autobus)
+        )
         return suma_paliwa
 
     def __repr__(self):
         """Meotda drukująca dane"""
-        return f"Nazwa zajezdni: {self.nazwa}, Typ: {type(self).__name__}, " \
-               f"Opis pojazdów: {self.pojazdy}, \nSumaryczne zużycie paliwa: {self.sumuj_paliwo()}"
+        return (
+            f"Nazwa zajezdni: {self.nazwa}, Typ: {type(self).__name__}, "
+            f"Opis pojazdów: {self.pojazdy}, \nSumaryczne zużycie paliwa: {self.sumuj_paliwo()}"
+        )
 
 
 class KompnikacjaMiejska(Pojazdy):
@@ -156,8 +168,10 @@ class Autobus(KompnikacjaMiejska):
 
     def __repr__(self):
         """Metoda drukująca dane o pojeździe"""
-        return (f"\n Pojazd: {type(self).__name__}, Szybkość maksymalna: {self.szybkosc_maksymalna}, "
-                f"Numer: {self.numer}, Zużycie paliwa: {self.zuzycie_paliwa}")
+        return (
+            f"\n Pojazd: {type(self).__name__}, Szybkość maksymalna: {self.szybkosc_maksymalna}, "
+            f"Numer: {self.numer}, Zużycie paliwa: {self.zuzycie_paliwa}"
+        )
 
 
 class Tramwaj(KompnikacjaMiejska):
@@ -168,42 +182,44 @@ class Tramwaj(KompnikacjaMiejska):
 
     def __str__(self):
         """Metoda drukująca dane o pojeździe"""
-        return (f"\n Pojazd: {type(self).__name__}, Szybkość maksymalna: {self.szybkosc_maksymalna}, "
-                f"Numer: {self.numer}, Ilość wagonów: {self.ilosc_wagonow}")
+        return (
+            f"\n Pojazd: {type(self).__name__}, Szybkość maksymalna: {self.szybkosc_maksymalna}, "
+            f"Numer: {self.numer}, Ilość wagonów: {self.ilosc_wagonow}"
+        )
 
 
 class Zadanie4PS10(Szkolenie):
     """Zad 4.
-        Napisz program, który będzie wyświetlał Menu z następującymi opcjami:
-        1.	Dodaj notatkę
-        2.	Dodaj wizytówkę (Card)
-        3.	Wyświetl wszystkie notatki
-        4.	Wyświetl wszystkie wizytówki
-        5.	Wyjdź
+    Napisz program, który będzie wyświetlał Menu z następującymi opcjami:
+    1.	Dodaj notatkę
+    2.	Dodaj wizytówkę (Card)
+    3.	Wyświetl wszystkie notatki
+    4.	Wyświetl wszystkie wizytówki
+    5.	Wyjdź
 
 
-        Program ma być podzielony na następujące klasy:
-        Manager (który zawierać będzie komponent: Menu, NotesSubManager, CardsSubManager).
+    Program ma być podzielony na następujące klasy:
+    Manager (który zawierać będzie komponent: Menu, NotesSubManager, CardsSubManager).
 
-        Metody w Manager:
-        1.	start - metoda wywoływana jako pierwsza z poziomu main
-        2.	show_menu (wtedy metoda odwołuje się do obiektu Menu
-            i wywołuje z niej odpowiednią metodą wyświetlającą Menu)
-        3.	execute (metoda pobierająca od użytkownika wybór
-            i wywołująca odpowiednią metodę z NotesSubManager/CardSubManager)
-        4.	show_notes/show_cards (wywołujące metodę show z odpowiedniego SubManagera)
+    Metody w Manager:
+    1.	start - metoda wywoływana jako pierwsza z poziomu main
+    2.	show_menu (wtedy metoda odwołuje się do obiektu Menu
+        i wywołuje z niej odpowiednią metodą wyświetlającą Menu)
+    3.	execute (metoda pobierająca od użytkownika wybór
+        i wywołująca odpowiednią metodę z NotesSubManager/CardSubManager)
+    4.	show_notes/show_cards (wywołujące metodę show z odpowiedniego SubManagera)
 
-        Metody w Menu:
-        1.	show (wyświetlanie menu)
-        2.	get_choice (pobieranie wyboru z menu od użytkownika)
+    Metody w Menu:
+    1.	show (wyświetlanie menu)
+    2.	get_choice (pobieranie wyboru z menu od użytkownika)
 
-        Pola w SubManagerach:
-        1.	lista na obiekty reprezentujące dodane Notatki/Wizytówki
+    Pola w SubManagerach:
+    1.	lista na obiekty reprezentujące dodane Notatki/Wizytówki
 
-        Metody w SubManagerach:
-        1.	add (dodawanie odpowiednio notatki lub karty)
-        2.	show (wyświetlanie wszystkich notatek lub kart z listy)
-        """
+    Metody w SubManagerach:
+    1.	add (dodawanie odpowiednio notatki lub karty)
+    2.	show (wyświetlanie wszystkich notatek lub kart z listy)
+    """
 
     def __init__(self, szkolenie, zadanie):
         super().__init__(szkolenie, zadanie)
@@ -268,7 +284,7 @@ class Menu:
         try:
             choice = int(input("Wybierz opcję: "))
         except ValueError:
-            print('Nie psuj')
+            print("Nie psuj")
             exit()
         return choice
 
@@ -305,36 +321,36 @@ class CardsSubManager:
 
 class Zadanie3PS10(Szkolenie):
     """Part I: Members, Students and Instructors
-        You're starting your own web development school called Codebar!
-        Everybody at Codebar - whether they are attending workshops or teaching them - is a Member:
+    You're starting your own web development school called Codebar!
+    Everybody at Codebar - whether they are attending workshops or teaching them - is a Member:
 
-        Each member has a full_name.
-        Each member should be able to introduce themselves (e.g., "Hi, my name is Kevin!").
-        Each Member is also either a Student or an Instructor:
+    Each member has a full_name.
+    Each member should be able to introduce themselves (e.g., "Hi, my name is Kevin!").
+    Each Member is also either a Student or an Instructor:
 
-        Each Student has a reason for attending Codebar (e.g., "I've always wanted to make websites!").
-        Each Instructor a bio (e.g., "I've been coding in Python for 5 years and want to share the love!").
-        Each Instructor also has a set of skills (e.g., ["Python", "Javascript", "C++"]).
-        An Instructor can gain a new skill using add_skill.
-        Part II: Workshops
-        Codebar also has Workshops. Each Workshop has:
+    Each Student has a reason for attending Codebar (e.g., "I've always wanted to make websites!").
+    Each Instructor a bio (e.g., "I've been coding in Python for 5 years and want to share the love!").
+    Each Instructor also has a set of skills (e.g., ["Python", "Javascript", "C++"]).
+    An Instructor can gain a new skill using add_skill.
+    Part II: Workshops
+    Codebar also has Workshops. Each Workshop has:
 
-        A date.
-        A subject.
-        A group of instructors.
-        A roster of students.
-        An add_participant method that accepts a member as an argument.
-        If the Member is an Instructor, add them to the instructors list.
-        If a Member is a Student, add them to the students list.
-        Create another method print_details that outputs the details of the workshop.
+    A date.
+    A subject.
+    A group of instructors.
+    A roster of students.
+    An add_participant method that accepts a member as an argument.
+    If the Member is an Instructor, add them to the instructors list.
+    If a Member is a Student, add them to the students list.
+    Create another method print_details that outputs the details of the workshop.
 
-        Bonus
-        The print_details method currently does a number of different things,
-        like printing out workshop details, the list of Students and the list of Coaches.
+    Bonus
+    The print_details method currently does a number of different things,
+    like printing out workshop details, the list of Students and the list of Coaches.
 
-        Create separate methods to print the workshop details (date and classroom),
-        a method to print out the students and one to print out the coaches.
-        Call these from print_details instead of having all the code there."""
+    Create separate methods to print the workshop details (date and classroom),
+    a method to print out the students and one to print out the coaches.
+    Call these from print_details instead of having all the code there."""
 
     def __init__(self, szkolenie, zadanie):
         super().__init__(szkolenie, zadanie)
@@ -343,13 +359,17 @@ class Zadanie3PS10(Szkolenie):
     def rozwiazanie(self):
         workshop = Workshop("12/03/2014", "Shutl")
 
-        jane = Student("Jane Doe", "I am trying to learn programming and need some help")
+        jane = Student(
+            "Jane Doe", "I am trying to learn programming and need some help"
+        )
         lena = Student("Lena Smith", "I am really excited about learning to program!")
         vicky = Instructor("Vicky Python", "I want to help people learn coding.")
         vicky.add_skill("HTML")
         vicky.add_skill("JavaScript")
-        nicole = Instructor("Nicole McMillan",
-                            "I have been programming for 5 years in Python and want to spread the love")
+        nicole = Instructor(
+            "Nicole McMillan",
+            "I have been programming for 5 years in Python and want to spread the love",
+        )
         nicole.add_skill("Python")
 
         workshop.add_participant(jane)

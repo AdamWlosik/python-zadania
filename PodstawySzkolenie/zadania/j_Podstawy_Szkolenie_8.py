@@ -7,64 +7,69 @@ from PodstawySzkolenie.Szkolenie import Szkolenie
 
 class Zadanie1PS8(Szkolenie):
     """Zad 1.
-        Określ, czy poniższe ścieżki do plików .txt są względne/bezwzględne:
-        C:\przyklad.txt
-        \katalog\przyklad.txt
-        C:\outer_dir\inner_dir\przyklad.txt
-        \outer_dir\innedr_dir\przyklad.txt
-        """
+    Określ, czy poniższe ścieżki do plików .txt są względne/bezwzględne:
+    C:\\przyklad.txt
+    \\katalog\\przyklad.txt
+    C:\\outer_dir\\inner_dir\\przyklad.txt
+    \\outer_dir\\innedr_dir\\przyklad.txt
+    """
 
     def __init__(self, szkolenie, zadanie):
         super().__init__(szkolenie, zadanie)
 
     @print_doc
     def rozwiazanie(self):
-        print("Scieżka bezwzględna podaje pełną lokalizacje to znaczy, ze zaczyna się od dysku\n"
-              "Ścieżki bezwzględne: \n"
-              "\katalog\przyklad.txt\n"
-              "\outer_dir\innedr_dir\przyklad.txt\n"
-              "Ścieżki względne: \n"
-              "C:\przyklad.txt\n"
-              "C:\outer_dir\inner_dir\przyklad.txt")
+        print(
+            """Scieżka bezwzględna podaje pełną lokalizacje to znaczy, ze zaczyna się od dysku\n
+            Ścieżki bezwzględne: \n
+            \\katalog\\przyklad.txt\n
+            \\outer_dir\\innedr_dir\\przyklad.txt\n
+            Ścieżki względne: \n
+            C:\\przyklad.txt\n
+            C:\\outer_dir\\inner_dir\\przyklad.txt"""
+        )
 
 
 class Zadanie2PS8(Szkolenie):
     """Zad 2.
-        Znajdź błąd w poniższym przykładzie realizującym odczyt danych z pliku: przyklad.txt.
+    Znajdź błąd w poniższym przykładzie realizującym odczyt danych z pliku: przyklad.txt.
 
-        plik = open("przyklad.txt", "r")
-        linie = plik.readlines()
-        print(linie)
-        """
+    plik = open("przyklad.txt", "r")
+    linie = plik.readlines()
+    print(linie)
+    """
 
     def __init__(self, szkolenie, zadanie):
         super().__init__(szkolenie, zadanie)
 
     @print_doc
     def rozwiazanie(self):
-        print("Brakuje zamknięcia pliku używając: \n"
-              "plik.colse()\n"
-              "lub użycia konstrukcji with: \n"
-              "with open('przyklad.txt, 'r') as plik:")
+        print(
+            "Brakuje zamknięcia pliku używając: \n"
+            "plik.colse()\n"
+            "lub użycia konstrukcji with: \n"
+            "with open('przyklad.txt, 'r') as plik:"
+        )
 
 
 class Zadanie3PS8(Szkolenie):
     """Zad 3.
-        Stwórz plik o nazwie przyklad.txt i umieść w nim następujący tekst:
-        Litwo, Ojczyzno moja! ty jesteś jak zdrowie;
-        Ile cię trzeba cenić, ten tylko się dowie,
-        Kto cię stracił. Dziś piękność twą w całej ozdobie
-        Następnie wyświetl z pliku zawartość jego parzystych linii.
-        """
+    Stwórz plik o nazwie przyklad.txt i umieść w nim następujący tekst:
+    Litwo, Ojczyzno moja! ty jesteś jak zdrowie;
+    Ile cię trzeba cenić, ten tylko się dowie,
+    Kto cię stracił. Dziś piękność twą w całej ozdobie
+    Następnie wyświetl z pliku zawartość jego parzystych linii.
+    """
+
     INWOKACJA = """ Litwo, Ojczyzno moja! ty jesteś jak zdrowie;
                     Ile cię trzeba cenić, ten tylko się dowie,
                     Kto cię stracił. Dziś piękność twą w całej ozdobie"""
 
     def __init__(self, szkolenie, zadanie):
         super().__init__(szkolenie, zadanie)
-        self.text = ("""Litwo, Ojczyzno moja! ty jesteś jak zdrowie;
-                        Ile cię trzeba cenić, ten tylko się dowie, 
-                        Kto cię stracił. Dziś piękność twą w całej ozdobie""")
+        self.text = """Litwo, Ojczyzno moja! ty jesteś jak zdrowie;
+                    Ile cię trzeba cenić, ten tylko się dowie,
+                    Kto cię stracił. Dziś piękność twą w całej ozdobie"""
 
     @print_doc
     def rozwiazanie(self):
@@ -87,8 +92,8 @@ class Zadanie3PS8(Szkolenie):
 
 class Zadanie4PS8(Szkolenie):
     """Zad 4.
-        Jaka jest różnica między kodowaniem UTF-8 a ASCII? Jaki byłby rezultat odczytania
-        z pliku polskich liter (np. ą, ę, ć) bez zmiany sposobu formatowania danych?
+    Jaka jest różnica między kodowaniem UTF-8 a ASCII? Jaki byłby rezultat odczytania
+    z pliku polskich liter (np. ą, ę, ć) bez zmiany sposobu formatowania danych?
     """
 
     def __init__(self, szkolenie, zadanie):
@@ -98,19 +103,19 @@ class Zadanie4PS8(Szkolenie):
     def rozwiazanie(self):
         with open("../utf8 - ascii i róznice.txt", encoding="utf8") as plik:
             for linia in plik:
-                print(linia, end='')
+                print(linia, end="")
 
 
 class Zadanie5PS8(Szkolenie):
     """Zad 5.
-        Załóżmy, że plik przyklad.txt składa się tylko i wyłącznie z następującej linii tekstu:
-        Panno święta, co Jasnej bronisz Częstochowy
-        Jaki efekt otrzymamy, po zapisie poniższych poleceń?
-        with open("przyklad.txt", encoding="utf-8") as plik:
-            plik.tell()
-            plik.seek(43)
-            print(plik.read(1)) # ???
-        """
+    Załóżmy, że plik przyklad.txt składa się tylko i wyłącznie z następującej linii tekstu:
+    Panno święta, co Jasnej bronisz Częstochowy
+    Jaki efekt otrzymamy, po zapisie poniższych poleceń?
+    with open("przyklad.txt", encoding="utf-8") as plik:
+        plik.tell()
+        plik.seek(43)
+        print(plik.read(1)) # ???
+    """
 
     def __init__(self, szkolenie, zadanie):
         super().__init__(szkolenie, zadanie)
@@ -128,15 +133,15 @@ class Zadanie5PS8(Szkolenie):
 
 class Zadanie6PS8(Szkolenie):
     """Zad 6.
-        Odczytaj 4. linię z pliku: test.txt o zawartości:
-        line1
-        line2
-        line3
-        line4
-        line5
-        line6
-        line7
-        """
+    Odczytaj 4. linię z pliku: tests.txt o zawartości:
+    line1
+    line2
+    line3
+    line4
+    line5
+    line6
+    line7
+    """
 
     def __init__(self, szkolenie, zadanie):
         super().__init__(szkolenie, zadanie)
@@ -151,13 +156,14 @@ class Zadanie6PS8(Szkolenie):
 
 class Zadanie7PS8(Szkolenie):
     """Zad 7.
-        Masz do dyspozycji plik przyklad.txt o następującej zawartości:
-        Jak czarne ptaki, lecąc lecąc w wyższą nieba nieba stronę,
-        Coraz się zgromadzały. Ledwie słońce zbiegło zbiegło
-        Z południa, już już ich stado pół pół niebios obiegło
+    Masz do dyspozycji plik przyklad.txt o następującej zawartości:
+    Jak czarne ptaki, lecąc lecąc w wyższą nieba nieba stronę,
+    Coraz się zgromadzały. Ledwie słońce zbiegło zbiegło
+    Z południa, już już ich stado pół pół niebios obiegło
 
-        Jak możesz zauważyć, gdzieniegdzie wkradły się powtórzenia słów. Zmodyfikuj i zapisz nowy plik tak, aby się ich pozbyć.
-        """
+    Jak możesz zauważyć, gdzieniegdzie wkradły się powtórzenia słów.
+    Zmodyfikuj i zapisz nowy plik tak, aby się ich pozbyć.
+    """
 
     def __init__(self, szkolenie, zadanie):
         super().__init__(szkolenie, zadanie)
@@ -197,7 +203,7 @@ class Zadanie7PS8(Szkolenie):
             return zawartosc_pliku
 
     def _podziel_str(self):
-        """Metoda dzieląca stringa na całe słowa """
+        """Metoda dzieląca stringa na całe słowa"""
         slowa = self.zawartosc_pliku.split()
         return slowa
 
@@ -212,8 +218,11 @@ class Zadanie7PS8(Szkolenie):
         """Metoda sprawdzająca czy bieżący i następny element listy jest taki sam i usuwająca powtórzenia"""
         nowa_lista = []
         for index, wyraz in enumerate(self.lista):
-            if index + 1 < len(self.lista) and wyraz != self.lista[index + 1] \
-                    or index + 1 == len(self.lista):
+            if (
+                index + 1 < len(self.lista)
+                and wyraz != self.lista[index + 1]
+                or index + 1 == len(self.lista)
+            ):
                 nowa_lista.append(wyraz)
         return nowa_lista
 
@@ -229,10 +238,10 @@ class Zadanie7PS8(Szkolenie):
 
 class Zadanie9PS8(Szkolenie):
     """Zad 9.
-        W załączeniu znajduje się plik data.json. Przechowuje on informacje o różnych pakietach informacji.
-        Twoim zadaniem jest napisanie skryptu, który będzie odczytywał taki pliku i drukował poniższy komunikat
-        zawierający informacje o każdym z pakietów:
-        """
+    W załączeniu znajduje się plik data.json. Przechowuje on informacje o różnych pakietach informacji.
+    Twoim zadaniem jest napisanie skryptu, który będzie odczytywał taki pliku i drukował poniższy komunikat
+    zawierający informacje o każdym z pakietów:
+    """
 
     def __init__(self, szkolenie, zadanie):
         super().__init__(szkolenie, zadanie)
@@ -258,7 +267,7 @@ class Zadanie9PS8(Szkolenie):
 
     def _wydrukuj_dane(self, dane_json):
         """Motoda drukująca dane z pliku json do konsoli
-           Z json pracowałem raz także tutaj chat gpt pomógł"""
+        Z json pracowałem raz także tutaj chat gpt pomógł"""
         for dana in dane_json.get("imdata", []):
             # pobiera wartość dla klucza imdata jęśli nie istnieje
             # dzięki metodzie get używamy wrtości domyślnej, którą jest [}
@@ -278,7 +287,9 @@ class Zadanie8PS8(Szkolenie):
 
     @print_doc
     def rozwiazanie(self):
-        self.odwrocony_slownik = self._odwroc(klucz1='wartość1', klucz2='wartość2', klucz3='wartość3')
+        self.odwrocony_slownik = self._odwroc(
+            klucz1="wartość1", klucz2="wartość2", klucz3="wartość3"
+        )
         self._zapis_json()
         print('Rozwiązanie zapisane do pliku "output.json"')
 
@@ -288,5 +299,5 @@ class Zadanie8PS8(Szkolenie):
         return odwrocony_slownik
 
     def _zapis_json(self):
-        with open("../output.json", "w", encoding='utf8') as plik:
+        with open("../output.json", "w", encoding="utf8") as plik:
             json.dump(self.odwrocony_slownik, plik, ensure_ascii=False)

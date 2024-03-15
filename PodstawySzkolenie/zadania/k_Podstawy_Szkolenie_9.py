@@ -8,9 +8,9 @@ from PodstawySzkolenie.Szkolenie import Szkolenie
 
 class Zadanie1PS9(Szkolenie):
     """Zad. 1
-        Stwórz klasę reprezentującą studenta. Cechy studenta określaj z poziomu konstruktora.
-        Dodaj do klasy metodę wyświetlającą informacje o danym obiekcie.
-        """
+    Stwórz klasę reprezentującą studenta. Cechy studenta określaj z poziomu konstruktora.
+    Dodaj do klasy metodę wyświetlającą informacje o danym obiekcie.
+    """
 
     def __init__(self, szkolenie, zadanie, imie, nazwisko, numer_indeksu, kierunek):
         super().__init__(szkolenie, zadanie)
@@ -29,10 +29,10 @@ class Zadanie1PS9(Szkolenie):
 
 class Zadanie2PS9(Szkolenie):
     """Zad. 2
-        Stwórz klasę reprezentującą pojazd.
-        Dodaj do niej pola określające maksymalną prędkość obiektu oraz jego przebieg.
-        Dodaj do klasy metodę, która zwiększać będzie wartość pola przebiegu o przesłaną wartość typu float.
-        """
+    Stwórz klasę reprezentującą pojazd.
+    Dodaj do niej pola określające maksymalną prędkość obiektu oraz jego przebieg.
+    Dodaj do klasy metodę, która zwiększać będzie wartość pola przebiegu o przesłaną wartość typu float.
+    """
 
     def __init__(self, szkolenie, zadanie, zwieksz):
         super().__init__(szkolenie, zadanie)
@@ -53,9 +53,9 @@ class Zadanie2PS9(Szkolenie):
 
 class Zadanie3PS9(Szkolenie):
     """Zad. 3
-        Stwórz klasę reprezentującą Prostokąt.
-        Dodaj do niej metody obliczające pole i obwód z przechowywanych pól - szerokości i długości.
-        """
+    Stwórz klasę reprezentującą Prostokąt.
+    Dodaj do niej metody obliczające pole i obwód z przechowywanych pól - szerokości i długości.
+    """
 
     def __init__(self, szkolenie, zadanie, szerokosc, dlugosc):
         super().__init__(szkolenie, zadanie)
@@ -66,8 +66,7 @@ class Zadanie3PS9(Szkolenie):
     def rozwiazanie(self):
         obwod = self._oblicz_obwod()
         pole = self._oblicz_pole()
-        print(f"Pole: {pole}\n"
-              f"Obwód: {obwod}")
+        print(f"Pole: {pole}\n" f"Obwód: {obwod}")
 
     def _oblicz_obwod(self):
         """Metoda obliczająca obwód"""
@@ -82,18 +81,18 @@ class Zadanie3PS9(Szkolenie):
 
 class Zadanie4PS9(Szkolenie):
     """Zad. 4
-        Stwórz Pythonową klasę BankAccount, która reprezentować będzie konto bankowe zawierające takie informacje jak:
-         numer_konta, nazwa właściciela konta, stan konta.
-        1.	Stwórz konstruktor odpowiednio uzupełniający pola.
-        2.	Napisz metodę deposit(), która przyjmować będzie kwotę, jaką chcesz wpłacić na konto. Dodaj założenie,
-            że za każde wpłacone 100 zł, pobierana będzie prowizja równa 2 zł.
-        3.	Stwórz metodę withdraw(), która przyjmować będzie jako parametr kwotę, którą chcesz wypłacić z konta.
-            Program ma wyświetlać odpowiedni komunikat, gdy niemożliwe jest wypłacanie wskazanej ilości pieniędzy
-            (przykładowo z powodu braku wystarczającej ilości środków na koncie).
-        4.	Napisz metodę change_ownership(), która przyjmować będzie imię nowego właściciela konta
-            i będzie aplikowała tę zmianę w obiekcie klasy.
-        5.	Stwórz metodę display(), która będzie wyświetlać wszystkie informacje o koncie.
-        """
+    Stwórz Pythonową klasę BankAccount, która reprezentować będzie konto bankowe zawierające takie informacje jak:
+     numer_konta, nazwa właściciela konta, stan konta.
+    1.	Stwórz konstruktor odpowiednio uzupełniający pola.
+    2.	Napisz metodę deposit(), która przyjmować będzie kwotę, jaką chcesz wpłacić na konto. Dodaj założenie,
+        że za każde wpłacone 100 zł, pobierana będzie prowizja równa 2 zł.
+    3.	Stwórz metodę withdraw(), która przyjmować będzie jako parametr kwotę, którą chcesz wypłacić z konta.
+        Program ma wyświetlać odpowiedni komunikat, gdy niemożliwe jest wypłacanie wskazanej ilości pieniędzy
+        (przykładowo z powodu braku wystarczającej ilości środków na koncie).
+    4.	Napisz metodę change_ownership(), która przyjmować będzie imię nowego właściciela konta
+        i będzie aplikowała tę zmianę w obiekcie klasy.
+    5.	Stwórz metodę display(), która będzie wyświetlać wszystkie informacje o koncie.
+    """
 
     def __init__(self, szkolenie, zadanie, numer_konta, wlasciciel, stan_konta):
         super().__init__(szkolenie, zadanie)
@@ -122,7 +121,7 @@ class Zadanie4PS9(Szkolenie):
         for i in range(int(kwota)):
             if i % 100 == 0 and i != 0:
                 prowizja += 2
-        self.stan_konta += (kwota - prowizja)
+        self.stan_konta += kwota - prowizja
 
     def _withdraw(self, kwota):
         """Metoda wypłacająca z konta z uwzględniająca czy wystarczająco środków"""
@@ -144,18 +143,18 @@ class Zadanie4PS9(Szkolenie):
 
 class Zadanie5PS9(Szkolenie):
     """Zad. 5
-        Stwórz program symulujący talię kart (klasa Deck) oraz pojedyncze karty (klasa Card).
-        Karta ma być związana z takimi polami jak: wartość (np. 9) oraz figura (np. Diamond).
-        W klasie Deck znajdować ma się lista reprezentująca stos kart w ramach jednej talii.
-        W Deck znaleźć mają się takie metody jak: shuffle
-        (która może wykorzystywać metodę o tej samej nazwie - shuffle - z biblioteki random) oraz deal
-        (która będzie usuwała i zwracała ostatnią kartę z talii).
+    Stwórz program symulujący talię kart (klasa Deck) oraz pojedyncze karty (klasa Card).
+    Karta ma być związana z takimi polami jak: wartość (np. 9) oraz figura (np. Diamond).
+    W klasie Deck znajdować ma się lista reprezentująca stos kart w ramach jednej talii.
+    W Deck znaleźć mają się takie metody jak: shuffle
+    (która może wykorzystywać metodę o tej samej nazwie - shuffle - z biblioteki random) oraz deal
+    (która będzie usuwała i zwracała ostatnią kartę z talii).
 
-        Podpowiedź:
-        Talia kart ma się składać z 52 różnych obiektów Card o wszystkich możliwych kombinacjach pól,
-        np. (A - Diamond, A - Clubs itd). Aby utworzyć taką kombinację, utwórz dwie niezależne listy -
-        w pierwszej przechowuj możliwe figury, a w drugiej wartości. Następnie przechodząc pętlami,
-        łącz je ze sobą i twórz obiekty."""
+    Podpowiedź:
+    Talia kart ma się składać z 52 różnych obiektów Card o wszystkich możliwych kombinacjach pól,
+    np. (A - Diamond, A - Clubs itd). Aby utworzyć taką kombinację, utwórz dwie niezależne listy -
+    w pierwszej przechowuj możliwe figury, a w drugiej wartości. Następnie przechodząc pętlami,
+    łącz je ze sobą i twórz obiekty."""
 
     def __init__(self, szkolenie, zadanie):
         super().__init__(szkolenie, zadanie)
@@ -219,7 +218,7 @@ class Talia:
         return self.talia
 
     def rozdaj_karte(self):
-        """Metoda wyciągające ostatni element z listy talia """
+        """Metoda wyciągające ostatni element z listy talia"""
         if len(self.talia) > 0:
             rozdana_karta = self.talia[-1]
             self.talia.pop()
@@ -230,27 +229,27 @@ class Talia:
 
 class Zadanie6PS9(Szkolenie):
     """Zad. 6
-        Zrób system, który obsługiwał będzie określone zamówienia. W programie istnieć będą 2 klasy: Manager oraz Order.
-        W Managerze ma się znajdować słownik zamówień, w którym kluczem będzie obiekt zamówienia,
-        a wartością jego ilość na stanie. W klasie Order natomiast mają znajdować się takie pola jak: id, nazwa, cena.
+    Zrób system, który obsługiwał będzie określone zamówienia. W programie istnieć będą 2 klasy: Manager oraz Order.
+    W Managerze ma się znajdować słownik zamówień, w którym kluczem będzie obiekt zamówienia,
+    a wartością jego ilość na stanie. W klasie Order natomiast mają znajdować się takie pola jak: id, nazwa, cena.
 
-        Funkcjonalność programu to:
-        - dodawanie nowego zamówienia do słownika (jeżeli dodawać będziemy obiekt,
-            którego id znajduje się już w słowniku, to nie będziemy dodawali nowej pary do dicta,
-            ale zwiększali ilość danego obiektu w słowniku (zwiększali odpowiednią wartość w słowniku)).
-        - usuwanie o 1 zamówienia ze słownika o określonym id
+    Funkcjonalność programu to:
+    - dodawanie nowego zamówienia do słownika (jeżeli dodawać będziemy obiekt,
+        którego id znajduje się już w słowniku, to nie będziemy dodawali nowej pary do dicta,
+        ale zwiększali ilość danego obiektu w słowniku (zwiększali odpowiednią wartość w słowniku)).
+    - usuwanie o 1 zamówienia ze słownika o określonym id
 
-        Podpowiedź:
-        Pseudokod slownika:
-        self.orders = {obiekt1 : jego_ilosc}
+    Podpowiedź:
+    Pseudokod slownika:
+    self.orders = {obiekt1 : jego_ilosc}
 
-        Sprzedawanie produktu:
+    Sprzedawanie produktu:
 
-        def sell(self, id_to_sell):
-            for order in self.orders:
-                if order.id == id_to_sell:
-                   self.orders[order] -= 1
-        """
+    def sell(self, id_to_sell):
+        for order in self.orders:
+            if order.id == id_to_sell:
+               self.orders[order] -= 1
+    """
 
     def __init__(self, szkolenie, zadanie):
         super().__init__(szkolenie, zadanie)
@@ -321,27 +320,27 @@ class Manager:
 
 class Zadanie8PS9(Szkolenie):
     """Zad. 8
-        Rozważ klasę Case, która będzie inicjalizowana wraz z poniższymi danymi:
+    Rozważ klasę Case, która będzie inicjalizowana wraz z poniższymi danymi:
 
-        first_case = {
-            ‘name’: ‘first_case’,
-            ‘created_task’: ‘2021-10-26T19:48:12+00:00’,
-            ‘end_task’: None
-        }
+    first_case = {
+        ‘name’: ‘first_case’,
+        ‘created_task’: ‘2021-10-26T19:48:12+00:00’,
+        ‘end_task’: None
+    }
 
-        second_case = {
-            ‘name’: ‘second_case’,
-            ‘created_task’: ‘2021-09-26T19:48:12+00:00’,
-            ‘end_task’: ‘2021-10-26T19:48:12+00:00’
-        }
+    second_case = {
+        ‘name’: ‘second_case’,
+        ‘created_task’: ‘2021-09-26T19:48:12+00:00’,
+        ‘end_task’: ‘2021-10-26T19:48:12+00:00’
+    }
 
-        Klasa Case ma zawierać metodę retrieve_seconds,
-        która zwracać będzie różnicę czasową między end_task a created_task podaną w sekundach.
+    Klasa Case ma zawierać metodę retrieve_seconds,
+    która zwracać będzie różnicę czasową między end_task a created_task podaną w sekundach.
 
-        UWAGA
-        1.	Wartość None przypisana do klucza end_task oznacza, że task jeszcze trwa.
-        2.	Zwróć uwagę na to, iż retrieve_seconds możemy wywoływać wielokrotnie
-        """
+    UWAGA
+    1.	Wartość None przypisana do klucza end_task oznacza, że task jeszcze trwa.
+    2.	Zwróć uwagę na to, iż retrieve_seconds możemy wywoływać wielokrotnie
+    """
 
     def __init__(self, szkolenie, zadanie):
         super().__init__(szkolenie, zadanie)
@@ -349,15 +348,15 @@ class Zadanie8PS9(Szkolenie):
     @print_doc
     def rozwiazanie(self):
         first_case_data = {
-            'name': 'first_case',
-            'created_task': '2021-10-26T19:48:12+00:00',
-            'end_task': None
+            "name": "first_case",
+            "created_task": "2021-10-26T19:48:12+00:00",
+            "end_task": None,
         }
 
         second_case_data = {
-            'name': 'second_case',
-            'created_task': '2021-09-26T19:48:12+00:00',
-            'end_task': '2021-10-26T19:48:12+00:00'
+            "name": "second_case",
+            "created_task": "2021-09-26T19:48:12+00:00",
+            "end_task": "2021-10-26T19:48:12+00:00",
         }
 
         first_case = Case(**first_case_data)
@@ -390,15 +389,15 @@ class Case:
 
 class Zadanie7PS9(Szkolenie):
     """Zad. 7
-        Utworzyć klasy Notatka (Note) i Notatnik (Notebook). Klas notatki przechowuje autora,
-        treść i czas utworzenia (autor i treść są podawane jako argumenty konstruktora,
-        a czas jest pobierany i zapisywany przy tworzeniu obiektu).
-        Konstruktor klasy Notatnik nie przyjmuje żadnych argumentów,
-        lecz tworzy pustą listę do której będą dodawane obiekty klasy Notatka.
-        Klasa Notatnika musi posiadać implementacje metod,
-        pozwalających: dodać nową notatkę, dodać istniejącą notatkę, sprawdzić ile jest dodanych notatek,
-        wyświetlić wszystkie dodane notatki. Dodatkowo musi być obsłużona sytuacja kiedy notatnik jest pusty.
-        """
+    Utworzyć klasy Notatka (Note) i Notatnik (Notebook). Klas notatki przechowuje autora,
+    treść i czas utworzenia (autor i treść są podawane jako argumenty konstruktora,
+    a czas jest pobierany i zapisywany przy tworzeniu obiektu).
+    Konstruktor klasy Notatnik nie przyjmuje żadnych argumentów,
+    lecz tworzy pustą listę do której będą dodawane obiekty klasy Notatka.
+    Klasa Notatnika musi posiadać implementacje metod,
+    pozwalających: dodać nową notatkę, dodać istniejącą notatkę, sprawdzić ile jest dodanych notatek,
+    wyświetlić wszystkie dodane notatki. Dodatkowo musi być obsłużona sytuacja kiedy notatnik jest pusty.
+    """
 
     def __init__(self, szkolenie, zadanie):
         super().__init__(szkolenie, zadanie)
@@ -433,7 +432,7 @@ class Notebook:
         self.notatki.append(nowa_notatka)
 
     def dodaj(self, notatka):
-        """Motorola sprawdzająca, czy notatka jest instancją klasy i dodająca ją do listy """
+        """Motorola sprawdzająca, czy notatka jest instancją klasy i dodająca ją do listy"""
         if isinstance(notatka, Note):
             self.notatki.append(notatka)
         else:
@@ -445,38 +444,40 @@ class Notebook:
         else:
             print("Masz takie notatki: ")
             for index, notatka in enumerate(self.notatki, start=1):
-                print(f"{index}. {notatka.autor}: {notatka.tresc} "
-                      f"o godzinie {notatka.czas_utowrzenia.strftime('%H:%M')}")
+                print(
+                    f"{index}. {notatka.autor}: {notatka.tresc} "
+                    f"o godzinie {notatka.czas_utowrzenia.strftime('%H:%M')}"
+                )
 
 
 class Zadanie9PS9(Szkolenie):
     """Zad. 9 [*Challenge]
 
-        1) Stwórz klasę Tank (zbiornik).
-        Zbiornik posiada następujące atrybuty: nazwę oraz pojemność.
-        Należy stworzyć następujące operacje:
-        -	pour_water(volume) - ale w zbiorniku nie może być więcej wody niż pojemność
-        -	pour_out_water(volume) - ale nie można odlać więcej wody niż jest dostępne w zbiorniku
-        -	transfer_water(from, volume) - przelewa wodę ze zbiornika “from” do naszego
-            (pod warunkiem, że przelewanie jest możliwe)
-        Dodatkowo stworzyć metody, które pozwalają:
-        -	Znaleźć zbiornik, w którym jest najwięcej wody
-        -	Znaleźć zbiornik, który jest najbardziej zapełniony
-        -	Znaleźć wszystkie puste zbiorniki
-        2) Każda operacja na zbiorniku jest rejestrowana.
-        Dla każdej operacji pamiętamy: datę i czas jej wykonania, jej nazwę, zbiornik,
-        na którym była ona wykonana oraz ilość wody, jaka była brana pod uwagę oraz to,
-        czy operacja się powiodła czy nie.
+    1) Stwórz klasę Tank (zbiornik).
+    Zbiornik posiada następujące atrybuty: nazwę oraz pojemność.
+    Należy stworzyć następujące operacje:
+    -	pour_water(volume) - ale w zbiorniku nie może być więcej wody niż pojemność
+    -	pour_out_water(volume) - ale nie można odlać więcej wody niż jest dostępne w zbiorniku
+    -	transfer_water(from, volume) - przelewa wodę ze zbiornika “from” do naszego
+        (pod warunkiem, że przelewanie jest możliwe)
+    Dodatkowo stworzyć metody, które pozwalają:
+    -	Znaleźć zbiornik, w którym jest najwięcej wody
+    -	Znaleźć zbiornik, który jest najbardziej zapełniony
+    -	Znaleźć wszystkie puste zbiorniki
+    2) Każda operacja na zbiorniku jest rejestrowana.
+    Dla każdej operacji pamiętamy: datę i czas jej wykonania, jej nazwę, zbiornik,
+    na którym była ona wykonana oraz ilość wody, jaka była brana pod uwagę oraz to,
+    czy operacja się powiodła czy nie.
 
-        Należy zaimplementować taką funkcjonalność oraz dodatkowo stworzyć metody, które:
-        -	Pozwalają znaleźć zbiornik, na którym było najwięcej operacji zakończonych niepowodzeniem
-        -	Pozwalają znaleźć zbiornik, w którym było najwięcej operacji danego typu (typ podajemy jako argument metody)
+    Należy zaimplementować taką funkcjonalność oraz dodatkowo stworzyć metody, które:
+    -	Pozwalają znaleźć zbiornik, na którym było najwięcej operacji zakończonych niepowodzeniem
+    -	Pozwalają znaleźć zbiornik, w którym było najwięcej operacji danego typu (typ podajemy jako argument metody)
 
-        3) To co zaimplementowaliśmy powyżej to demo “Event Sourcingu” - na czym ono polega?
-        Zaimplementuj metodę check_state(tank_name), która pozwoli określić, czy stan wody jest spójny z tym,
-        co mamy na liście historii operacji dla danego zbiornika.
+    3) To co zaimplementowaliśmy powyżej to demo “Event Sourcingu” - na czym ono polega?
+    Zaimplementuj metodę check_state(tank_name), która pozwoli określić, czy stan wody jest spójny z tym,
+    co mamy na liście historii operacji dla danego zbiornika.
 
-        """
+    """
 
     def __init__(self, szkolenie, zadanie):
         super().__init__(szkolenie, zadanie)
@@ -540,11 +541,18 @@ class Zadanie9PS9(Szkolenie):
         operation.transfer_water(tank2, tank1, 20)
         operation.transfer_water(tank1, tank2, 20)
         print("Most water tank:", operation.find_tank_with_most_water())
-        print("Highest water lvl tank:", operation.find_tank_with_the_highest_water_lvl())
+        print(
+            "Highest water lvl tank:", operation.find_tank_with_the_highest_water_lvl()
+        )
         print("Empty tank:", operation.find_empty_tank())
-        print("The most failed operation:", operation.find_tank_with_the_most_failed_operation())
-        print("Tank with teh most operation of specified type",
-              operation.find_tank_with_the_most_operation_of_type("pour water"))
+        print(
+            "The most failed operation:",
+            operation.find_tank_with_the_most_failed_operation(),
+        )
+        print(
+            "Tank with teh most operation of specified type",
+            operation.find_tank_with_the_most_operation_of_type("pour water"),
+        )
         print("Check state: ", operation.check_state(tank1, 50))
         for tank_name, tank_data in operation.tanks_dict.items():
             print(tank_name)
@@ -567,26 +575,32 @@ class Operation:
     def add_tank_to_list(self, tank):
         """Metoda sprawdzająca, czy zbiornik jest na liście, jeśli nie to go dodaje"""
         if tank.name not in self.tanks_dict:
-            self.tanks_dict[tank.name] = {"capacity": tank.capacity, "water lvl": tank.water_lvl,
-                                          "operation history": tank.operations_history}
+            self.tanks_dict[tank.name] = {
+                "capacity": tank.capacity,
+                "water lvl": tank.water_lvl,
+                "operation history": tank.operations_history,
+            }
 
         return self.tanks_dict
 
     def _update_tank_list(self, tank):
         """Metoda dodająca zmiany do listy"""
-        self.tanks_dict[tank.name] = {"capacity": tank.capacity, "water lvl": tank.water_lvl,
-                                      "operation history": tank.operations_history}
+        self.tanks_dict[tank.name] = {
+            "capacity": tank.capacity,
+            "water lvl": tank.water_lvl,
+            "operation history": tank.operations_history,
+        }
         # print(f"Tank list po update: ", self.tanks_dict)
 
     def _operation_history(self, operation_name, tank_name, volume, success):
         """Metoda zwracająca słownik historii operacji"""
-        timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         return {
-            'timestamp': timestamp,
-            'name': operation_name,
-            'tank': tank_name,
-            'volume': volume,
-            'success': success
+            "timestamp": timestamp,
+            "name": operation_name,
+            "tank": tank_name,
+            "volume": volume,
+            "success": success,
         }
 
     def pour_water(self, tank, volume):
@@ -599,10 +613,14 @@ class Operation:
         # print("Capacity: ", capacity)
         if water_lvl + volume <= capacity:
             tank.water_lvl = water_lvl + volume
-            tank.operations_history.append(self._operation_history("pour water", tank.name, volume, True))
+            tank.operations_history.append(
+                self._operation_history("pour water", tank.name, volume, True)
+            )
             self._update_tank_list(tank)
         else:
-            tank.operations_history.append(self._operation_history("pour water", tank.name, volume, False))
+            tank.operations_history.append(
+                self._operation_history("pour water", tank.name, volume, False)
+            )
             self._update_tank_list(tank)
 
     def pour_out_water(self, tank, volume):
@@ -613,10 +631,14 @@ class Operation:
         # print("Water lvl: ", water_lvl)
         if water_lvl - volume >= 0:
             tank.water_lvl = water_lvl - volume
-            tank.operations_history.append(self._operation_history("pour out water", tank.name, volume, True))
+            tank.operations_history.append(
+                self._operation_history("pour out water", tank.name, volume, True)
+            )
             self._update_tank_list(tank)
         else:
-            tank.operations_history.append(self._operation_history("pour out water", tank.name, volume, False))
+            tank.operations_history.append(
+                self._operation_history("pour out water", tank.name, volume, False)
+            )
             self._update_tank_list(tank)
 
     def transfer_water(self, tank1, tank2, volume):
@@ -631,13 +653,21 @@ class Operation:
         if water_lvl1 >= water_lvl1 - volume and capacity2 >= water_lvl2 + volume:
             tank2.water_lvl = water_lvl2 - volume
             tank1.water_lvl = water_lvl1 + volume
-            tank2.operations_history.append(self._operation_history("transfer", tank2.name, -volume, True))
-            tank1.operations_history.append(self._operation_history("transfer", tank1.name, volume, True))
+            tank2.operations_history.append(
+                self._operation_history("transfer", tank2.name, -volume, True)
+            )
+            tank1.operations_history.append(
+                self._operation_history("transfer", tank1.name, volume, True)
+            )
             self._update_tank_list(tank1)
             self._update_tank_list(tank2)
         else:
-            tank2.operations_history.append(self._operation_history("transfer", tank2.name, -volume, False))
-            tank1.operations_history.append(self._operation_history("transfer", tank1.name, volume, False))
+            tank2.operations_history.append(
+                self._operation_history("transfer", tank2.name, -volume, False)
+            )
+            tank1.operations_history.append(
+                self._operation_history("transfer", tank1.name, volume, False)
+            )
             self._update_tank_list(tank1)
             self._update_tank_list(tank2)
 
@@ -647,7 +677,7 @@ class Operation:
         tanks_with_max_water_lvl = []
 
         for tank_name, tank_data in self.tanks_dict.items():
-            water_lvl = tank_data.get('water lvl')
+            water_lvl = tank_data.get("water lvl")
             if max_water_lvl is None or water_lvl > max_water_lvl:
                 # Nowa największa wartość, zresetuj listę i dodaj aktualny zbiornik
                 max_water_lvl = water_lvl
@@ -664,9 +694,14 @@ class Operation:
         tanks_with_highest_water_lvl = []
 
         for tank_name, tank_data in self.tanks_dict.items():
-            if tank_data.get('water lvl') != 0:
-                capacity_filling = tank_data.get('capacity') / tank_data.get('water lvl')
-                if max_capacity_filling is None or capacity_filling < max_capacity_filling:
+            if tank_data.get("water lvl") != 0:
+                capacity_filling = tank_data.get("capacity") / tank_data.get(
+                    "water lvl"
+                )
+                if (
+                    max_capacity_filling is None
+                    or capacity_filling < max_capacity_filling
+                ):
                     max_capacity_filling = capacity_filling
                     tanks_with_highest_water_lvl = [tank_name]
                 elif capacity_filling == max_capacity_filling:
@@ -678,7 +713,7 @@ class Operation:
         empty_tank = []
 
         for tank_name, tank_data in self.tanks_dict.items():
-            water_lvl = tank_data.get('water lvl')
+            water_lvl = tank_data.get("water lvl")
             if water_lvl == 0:
                 empty_tank.append(tank_name)
         return empty_tank
@@ -689,9 +724,9 @@ class Operation:
         frequency_dict = {}
 
         for tank_name, tank_data in self.tanks_dict.items():
-            operation_history = tank_data.get('operation history')
+            operation_history = tank_data.get("operation history")
             for element in operation_history:
-                if not element['success']:
+                if not element["success"]:
                     # print(element)
                     tank_with_failed_operation.append(tank_name)
                     # print(tank_with_failed_operation)
@@ -708,12 +743,14 @@ class Operation:
         most_operation = {}
 
         for tank_name, tank_data in self.tanks_dict.items():
-            operation_history = tank_data.get('operation history')
+            operation_history = tank_data.get("operation history")
             tank_operation[tank_name] = {}
             for element in operation_history:
                 for key, value in element.items():
-                    if key == 'name':
-                        tank_operation[tank_name][value] = tank_operation[tank_name].get(value, 0) + 1
+                    if key == "name":
+                        tank_operation[tank_name][value] = (
+                            tank_operation[tank_name].get(value, 0) + 1
+                        )
                         # print(tank_operation)
 
         for tank_name, tank_data in tank_operation.items():
@@ -724,7 +761,9 @@ class Operation:
                 # print(most_operation)
 
         max_value = max(most_operation.values())
-        keys_with_max_values = [key for key, value in most_operation.items() if value == max_value]
+        keys_with_max_values = [
+            key for key, value in most_operation.items() if value == max_value
+        ]
         # print(keys_with_max_values)
         return keys_with_max_values
 
@@ -733,11 +772,11 @@ class Operation:
         water_level_from_history = 0
 
         for operation in tank.operations_history:
-            if operation['success']:
-                if operation['name'] == 'pour water':
-                    water_level_from_history += operation['volume']
-                elif operation['name'] == 'transfer':
-                    water_level_from_history += operation['volume']
-                elif operation['name'] == 'pour out water':
-                    water_level_from_history -= operation['volume']
+            if operation["success"]:
+                if operation["name"] == "pour water":
+                    water_level_from_history += operation["volume"]
+                elif operation["name"] == "transfer":
+                    water_level_from_history += operation["volume"]
+                elif operation["name"] == "pour out water":
+                    water_level_from_history -= operation["volume"]
         return (tank.water_lvl - start_value) == water_level_from_history

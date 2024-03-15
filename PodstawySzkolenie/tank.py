@@ -38,13 +38,13 @@ class Operation:
     @staticmethod
     def _operation_history(operation_name, tank_name, volume, success):
         """Metoda zwracająca słownik historii operacji"""
-        timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         return {
-            'timestamp': timestamp,
-            'name': operation_name,
-            'tank': tank_name,
-            'volume': volume,
-            'success': success
+            "timestamp": timestamp,
+            "name": operation_name,
+            "tank": tank_name,
+            "volume": volume,
+            "success": success,
         }
 
     def pour_water(self, tank, volume):
@@ -57,10 +57,14 @@ class Operation:
         # print("Capacity: ", capacity)
         if water_lvl + volume <= capacity:
             tank.water_lvl = water_lvl + volume
-            tank.operations_history.append(self._operation_history("pour water", tank.name, volume, True))
+            tank.operations_history.append(
+                self._operation_history("pour water", tank.name, volume, True)
+            )
             self._update_tank_list(tank)
         else:
-            tank.operations_history.append(self._operation_history("pour water", tank.name, volume, False))
+            tank.operations_history.append(
+                self._operation_history("pour water", tank.name, volume, False)
+            )
             self._update_tank_list(tank)
 
     def pour_out_water(self, tank, volume):
@@ -71,10 +75,14 @@ class Operation:
         # print("Water lvl: ", water_lvl)
         if water_lvl - volume >= 0:
             tank.water_lvl = water_lvl - volume
-            tank.operations_history.append(self._operation_history("pour out water", tank.name, volume, True))
+            tank.operations_history.append(
+                self._operation_history("pour out water", tank.name, volume, True)
+            )
             self._update_tank_list(tank)
         else:
-            tank.operations_history.append(self._operation_history("pour out water", tank.name, volume, False))
+            tank.operations_history.append(
+                self._operation_history("pour out water", tank.name, volume, False)
+            )
             self._update_tank_list(tank)
 
     def transfer_water(self, tank1, tank2, volume):
@@ -89,13 +97,21 @@ class Operation:
         if water_lvl1 >= water_lvl1 - volume and capacity2 >= water_lvl2 + volume:
             tank2.water_lvl = water_lvl2 - volume
             tank1.water_lvl = water_lvl1 + volume
-            tank2.operations_history.append(self._operation_history("transfer", tank2.name, -volume, True))
-            tank1.operations_history.append(self._operation_history("transfer", tank1.name, volume, True))
+            tank2.operations_history.append(
+                self._operation_history("transfer", tank2.name, -volume, True)
+            )
+            tank1.operations_history.append(
+                self._operation_history("transfer", tank1.name, volume, True)
+            )
             self._update_tank_list(tank1)
             self._update_tank_list(tank2)
         else:
-            tank2.operations_history.append(self._operation_history("transfer", tank2.name, -volume, False))
-            tank1.operations_history.append(self._operation_history("transfer", tank1.name, volume, False))
+            tank2.operations_history.append(
+                self._operation_history("transfer", tank2.name, -volume, False)
+            )
+            tank1.operations_history.append(
+                self._operation_history("transfer", tank1.name, volume, False)
+            )
             self._update_tank_list(tank1)
             self._update_tank_list(tank2)
 
@@ -124,7 +140,10 @@ class Operation:
         for tank_name, tank_data in self.tanks_dict.items():
             if tank_data.water_lvl != 0:
                 capacity_filling = tank_data.capacity / tank_data.water_lvl
-                if max_capacity_filling is None or capacity_filling < max_capacity_filling:
+                if (
+                    max_capacity_filling is None
+                    or capacity_filling < max_capacity_filling
+                ):
                     max_capacity_filling = capacity_filling
                     tanks_with_highest_water_lvl = [tank_name]
                 elif capacity_filling == max_capacity_filling:
@@ -149,7 +168,7 @@ class Operation:
         for tank_name, tank_data in self.tanks_dict.items():
             operation_history = tank_data.operations_history
             for element in operation_history:
-                if not element['success']:
+                if not element["success"]:
                     # print(element)
                     tank_with_failed_operation.append(tank_name)
                     # print(tank_with_failed_operation)
@@ -170,8 +189,10 @@ class Operation:
             tank_operation[tank_name] = {}
             for element in operation_history:
                 for key, value in element.items():
-                    if key == 'name':
-                        tank_operation[tank_name][value] = tank_operation[tank_name].get(value, 0) + 1
+                    if key == "name":
+                        tank_operation[tank_name][value] = (
+                            tank_operation[tank_name].get(value, 0) + 1
+                        )
                         # print(tank_operation)
 
         for tank_name, tank_data in tank_operation.items():
@@ -182,7 +203,9 @@ class Operation:
                 # print(most_operation)
 
         max_value = max(most_operation.values())
-        keys_with_max_values = [key for key, value in most_operation.items() if value == max_value]
+        keys_with_max_values = [
+            key for key, value in most_operation.items() if value == max_value
+        ]
         # print(keys_with_max_values)
         return keys_with_max_values
 
@@ -190,14 +213,16 @@ class Operation:
         """Metoda sprawdzająca spójność stanu wody z historią operacji"""
         water_level_from_history = 0
         for operation in self.tanks_dict[tank_name].operations_history:
-            if operation['success']:
-                if operation['name'] == 'pour water':
-                    water_level_from_history += operation['volume']
-                elif operation['name'] == 'transfer':
-                    water_level_from_history += operation['volume']
-                elif operation['name'] == 'pour out water':
-                    water_level_from_history -= operation['volume']
-        return (self.tanks_dict[tank_name].water_lvl - start_value) == water_level_from_history
+            if operation["success"]:
+                if operation["name"] == "pour water":
+                    water_level_from_history += operation["volume"]
+                elif operation["name"] == "transfer":
+                    water_level_from_history += operation["volume"]
+                elif operation["name"] == "pour out water":
+                    water_level_from_history -= operation["volume"]
+        return (
+            self.tanks_dict[tank_name].water_lvl - start_value
+        ) == water_level_from_history
 
 
 def main():
@@ -260,9 +285,14 @@ def main():
     print("Most water tank:", operation.find_tank_with_most_water())
     print("Highest water lvl tank:", operation.find_tank_with_the_highest_water_lvl())
     print("Empty tank:", operation.find_empty_tank())
-    print("The most failed operation:", operation.find_tank_with_the_most_failed_operation())
-    print("Tank with teh most operation of specified type",
-          operation.find_tank_with_the_most_operation_of_type("pour water"))
+    print(
+        "The most failed operation:",
+        operation.find_tank_with_the_most_failed_operation(),
+    )
+    print(
+        "Tank with teh most operation of specified type",
+        operation.find_tank_with_the_most_operation_of_type("pour water"),
+    )
     print("Check state tank1: ", operation.check_state("Tank1", 50))
     print("Check state tank2: ", operation.check_state(tank2.name, 40))
     """for tank_name, tank_data in operation.tanks_dict.items():

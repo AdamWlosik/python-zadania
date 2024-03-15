@@ -6,13 +6,15 @@ from PodstawySzkolenie.Szkolenie import Szkolenie
 
 class Zadanie1KZ(Szkolenie):
     """Zad 1.
-        Utwórz listę składającą się z następujących elementów: 'zielony', 'czerwony', 'niebieski', 'czarny', 'fioletowy', 'granatowy', 'niebieski', 'czarny', 'czarny', 'zielony', 'cytrynowy', 'granatowy', 'niebieski', 'indygo', 'zielony', 'czerwony'.
-        Przekształć tę listę w zbiór i zachowaj pod nową nazwą, a następnie:
-        –	policz, ile elementów zawiera oryginalna lista kolorów
-        –	policz, ile różnych kolorów zostało użytych
-        –	wyświetl każdy z elementów zbioru w oddzielnej linii
-        –	dodaj do zbioru nazwę jakiegoś innego koloru (sprawdź efekt przez wyświetlenie zawartości)
-        –	usuń ze zbioru jakiś kolor (ponownie sprawdź efekt)
+    Utwórz listę składającą się z następujących elementów:
+    'zielony', 'czerwony', 'niebieski', 'czarny', 'fioletowy', 'granatowy', 'niebieski', 'czarny', 'czarny',
+    'zielony', 'cytrynowy', 'granatowy', 'niebieski', 'indygo', 'zielony', 'czerwony'.
+    Przekształć tę listę w zbiór i zachowaj pod nową nazwą, a następnie:
+    –	policz, ile elementów zawiera oryginalna lista kolorów
+    –	policz, ile różnych kolorów zostało użytych
+    –	wyświetl każdy z elementów zbioru w oddzielnej linii
+    –	dodaj do zbioru nazwę jakiegoś innego koloru (sprawdź efekt przez wyświetlenie zawartości)
+    –	usuń ze zbioru jakiś kolor (ponownie sprawdź efekt)
     """
 
     def __init__(self, szkolenie, zadanie, kolor):
@@ -21,8 +23,23 @@ class Zadanie1KZ(Szkolenie):
         self.kolor = kolor
 
     def utworz_lista(self):
-        self.lista = ['czerwony', 'niebieski', 'czarny', 'fioletowy', 'granatowy', 'niebieski', 'czarny', 'czarny',
-                      'zielony', 'cytrynowy', 'granatowy', 'niebieski', 'indygo', 'zielony', 'czerwony']
+        self.lista = [
+            "czerwony",
+            "niebieski",
+            "czarny",
+            "fioletowy",
+            "granatowy",
+            "niebieski",
+            "czarny",
+            "czarny",
+            "zielony",
+            "cytrynowy",
+            "granatowy",
+            "niebieski",
+            "indygo",
+            "zielony",
+            "czerwony",
+        ]
         return self.lista
 
     def utworz_zbior(self):
@@ -45,17 +62,17 @@ class Zadanie1KZ(Szkolenie):
 
 class Zadanie2KZ(Szkolenie):
     """Zad 2.
-        Napisz program, który wczyta dowolne zdanie podane przez użytkownika. Usunie z tego zdania znaki interpunkcyjne
-        (, . : ; ! ?), a następnie:
-        korzystając z metod krotek:
-        ●	zliczy wszystkie wyrazy w zdaniu
-        ●	wydrukuje wszystkie wyrazy ze zdania w jednej linii
-        ●	poda jaki jest pierwszy i czwarty wyraz w tym zdaniu
-        korzystając z metod zbiorów:
-        ●	zliczy unikatowe wyrazy w zdaniu
-        ●	wyświetli unikatowe wyrazy ze zdania w jednej linii
-        ●	poda jaki jest pierwszy i czwarty wyraz w tym zdaniu, zakładając, że pierwszy wyraz rozpoczyna zbiór.
-        ●	sprawdzi, czy elementy: pierwszy i czwarty z ostatnich poleceń podpunktów a i b są takie same czy też nie.
+    Napisz program, który wczyta dowolne zdanie podane przez użytkownika. Usunie z tego zdania znaki interpunkcyjne
+    (, . : ; ! ?), a następnie:
+    korzystając z metod krotek:
+    ●	zliczy wszystkie wyrazy w zdaniu
+    ●	wydrukuje wszystkie wyrazy ze zdania w jednej linii
+    ●	poda jaki jest pierwszy i czwarty wyraz w tym zdaniu
+    korzystając z metod zbiorów:
+    ●	zliczy unikatowe wyrazy w zdaniu
+    ●	wyświetli unikatowe wyrazy ze zdania w jednej linii
+    ●	poda jaki jest pierwszy i czwarty wyraz w tym zdaniu, zakładając, że pierwszy wyraz rozpoczyna zbiór.
+    ●	sprawdzi, czy elementy: pierwszy i czwarty z ostatnich poleceń podpunktów a i b są takie same czy też nie.
     """
 
     def __init__(self, szkolenie, zadanie):
@@ -80,7 +97,7 @@ class Zadanie2KZ(Szkolenie):
         return liczba_elementów
 
     def wyswielt_wyrazy(self, krotka):
-        wyswietl = ' '.join(krotka)
+        wyswietl = " ".join(krotka)
         return wyswietl
 
     def utworz_zbior(self, zdanie):
@@ -113,19 +130,19 @@ class Zadanie2KZ(Szkolenie):
 
 class Zadanie3KZ(Szkolenie):
     """Zad 3.
-        Napisz program, który poprosi użytkownika o podanie zestawu ulubionych przez niego kolorów (dowolna liczba).
-        Kolory powinny być wpisane w jednej linii jako tekst i rozdzielone spacją.
-        W programie powinien znajdować się zbiór Twoich ulubionych kolorów. Należy porównać oba zbiory:
-        Twój i użytkownika oraz sprawdzić, czy są jednakowe. Jeśli tak, należy wydrukować odpowiedni komentarz,
-        jeśli nie należy podać te kolory, które:
-        ●          ●	wybrał tylko użytkownik
-        ●	preferuje jedynie autor programu
+    Napisz program, który poprosi użytkownika o podanie zestawu ulubionych przez niego kolorów (dowolna liczba).
+    Kolory powinny być wpisane w jednej linii jako tekst i rozdzielone spacją.
+    W programie powinien znajdować się zbiór Twoich ulubionych kolorów. Należy porównać oba zbiory:
+    Twój i użytkownika oraz sprawdzić, czy są jednakowe. Jeśli tak, należy wydrukować odpowiedni komentarz,
+    jeśli nie należy podać te kolory, które:
+    ●          ●	wybrał tylko użytkownik
+    ●	preferuje jedynie autor programu
     """
 
     def __init__(self, szkolenie, zadanie, moj_zbior: set = None):
         super().__init__(szkolenie, zadanie)
         if not moj_zbior:
-            self.moj_zbior = {'niebieski', 'czerwony', 'zolty', 'zielony'}
+            self.moj_zbior = {"niebieski", "czerwony", "zolty", "zielony"}
         else:
             self.moj_zbior = moj_zbior
         self.zbior_wczytany = None
@@ -138,11 +155,17 @@ class Zadanie3KZ(Szkolenie):
         if self.czy_jednakowe():
             print("Kolory są jednakowe")
         else:
-            print(f"Kolory wybrane przez dwie osoby: {self.wspolne_kolory(zbior_stala)}")
-            print(f"Kolory wybrane tylko przez użytkownika: "
-                  f"{self.kolowy_wybrane_tylko_przez_uzytkownika(zbior_stala, self.moj_zbior)}")
-            print(f"Kolory wybranie tylko przez autora: "
-                  f"{self.kolowy_wybrane_tylko_przez_uzytkownika(self.moj_zbior, zbior_stala)}")
+            print(
+                f"Kolory wybrane przez dwie osoby: {self.wspolne_kolory(zbior_stala)}"
+            )
+            print(
+                f"Kolory wybrane tylko przez użytkownika: "
+                f"{self.kolowy_wybrane_tylko_przez_uzytkownika(zbior_stala, self.moj_zbior)}"
+            )
+            print(
+                f"Kolory wybranie tylko przez autora: "
+                f"{self.kolowy_wybrane_tylko_przez_uzytkownika(self.moj_zbior, zbior_stala)}"
+            )
 
     def _podaj_kolory(self):
         """Dokumentacja metod"""
@@ -171,15 +194,15 @@ class Zadanie3KZ(Szkolenie):
 
 class Zadanie4KZ(Szkolenie):
     """Zad 4.
-        Napisz program, który utworzy dwa zbiory:
-        ●	zbiór A: liczb naturalnych parzystych mniejszych od n (n podaje użytkownik)
-        ●	zbiór B: liczb naturalnych mniejszych od n, które przy dzieleniu przez 3 dają resztę 2 oraz zbiory będące
-         wynikiem następujących operacji matematycznych:
+    Napisz program, który utworzy dwa zbiory:
+    ●	zbiór A: liczb naturalnych parzystych mniejszych od n (n podaje użytkownik)
+    ●	zbiór B: liczb naturalnych mniejszych od n, które przy dzieleniu przez 3 dają resztę 2 oraz zbiory będące
+     wynikiem następujących operacji matematycznych:
 
-        C = A + B, D = A & B, E = A – B, F = B ^ A (różnica symetryczna)
+    C = A + B, D = A & B, E = A – B, F = B ^ A (różnica symetryczna)
 
-        Dla każdego z utworzonych zbiorów program poda informacje o jego nazwie, liczebności
-        i zawartych w nim elementach. Na koniec program sprawdzi, czy zbiór B zawiera się w zbiorze A.
+    Dla każdego z utworzonych zbiorów program poda informacje o jego nazwie, liczebności
+    i zawartych w nim elementach. Na koniec program sprawdzi, czy zbiór B zawiera się w zbiorze A.
     """
 
     def __init__(self, szkolenie, zadanie):
@@ -226,4 +249,4 @@ class Zadanie4KZ(Szkolenie):
         return self.zbiorA ^ self.zbiorB
 
     def czy_zbiorB_zawiera_sie_w_zbiorB(self):
-        return self.zbiorB < - self.zbiorA
+        return self.zbiorB < -self.zbiorA

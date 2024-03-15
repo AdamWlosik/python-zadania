@@ -3,6 +3,7 @@ from abc import ABC
 
 class Szkolenie(ABC):
     """Klasa abstrakcyjna szkolenie"""
+
     def __init__(self, szkolenie, zadanie):
         self.szkolenie = szkolenie
         self.zadanie = zadanie
