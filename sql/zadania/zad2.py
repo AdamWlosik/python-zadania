@@ -39,9 +39,9 @@ class Database:
 
 with Database("notebook.db.sqlite3") as database:
     database.create_table("Notes")
-    database.add_note("Note 1", "Note 1 text", "Notes")
+    # database.add_note("Note 1", "Note 1 text", "Notes")
     database.display_notes("Notes")
-    database.add_note("Note 2", "Note 2 text", "Notes")
-    database.display_notes("Notes")
+    # database.add_note("Note 2", "Note 2 text", "Notes")
+    # database.display_notes("Notes")
     database.remove_note("Note 2", "Notes")
     database.display_notes("Notes")

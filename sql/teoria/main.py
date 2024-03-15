@@ -27,6 +27,10 @@ class Database:
         query = f"DELETE FROM {table_name} WHERE id = {id}"
         self.con.execute(query)
 
+    def delete_based_on_id_secured(self, table_name, id):
+        query = f"DELETE FROM {table_name} WHERE id = ?"
+        self.con.execute(query, (id,))
+
     def update_name_based_on_id(self, table_name, id, name):
         query = f"UPDATE {table_name} SET name = ? WHERE id = {id}"
         self.con.execute(query, (name,))
@@ -46,8 +50,8 @@ with Database("example-database.sqlite3") as db:
     db.create_table()
     db.add_to_customers("John", "Wick", "2000-09-02")
     db.preview_table("Customers")
-    # db.add_to_customers('James', 'Bond', '2002-05-16')
-    db.delete_based_on_id("Customers", "4")
+    db.add_to_customers("James", "Bond", "2002-05-16")
+    db.delete_based_on_id_secured("Customers", "1 OR 1 = 1")
     db.preview_table("Customers")
-    db.update_name_based_on_id("Customers", "3", "Grzegorz")
-    db.preview_table("Customers")
+    # db.update_name_based_on_id("Customers", "3", "Grzegorz")
+    # db.preview_table("Customers")

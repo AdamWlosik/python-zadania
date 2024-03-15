@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataSource name="tanks_test.db">
+<dataSource name="example-database">
   <database-model serializer="dbm" dbms="SQLITE" family-id="SQLITE" format-version="4.51">
-    <root id="1"/>
+    <root id="1">
+      <ServerVersion>3.43.0</ServerVersion>
+    </root>
     <collation id="2" parent="1" name="RTRIM"/>
     <collation id="3" parent="1" name="NOCASE"/>
     <collation id="4" parent="1" name="BINARY"/>
@@ -444,7 +446,7 @@
     <routine id="176" parent="1" name="fts5"/>
     <schema id="177" parent="1" name="main">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2024-03-06.16:49:39</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2024-03-14.19:05:46</LastIntrospectionLocalTimestamp>
     </schema>
     <argument id="178" parent="16">
       <ArgumentDirection>R</ArgumentDirection>
@@ -1466,25 +1468,33 @@
     <argument id="517" parent="176">
       <Position>1</Position>
     </argument>
-    <table id="518" parent="177" name="Events"/>
+    <table id="518" parent="177" name="Customers"/>
     <table id="519" parent="177" name="sqlite_master">
       <System>1</System>
     </table>
-    <column id="520" parent="518" name="datetime">
+    <column id="520" parent="518" name="id">
+      <DasType>INTEGER|0s</DasType>
       <Position>1</Position>
     </column>
-    <column id="521" parent="518" name="operation_type">
+    <column id="521" parent="518" name="name">
+      <DasType>TEXT|0s</DasType>
+      <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="522" parent="518" name="tank_name">
+    <column id="522" parent="518" name="surname">
+      <DasType>TEXT|0s</DasType>
+      <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="523" parent="518" name="volume">
+    <column id="523" parent="518" name="data_joined">
+      <DasType>DATE|0s</DasType>
+      <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="524" parent="518" name="success">
-      <Position>5</Position>
-    </column>
+    <key id="524" parent="518">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
     <column id="525" parent="519" name="type">
       <DasType>TEXT|0s</DasType>
       <Position>1</Position>
