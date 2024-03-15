@@ -1,0 +1,41 @@
+﻿SQL Injection jest atakiem na aplikację internetową, który polega na wstrzykiwaniu złośliwego kodu SQL
+do zapytań SQL przetwarzanych przez aplikację. Atakujący wykorzystuje luki w sposobie, w jaki aplikacja obsługuje
+dane wejściowe, aby wprowadzić i wykonac swoje własne zapytania SQL.
+
+Poniżej przedstawiam przykładową sytuację, w której aplikacja jest podatna na atak SQL Injection:
+
+Załóżmy, że masz stronę internetową, która przyjmuje nazwę użytkownika wprowadzoną przez użytkownika
+w formularzu logowania.
+sql
+Copy code
+username = getRequestString("username")
+password = getRequestString("password")
+
+SQL = "SELECT * FROM Users WHERE Username = '" + username + "' AND Password = '" + password + "'"
+Jeśli atakujący wprowadzi w polu "nazwa użytkownika" następującą wartość: admin' OR '1'='1,
+zapytanie SQL będzie wyglądać tak:
+sql
+Copy code
+SELECT * FROM Users WHERE Username = 'admin' OR '1'='1' AND Password = ''
+W wyniku tego zapytania, warunek OR '1'='1' zawsze będzie spełniony, ponieważ '1'='1' jest zawsze prawdziwe.
+Oznacza to, że zapytanie zwróci wszystkie rekordy z tabeli Users, a użytkownik uzyska dostęp jako admin,
+nie znając prawidłowego hasła.
+
+Zagrożenia wynikające z ataków SQL Injection:
+
+Ujawnienie poufnych informacji: Atakujący może uzyskać dostęp do poufnych danych przechowywanych w bazie danych,
+takich jak hasła użytkowników, dane finansowe itp.
+
+Modyfikacja lub usunięcie danych: Atakujący może modyfikować lub usuwać dane w bazie danych, co może prowadzić
+do poważnych problemów, takich jak utrata danych lub naruszenie integralności danych.
+
+Wykonanie dowolnego kodu SQL: Atakujący może wykonać dowolny kod SQL na serwerze bazy danych, co może prowadzić
+do naruszenia bezpieczeństwa aplikacji i serwera, a nawet do całkowitego przejęcia kontroli nad systemem.
+
+Ataki na systemy operacyjne: W przypadku nieprawidłowej konfiguracji systemu bazy danych, atak SQL Injection może
+nawet umożliwić atakującemu wykonywanie poleceń na poziomie systemu operacyjnego.
+
+Aby zabezpieczyć aplikację przed atakami SQL Injection, należy stosować metody parametryzowanych zapytań
+(używając zmiennych parametrów) zamiast konkatenacji stringów do budowania zapytań SQL.
+Ponadto, konieczne jest stosowanie mechanizmów kontroli dostępu i walidacji danych wejściowych, aby zapobiec atakom.
+Regularne aktualizacje systemów i oprogramowania mogą również pomóc w zapobieganiu atakom SQL Injection.
