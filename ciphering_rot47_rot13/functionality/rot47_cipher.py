@@ -2,18 +2,17 @@ from ciphering_rot47_rot13.functionality.rot_chiper import Rot
 
 
 class Rot47Cipher(Rot):
+    SHIFT: int = 47
 
-    @staticmethod
-    def encrypt(text: str) -> str:
+    def shift(self, char: str, shift_value: int) -> str:
+        ascii_val = ord(char)
+        if 33 <= ascii_val <= 126:
+            return chr((ascii_val - 33 + shift_value) % 94 + 33)
+        return char
+
+    def encrypt(self, text: str) -> str:
         """Metoda szyfrująca text rot47"""
-        encrypted_text = []
-        for char in range(len(text)):
-            j = ord(text[char])
-            if 33 <= j <= 126:
-                encrypted_text.append(chr(33 + ((j + 14) % 94)))
-            else:
-                encrypted_text.append(text[char])
-        return "".join(encrypted_text)
+        return "".join(self.shift(char, self.SHIFT) for char in text)
 
     def decrypt(self, text: str) -> str:
         """Metoda deszyfrująca text rot47"""
