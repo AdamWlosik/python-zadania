@@ -1,0 +1,35 @@
+﻿ACID to skrótowiec oznaczający cztery podstawowe cechy transakcji w bazach danych: Atomicity (Atomowość),
+Consistency (Spójność), Isolation (Izolacja) oraz Durability (Trwałość). Oto krótkie wyjaśnienie każdej z tych cech:
+
+Atomowość (Atomicity): Oznacza to, że transakcja musi być traktowana jako jedna niepodzielna operacja.
+Transakcja jest albo wykonywana w całości, albo w ogóle nie jest wykonywana. Nie może istnieć stan,
+w którym część transakcji jest wykonana, a część nie.
+
+Spójność (Consistency): Zapewnia, że transakcja przekształca bazę danych
+z jednego poprawnego stanu w inny poprawny stan. Po zakończeniu transakcji baza danych
+musi znajdować się w spójnym stanie. Transakcje powinny zachowywać integralność danych
+i spełniać wszystkie ograniczenia.
+
+Izolacja (Isolation): Oznacza to, że wykonując wiele transakcji równolegle, wyniki operacji każdej transakcji
+są takie same, jak gdyby transakcje były wykonywane sekwencyjnie. Innymi słowy, transakcje
+nie powinny wzajemnie zakłócać się nawzajem.
+
+Trwałość (Durability): Zapewnia, że po zakończeniu transakcji jej wyniki pozostaną trwałe i nie zostaną utracone,
+nawet w przypadku awarii systemu. Po zakończeniu transakcji zmiany wprowadzone przez
+nią muszą być zapisane trwale w bazie danych.
+
+Kontekst menedżera (ang. Context Manager) w Pythonie jest używany do zarządzania zasobami, takimi jak pliki,
+połączenia sieciowe, bazy danych itp. W kontekście baz danych, użycie kontekstu menedżera może zapewnić odpowiednią
+obsługę transakcji, co ma związek z cechą ACID:
+
+Atomowość (Atomicity): Kontekst menedżera pozwala na wykonywanie operacji na bazie danych w ramach jednej transakcji.
+Jeśli jakaś operacja wewnątrz bloku with nie powiedzie się (np. wystąpi wyjątek), kontekst menedżera automatycznie
+wycofa transakcję, co zapewnia atomowość operacji.
+
+Trwałość (Durability): Używając kontekstu menedżera, można zapewnić, że po zakończeniu bloku with wszystkie zmiany
+wprowadzone do bazy danych zostaną zapisane trwale (zatwierdzone), nawet w przypadku wystąpienia błędów
+lub awarii systemu.
+
+Kontekst menedżera w Pythonie jest często wykorzystywany wraz z modułem sqlite3 do obsługi transakcji
+w bazie danych SQLite. Dzięki temu można zagwarantować, że operacje na bazie danych są wykonywane
+w sposób atomowy i trwały.
