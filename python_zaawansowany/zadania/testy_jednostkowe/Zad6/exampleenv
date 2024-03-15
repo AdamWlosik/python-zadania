@@ -1,0 +1,5 @@
+DB_URL=test1
+DB_USERNAME=test2
+DB_PASSWORD=test3
+OK_MSG=test4
+NOK_MSG=test5
