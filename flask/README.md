@@ -114,3 +114,12 @@ meotda generująca kod html i przekazująca argumenty
 def index(name):
     return render_template('index.html', welcome_text="Wassup", user_name=name)
 ```
+
+------------------------------------------------------------------------------------
+Nazwa metody:	Zastosowanie:
+- GET	Pobieranie zasobu lub jego wyświetlanie, np. wyświetlenie szablonu strony. 
+- POST	Przesyłanie danych zapisanych w postaci klucz-wartość do serwera. Kluczem jest nazwa danego pola, 
+a wartością wpisana przez Nas wartość do danego pola. Metoda ta jest również wykorzystywana przy wysyłaniu plików na serwer. POST powoduje uruchomienie określonych operacji ustalonych przez serwer po przejściu na dany endpoint (URI).
+- PUT	Służy do przesyłania paczki danych bez powiązania klucz-wartość. Wykorzystywana jest najczęściej przy RESTowych rozwiązaniach (tworzenie i update’owanie danych), gdzie ciałem danych jest formularz w postaci JSONa.
+- DELETE	Usuwa zasoby na serwerze. Dlatego jest domyślnie wyłączona i uniemożliwia ingerencję w zasoby “z zewnątrz”.
+- HEAD	 często jest wysyłany z tzw. “preflight requestami”. Służy on do sprawdzenia nagłówków zwracanego response z serwera, np. gdy potrzebujemy sprawdzić, jakiego rozmiaru będzie zwrócona odpowiedź bez pobierania jej ciała (przydatne, gdy nie chcemy danych o dużym rozmiarze).
