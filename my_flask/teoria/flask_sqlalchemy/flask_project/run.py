@@ -1,6 +1,6 @@
 import os
 
-from app import db
+from app import create_app, db
 
 
 def create_db(app):
@@ -9,4 +9,8 @@ def create_db(app):
             db.create_all()
 
 
-# TODO nie działa problem z baza
+if __name__ == "__main__":
+    app = create_app()
+    create_db(app)
+
+    app.run(host="0.0.0.0", port=5000)

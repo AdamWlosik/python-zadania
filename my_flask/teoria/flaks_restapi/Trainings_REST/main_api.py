@@ -23,7 +23,7 @@ def delete_from_db(training_to_delete: Trainings) -> None:
     db.session.commit()
 
 
-@add_training_blueprint.route("/trainings", methods=["POST"])
+@add_training_blueprint.route("/training", methods=["POST"])
 def add_training() -> str:
     body = request.json
     new_training = Trainings.create_from_json(json_body=body)
