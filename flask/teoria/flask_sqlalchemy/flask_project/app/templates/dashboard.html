@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %} Dashboard {% endblock %}
+{% block content %}
+    <h1>You're logged as: {{nickname}}</h1>
+    <form action = "#" method = "POST">
+        <input type = "email" name = "email" placeholder = "Enter you email" value = "{{ email if email }}" />
+        <input type = "submit" value = "save" />
+    </form>
+{% endblock %}
