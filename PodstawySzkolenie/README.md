@@ -651,4 +651,42 @@
   - __eq__ () - sprawdza, czy obiekty mają tę samą zawartość
   - __str__ () - powoduje zwrócenie wartości typu str, która ma reprezentować obiekt, 
     na rzecz którego ta metoda została zwrócona
+# KLASY ABSTRAKCYJNE
+1. Klasy abstrakcyjne śsą przeznaczone do wydzielania funkcjonalności, które bądą następnie implementowane
+   w klasa, które dziedzicą po klasie abstrakcyjnej 
+2. Stworzenie obiekty klasy abstrakcyjnej wywoła wyjątek 
+   TypeError: Can't instantiate abstract class ExampleAbstractClass with abstract methods do_something
+3. Klasa abstrakcyjna wyposaża obiekty we wspólne zmienne, oraz metody, 
+   a także wymusza określone metody współpracy z otoczeniem poprzez konieczność definicji abstrakcyjnych metod
+
+    ```
+    from abc import ABC
+
+    class Szkolenie(ABC):
+    """Klasa abstrakcyjna szkolenie"""
+
+    def __init__(self, szkolenie, zadanie):
+        self.szkolenie = szkolenie
+        self.zadanie = zadanie
+        self.tytul()
+
+    def tytul(self):
+        print(f"Wybrałeś szkolenie: {self.szkolenie} i zadanie: {self.zadanie}: ")
+
+    # @abc.abstractmethod
+    def rozwiazanie(self):
+        pass
+    ```
+    ```
+    from . import Szkolenie
    
+    class Zadanie(Szkolenie)
+    """Klasa dziedzicząca po klasie abstrakcyjnej"""
+        def __init__(self, szkolenie, zadanie):
+           super().__init__(szkolenie, zadanie)
+
+        def rozwiazanie(self):
+        .
+        .
+        . 
+    ```
