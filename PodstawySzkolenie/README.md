@@ -376,6 +376,54 @@
         if __name__ == "__main__":
             funkcja()
         ```
+# PLIKI
+1. Sposoby manipolwoania plikami, uchwyty do pliku
+   - "r" read służy do odczytu
+   - "a" append dodaj
+   - "w" write służy do nadpisywania zawartości
+   - "x" create tworzy plik
+2. Otwierani i tworzenie uchwytu do danego pliku
+   - `plik = open(plik.txt, "r")` plik otwarty do odczytu
+3. Zamykanie pliku, otwarty plik trzeba zawsze zamknąć
+   - `plik.close()`
+4. Kodowanie znaków domyślnie ASCII
+   - `plik = open(plik.txt, "r", encoding="utf-8")`
+     - `encoding="utf-8"` kodowanie UTF-8 zawiera polskie znaki
+5. Postać binarna uchwyty do pliku
+   - "rb" tryb czytania pliku binarnego
+   - "wb" tryb zapisy pliku binarnego
+6. Postać bitowa obiektu
+   - ```
+     liczby = [1, 2, 10, 15]
+     bin_lista = bytarray(liczby)
+     ```
+        - polecenie `bytarray()` zwraca postać bitową danego obiektu
+7. Czytanie z pliku 
+   - `plik.read(ilosc_znakow)`
+     - czyta określoną ilość znaków zaczynając od miejsca, w którym się obecnie znajdujemy
+   - `plik.readline()`
+     - czyta zaczynając od miejsca, w którym się znajdujemy do znaku nowej lini
+   - `plik.readlines()`
+     - czyta całą zawartość pliku
+8. Zapis do pliku
+   - `plik.write(tekst)`
+     - zapisuje podany w argumencie tekst
+   - `plik.writelines(lista)`
+     - zapisuje tekst z listy ciągiem, aby każdy element listy był nową linią trzeba dodać do nich \n
+9. Context manager nowy lepszy bardziej pythonowy sposób obsługi plików
+   - `with open(sciezka, "uchwyt") as nazwa_zmiennej:`
+     - operacje na plikach zapisujemy wewnątrz, plik automatycznie zamykany po wyjściu z with, przykład
+       - ```
+         with open("przyklad.txt, "w") as plik:
+            plik.write("Przykładowy tekst")
+         ```
+10. Zarządzanie wskaźnikiem 
+    - `plik.seek(2)`
+      - pozwala przemieście wskaźnik na określony w argumencie numer litery w tekście
+    - `plik.tell()`
+      - zwraca numer litery z tekstu, na której znajduje sie wskaźnik 
+    - separatory przejścia do nowej linii "\n" również są liczone jako litery 
+
 # KLASY
 1. Obiekt klasy inaczej instancja to powołana do życia gdzieś w pamięci ram klasa, obiekt jest reprezentantem klasy
     ```
