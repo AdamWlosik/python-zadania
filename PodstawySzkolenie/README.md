@@ -110,7 +110,10 @@
 10. Dodawanie do listy po indexie
     - `lista.insert(index, "Jan")`
 11. Odwracanie listy
-    - `lista.reverse()`
+    - `lista.reverse()` -> None
+    - `print(lista)` dopiero zwróci odwróconą listę
+    - `print(lista[::-1]` 
+    - `print(list(reversed(lista)` # bez list zwraca obiekt 
 12. Powielanie zawartości listy
     - `lista * 2`
 13. Przetwarzanie listy w pętli
