@@ -52,13 +52,13 @@ def dashboard():
         email = session["email"]
 
         if request.method == "POST":
-            found_user = Users.query.filter_by(nickname=nickname).first()
+            found_user = Users.query.filter_by(name=nickname).first()
             email = request.form["email"]
             found_user.email = email
             db.session.commit()
             session.update({"email": email})
 
-        return render_template("dashboard.html", nickname=nickname, email=email)
+        return render_template("dashboard.html", name=nickname, email=email)
     else:
         flash("You are not logged in!", "warning")
     return redirect(url_for("login.login"))
