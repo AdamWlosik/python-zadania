@@ -17,9 +17,20 @@ def home_page():
 @add_blueprint.route("/add_note", methods=["GET", "POST"])
 def add_note_method():
     if request.method == "POST":
-        #note = request.form["note"]
-        note = "a"
-        add_note = Note(note=note)
-        db.session.add(add_note)
-        db.session.commit()
+        if "note" in request.form:
+            note = request.form["note"]
+            add_note = Note(note=note)
+            db.session.add(add_note)
+            db.session.commit()
     return render_template("add_note.html")
+
+
+@delete_blueprint.route("/delete_note", methods=["GET", "POST"])
+def delete_note_method():
+    if request.method == "POST":
+        if "note_id" in request.form:
+            note_id = request.form["note_id"]
+            delete_note = Note.query.get_or_404(note_id)
+            db.session.delete(delete_note)
+            db.session.commit()
+    return render_template("delete_note.html")
