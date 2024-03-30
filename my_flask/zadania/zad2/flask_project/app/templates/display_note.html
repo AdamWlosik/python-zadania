@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Note</title>
+</head>
+<body>
+    <h1>Display Note</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Note</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for note in notes %}
+            <tr>
+                <td>{{ note._id }}</td>
+                <td>{{ note.note }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/">Home Page</a>
+</body>
+</html>
