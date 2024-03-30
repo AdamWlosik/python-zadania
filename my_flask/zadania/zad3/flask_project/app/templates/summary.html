@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary</title>
+</head>
+<body>
+    <h1>Movie Summary</h1>
+    <ul>
+        {% for movie in movies %}
+            <li>{{ movie.title }}: {{ movie.opinion }}</li>
+        {% endfor %}
+    </ul>
+<a href="/">Home Page</a>
+</body>
+</html>
