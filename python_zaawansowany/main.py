@@ -1,12 +1,3 @@
-
-from python_zaawansowany.zadania.generatory_listy_skladane import *
-from python_zaawansowany.zadania.programowanie_funkcyjne import Task1PF, Task2PF, Task3PF, Task4PF, Task5PF, Task6PF, \
-    Task7PF, Task8PF
-
-from python_zaawansowany.zadania.dekoratory import Task1Dek, Task2Dek, Task3Dek, Task4Dek, Task5Dek, Task6Dek
-
-from python_zaawansowany.zadania.regex import Task1Regex, Task2Regex, Task3Regex, Task4Regex, Task5Regex, Task6Regex, \
-    Task7Regex, Task8Regex, Task9Regex, Task10Regex, Task11Regex
 from python_zaawansowany.zadania.dekoratory import (
     Task1Dek,
     Task2Dek,
@@ -16,6 +7,15 @@ from python_zaawansowany.zadania.dekoratory import (
     Task6Dek,
 )
 from python_zaawansowany.zadania.exceptions import FileHandlerEX, Task2EX
+from python_zaawansowany.zadania.generatory_listy_skladane import (
+    Task1GLS,
+    Task2GLS,
+    Task3GLS,
+    Task4GLS,
+    Task5GLS,
+    Task6GLS,
+    Task7GLS,
+)
 from python_zaawansowany.zadania.programowanie_funkcyjne import (
     Task1PF,
     Task2PF,
