@@ -5,7 +5,7 @@ from app import create_app, db
 
 def create_db(app):
     with app.app_context():
-        if not os.path.exists("sqlite:///db.sqlite3"):
+        if not os.path.exists("db.sqlite3"):
             db.create_all()
 
 
