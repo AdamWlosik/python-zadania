@@ -16,3 +16,4 @@ class FileMixin:
     def write_data(self, data):
         with open(self.file_name, "w") as file:
             json.dump(data, file)
+        return True

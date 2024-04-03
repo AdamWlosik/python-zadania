@@ -14,11 +14,13 @@ api_url = "https://api.weatherapi.com/v1/current.json"
 # TODO link nie chce współpracować działa jeszcze /forecast.json 	nie działa /future.json
 api_key = "b99a17a73c824419988144105240204"
 weather_forecast = WeatherForecast(file_name, api_url, api_key)
+# TODO wearther_forecats w każdej metodzie osobny
 
 
 @app_blueprint.route("/", methods=["POST", "GET"])
 def app():
     if request.method == "POST":
+        # TODO zbudować instancje weather_forecast
         global location, date_time
         location = request.form["location"]
         date_time_str = request.form["date_time"]
@@ -42,17 +44,27 @@ def app():
 
             # TODO pomimo, że plik jest wdg aplikacji został utowrzony, to nie widać to w strukturze projektu
             #  oraz nie istnieje w nie key location przez co poniższe przekierowanie zwraca KeyError: 'Paris'
-        return redirect(url_for("display_forecast.display_forecast"))
+        return redirect(
+            url_for(
+                "display_forecast.display_forecast",
+                location1=location,
+                date_time1=date_time,
+            )
+        )
 
     return render_template("app.html")
 
 
-@display_forecast_blueprint.route("/display_forecast")
-def display_forecast():
-    json_file = weather_forecast.display_weather_forecast(location, date_time)
+@display_forecast_blueprint.route(
+    "/display_forecast/<location1>/<date_time1>", methods=["GET", "POST"]
+)
+def display_forecast(location1, date_time1):
+    # TODO pobierać z html location i date_time
+    weather_forecast_display = WeatherForecast(file_name, api_url, api_key)
+    json_file = weather_forecast_display.display_weather_forecast(location1, date_time1)
     formatted_json = json.dumps(json_file, indent=4)
     return render_template(
-        "display_forecast.html", location=location, json_data=formatted_json
+        "display_forecast.html", location=location1, json_data=formatted_json
     )
 
 
