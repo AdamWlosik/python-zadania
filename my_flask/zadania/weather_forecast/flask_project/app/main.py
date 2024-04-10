@@ -8,22 +8,16 @@ from .weather_forecast import WeatherForecast
 
 app_blueprint = Blueprint("app", __name__)
 display_forecast_blueprint = Blueprint("display_forecast", __name__)
-global location, date_time
 file_name = "weather_date.json"
 api_url = "https://api.weatherapi.com/v1/current.json"
 # TODO link nie chce współpracować działa jeszcze /forecast.json 	nie działa /future.json
 api_key = "b99a17a73c824419988144105240204"
-weather_forecast = WeatherForecast(file_name, api_url, api_key)
-
-
-# TODO wearther_forecats w każdej metodzie osobny
 
 
 @app_blueprint.route("/", methods=["POST", "GET"])
 def app():
     if request.method == "POST":
-        # TODO zbudować instancje weather_forecast
-        global location, date_time
+        weather_forecast = WeatherForecast(file_name, api_url, api_key)
         location = request.form["location"]
         date_time_str = request.form["date_time"]
         date_time_obj = datetime.strptime(date_time_str, "%Y-%m-%dT%H:%M")
@@ -59,7 +53,6 @@ def app():
     "/display_forecast/<location1>/<date_time1>", methods=["GET", "POST"]
 )
 def display_forecast(location1, date_time1):
-    # TODO pobierać z html location i date_time
     weather_forecast_display = WeatherForecast(file_name, api_url, api_key)
     json_file = weather_forecast_display.display_weather_forecast(location1, date_time1)
     formatted_json = json.dumps(json_file, indent=4)
