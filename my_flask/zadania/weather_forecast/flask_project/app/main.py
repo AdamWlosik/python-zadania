@@ -14,6 +14,8 @@ api_url = "https://api.weatherapi.com/v1/current.json"
 # TODO link nie chce współpracować działa jeszcze /forecast.json 	nie działa /future.json
 api_key = "b99a17a73c824419988144105240204"
 weather_forecast = WeatherForecast(file_name, api_url, api_key)
+
+
 # TODO wearther_forecats w każdej metodzie osobny
 
 
@@ -42,8 +44,6 @@ def app():
                 print("Plik został utworzony!")
                 break
 
-            # TODO pomimo, że plik jest wdg aplikacji został utowrzony, to nie widać to w strukturze projektu
-            #  oraz nie istnieje w nie key location przez co poniższe przekierowanie zwraca KeyError: 'Paris'
         return redirect(
             url_for(
                 "display_forecast.display_forecast",
